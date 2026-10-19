@@ -1,0 +1,231 @@
+/* =========================================================
+   PROPOSIT
+   Página: app/View/proposit.php  ("Qual o seu propósito?")
+
+   4 cards lado a lado: Fundamental I, Fundamental II, Ensino Médio e Vestibular.
+   Arquivo independente: não importa nenhum outro CSS do
+   projeto (nem lumiBase.css, nem lumiTokens.css).
+========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+:root {
+    --corFundo: #0f010f;
+    --corCard: #110d19;
+    --corDestaque: #7c3aed;
+    --corDestaqueHover: #9b5cff;
+    --corTexto: #ffffff;
+    --corTextoEsmaecido: #505050;
+    --corFoco: #c4b5fd;
+    --raio: 12px;
+    --espaco: 1.1rem;
+    --escalaHover: 1.16;
+    --larguraCard: clamp(123px, 12vw, 160px);
+}
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--corFundo);
+    color: var(--corTexto);
+    font-family: "Open Sans", Arial, sans-serif;
+    line-height: 1.4;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+header {
+    position: relative;
+    padding: 2rem 4rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.voltar {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    display: inline-flex;
+    padding: 0.25rem;
+    color: var(--corTexto);
+    border-radius: 8px;
+    transition: color 0.25s ease;
+}
+
+.voltar svg {
+    width: 28px;
+    height: 28px;
+}
+
+.voltar:hover {
+    color: var(--corDestaqueHover);
+}
+
+.voltar:focus-visible {
+    outline: 2px solid var(--corFoco);
+    outline-offset: 2px;
+}
+
+
+/* =========================
+   CONTEÚDO PRINCIPAL
+========================= */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.principal {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================
+   FILEIRA DE CARDS (com rolagem horizontal)
+========================= */
+.cards {
+    display: flex;
+    gap: var(--espaco);
+    padding: 1.5rem 0.75rem;
+    overflow-x: auto;
+}
+
+.card:first-child {
+    margin-left: auto;
+}
+
+.card:last-child {
+    margin-right: auto;
+}
+
+.cards::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cards::-webkit-scrollbar-track {
+    background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)) center / 100% 2px no-repeat;
+}
+
+.cards::-webkit-scrollbar-thumb {
+    background: var(--corTexto);
+    border-radius: 4px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    .cards {
+        scrollbar-width: thin;
+        scrollbar-color: var(--corTexto) rgba(255, 255, 255, 0.35);
+    }
+}
+
+
+/* =========================
+   CADA CARD
+   No hover o card cresce e fica roxo; o texto dos outros
+   cards esmaece.
+========================= */
+.card {
+    position: relative;
+    display: flex;
+    flex: 0 0 var(--larguraCard);
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 124 / 169;
+    background: var(--corCard);
+    border-radius: var(--raio);
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+    z-index: 1;
+    background: var(--corDestaque);
+    transform: scale(var(--escalaHover));
+}
+
+.card a {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    color: var(--corTexto);
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--raio);
+    transition: color 0.25s ease;
+}
+
+.card a:focus-visible {
+    outline: 2px solid var(--corFoco);
+    outline-offset: 3px;
+}
+
+.card p {
+    font-size: 1rem;
+    font-weight: 700;
+    overflow-wrap: break-word;
+}
+
+.cards:has(.card:hover) .card:not(:hover) a {
+    color: var(--corTextoEsmaecido);
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 540px) {
+    header {
+        padding: 1.5rem 3.5rem 0;
+    }
+
+    .voltar {
+        top: 1rem;
+        left: 1rem;
+    }
+
+    main {
+        padding: 1.5rem 1rem 2rem;
+    }
+}
+
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}

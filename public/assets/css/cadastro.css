@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #2b0a3d, #120018, #030003);
+}
+
+.principal{
+    border: 2px solid rgba(245, 252, 252, 0.6);
+    padding: 50px;
+}
+
+.registrar{
+    display: flex;
+    flex-direction: column;
+    color: azure;
+}
+
+.registrar form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+}
+
+.registrar input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid rgb(245, 252, 252, 0.6);
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    color: azure;
+    padding: 20px 45px 20px 20px;
+}
+
+.registrar  input::placeholder{
+    color: azure;
+}
+
+.registrar h1{
+    text-align: center;
+}
+
+.registrar div{
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem;
+    gap: 0.5rem;
+}
+
+.botao{
+    width: 100%;
+    height: 50px;
+    background-color: #7c3aed;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    color: azure;
+    font-weight: 300;
+    margin: 1rem;
+}
+
+.botao:hover{
+    background-color: #9b5cff;
+    transition: 0.3s;
+   box-shadow:  2px 5px rgba(124, 58, 237, 0.35);
+   transform: translateY(-3px);
+}

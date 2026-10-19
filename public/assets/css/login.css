@@ -1,0 +1,114 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2b0a3d, #120018, #030003);
+}
+
+.container{
+    width: 420px;
+    background-color: transparent;
+    border: 2px solid rgba(245, 252, 252, 0.6);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    color: azure;
+    padding: 40px;
+}
+
+.container h1{
+    font-size: 3rem;
+    text-align: center;
+    font-family: "Noto Serif Oriya", serif;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid rgb(245, 252, 252, 0.6);
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    color: azure;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: azure;
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 25%;
+    font-size: 20px;
+}
+
+.lembrar-esquecer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.lembrar-esquecer label input {
+    accent-color: rgb(240, 255, 255);
+    margin-right: 5px;
+}
+
+.lembrar-esquecer a{
+    color: azure;
+    text-decoration: none;
+}
+
+.lembrar-esquecer a:hover{
+    text-decoration: underline;
+}
+
+.login{
+    width: 100%;
+    height: 50px;
+    background-color: #7c3aed;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    color: azure;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.login:hover{
+    background-color: #9b5cff;
+    transition: 0.3s;
+   box-shadow:  2px 5px rgba(124, 58, 237, 0.35);
+   transform: translateY(-3px);
+   
+}
+
+.registrar {
+    font-size: 14px;
+    text-align: center;
+}
+
+.registrar a{
+    text-decoration: none;
+    color: azure;
+}
+
+.registrar a:hover{
+    text-decoration: underline;
+}

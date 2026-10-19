@@ -1,0 +1,42 @@
+
+/* Body e reset basico */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #300330;
+    color: #eaeaea;
+    line-height: 1.6;
+}
+
+/* Cabeçalho igual para todas as paginas */
+
+.cabecalho {
+    background: linear-gradient(180deg, #531a70, #39034b, #300330);
+    padding: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #d6b3ff;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+/* ----------------- */

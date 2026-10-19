@@ -1,0 +1,225 @@
+/* =========================================================
+   HOME
+   Página: app/View/home.php
+   (tela inicial, exibida depois que o perfil é criado)
+
+   Layout: menu lateral com 4 botões (home, atividades,
+   perfil, config.) + área de conteúdo. Só o botão
+   selecionado mostra o texto; os outros mostram apenas
+   o ícone. Cada botão é um "card" arredondado, com o
+   fundo da página aparecendo nas frestas entre eles.
+   Arquivo independente: não importa nenhum outro CSS do
+   projeto (nem lumiTokens.css).
+========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+:root {
+    --corFundo: #1A0026;
+    --corCard: #1A0026;
+    --corMenu: #28063D;
+    --corDestaque: #6A1B9A;
+    --corDestaqueHover: #7B2BAD;
+    --corTexto: #ffffff;
+    --corTextoSelecionado: #ffffff;
+    --corSeparador: #4A2A6A;
+    --corFoco: #8B4FB8;
+    --larguraMenu: 10.5rem;
+    --alturaMenuCelular: 4.5rem;
+    --corItemHover: #3D1A5C;
+    --raioCard: 0.5rem;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    background: var(--corFundo);
+    color: var(--corTexto);
+    font-family: "Open Sans", Arial, sans-serif;
+    line-height: 1.4;
+}
+
+
+/* =========================
+   MENU LATERAL
+   Os botões dividem a altura da tela igualmente.
+   O fundo da página aparece nas frestas entre os cards.
+   ========================= */
+.menuLateral {
+    position: sticky;
+    top: 0;
+    flex: none;
+    width: var(--larguraMenu);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    background: var(--corMenu);
+}
+
+.itemMenu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    padding: 1rem 1.2rem;
+    border-radius: 0;
+    background: transparent;
+    color: var(--corTexto);
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.itemMenu i {
+    flex: none;
+    font-size: 2rem;
+    line-height: 1;
+    transition: font-size 0.25s ease;
+}
+
+.itemTexto {
+    display: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.itemMenu:hover {
+    background: var(--corItemHover);
+}
+
+.itemMenu:focus-visible {
+    outline: 2px solid var(--corFoco);
+    outline-offset: -4px;
+}
+
+.itemMenu.selecionado {
+    background: var(--corDestaque);
+    color: var(--corTextoSelecionado);
+}
+
+.itemMenu.selecionado i {
+    color: #000000;
+    font-size: 1.6rem;
+}
+
+.itemMenu:last-child {
+    border-bottom: none;
+}
+
+.itemMenu.comSeparador {
+    border-bottom: 1px solid var(--corSeparador);
+}
+
+.itemMenu.selecionado .itemTexto {
+    display: inline;
+}
+
+
+/* =========================
+   ÁREA DE CONTEÚDO
+   ========================= */
+.conteudoHome {
+    flex: 1;
+    min-width: 0;
+    padding: 2rem;
+    background: var(--corFundo);
+    border-left: 2px solid var(--corSeparador);
+}
+
+.conteudoHome h1 {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+}
+
+.conteudoHome p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.conteudoHome a {
+    color: var(--corDestaqueHover);
+}
+
+
+/* =========================
+   RESPONSIVO
+   No celular o menu vira uma barra fixa embaixo da tela.
+   ========================= */
+@media (max-width: 480px) {
+    .menuLateral {
+        position: fixed;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: var(--alturaMenuCelular);
+        flex-direction: row;
+        padding: 0;
+        gap: 0;
+    }
+
+    .itemMenu {
+        border-bottom: none;
+        border-right: 1px solid var(--corSeparador);
+        justify-content: center;
+        padding: 0.8rem;
+    }
+
+    .itemMenu.comSeparador {
+        border-right: 1px solid var(--corSeparador);
+        border-bottom: none;
+    }
+
+    .itemMenu:last-child {
+        border-right: none;
+    }
+
+    .itemMenu i {
+        font-size: 1.5rem;
+    }
+
+    .itemMenu.selecionado {
+        flex: 2.4;
+    }
+
+    .itemMenu.selecionado i {
+        font-size: 1.3rem;
+    }
+
+    .itemTexto {
+        font-size: 1rem;
+    }
+
+    .conteudoHome {
+        padding: 1.5rem 1rem calc(var(--alturaMenuCelular) + 1.5rem);
+        border-left: none;
+    }
+}
+
+
+/* =========================
+   ACESSIBILIDADE
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}

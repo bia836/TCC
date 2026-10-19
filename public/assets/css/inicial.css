@@ -1,0 +1,211 @@
+/* =========================
+   RESET BÁSICO
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0a000a;
+    color: #eaeaea;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+.cabecalho {
+    background: linear-gradient(180deg, #2c0c3b, #1e0127, #0f010f);
+    padding: 1.5rem;
+}
+
+/* NAV */
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #d6b3ff;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* =========================
+   TOPO (hero)
+========================= */
+.topo {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+
+.topo h1 {
+    font-size: 3rem;
+    color: #f1e2ff;
+    margin-bottom: 1rem;
+    font-family: "Noto Serif Oriya", serif;
+}
+
+.topo p {
+    color: #d1d1d1;
+    margin-bottom: 1.5rem;
+}
+
+/* BOTÃO MODERNO */
+.topo button {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all 0.25s ease;
+}
+
+.topo button:hover {
+    transform: translateY(-3px);
+    background: #9b5cff;
+    box-shadow: 0 10px 20px #7c3aed59;
+}
+
+.topo button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   SEÇÃO MAIS
+========================= */
+.mais {
+    padding: 1.8rem 1.8rem;
+    margin-top: 2rem;
+}
+
+.sub h2 {
+    text-align: center;
+    color: #c084fc;
+    margin-bottom: 4rem;
+}
+
+.sobre {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.sobre img {
+    width: 300px;
+    border-radius: 12px;
+}
+
+.sobre p {
+    color: #cfcfcf;
+}
+
+/* =========================
+   CARDS
+========================= */
+.principal {
+    padding: 1.8rem 1.8rem;
+    text-align: center;
+}
+
+#recursos h2 {
+    color: #c084fc;
+    margin-bottom: 2rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card {
+    background: #42075e;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: 0.25s;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #7c3aed;
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+}
+
+.card img {
+    width: 80px;
+    margin-bottom: 1rem;
+}
+
+.rodape{
+    background: linear-gradient(180deg #0f010f, #2c0c3b, #1e0127);
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.rodape img{
+    border-radius: 200px;
+    border: 2px double #f3cef8;
+    max-width: 30px;
+    width: auto;
+    padding: 1rem;
+    max-height: 30px;
+    height: auto;
+}
+
+/* =========================
+   ÚLTIMA SEÇÃO
+========================= */
+section:last-of-type {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+section:last-of-type h2 {
+    color: #c084fc;
+    margin-bottom: 1rem;
+}
+
+section:last-of-type p {
+    max-width: 800px;
+    margin: auto;
+    color: #cfcfcf;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 768px) {
+    .sobre {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+}
