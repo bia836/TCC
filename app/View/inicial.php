@@ -3,114 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumi</title>
+    <meta name="description" content="Lumi: uma plataforma para aprender, revisar conteúdos e se preparar para provas e vestibulares.">
+    <title>Lumi | Aprender pode ser divertido</title>
+
     <link rel="stylesheet" href="/TCC/public/assets/css/inicial.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
     <header class="cabecalho">
-
-        <nav class="">
-            <ul>
-            <li><a href="inicial.php">Início</a></li>
-            <li><a href="sobre.php">Sobre</a></li>    
-            <li><a href="contato.php">Contato</a></li>
-            </ul>
-        </nav>
+        <div class="barra-topo">
+            <a class="logo" href="/TCC/public/" aria-label="Lumi - página inicial">lumi<span>.</span></a>
+            <a class="link-entrar" href="/TCC/public/login">Entrar na conta <span aria-hidden="true">↗</span></a>
+        </div>
 
         <section class="topo">
-                <h1>Lumi</h1>
-                <p>Descubra e entenda o estudo como nunca! Com uma ferramenta desenvolvida para te ajudar, se aventure e perceba o quão divertido estudar pode ser.</p>
-                <a href="/TCC/public/proposit"><button type="button">
-                    Comece já!
-                </button></a>
-                <a href="/TCC/public/login">
-                    <button>Bem-vindo de volta!</button>
-                </a>
-        </section>
+            <div class="topo-conteudo">
+                <span class="etiqueta"><span class="ponto"></span> SEU JEITO DE APRENDER</span>
+                <h1>Descubra que<br> <span>aprender pode</span><br> ser incrível.</h1>
+                <p>Estude no seu ritmo, explore novos conteúdos e transforme seus objetivos em conquistas. O Lumi acompanha você nessa jornada!</p>
 
+                <div class="botoes-topo">
+                    <a class="botao botao-principal" href="/TCC/public/proposit">Comece já <span aria-hidden="true">→</span></a>
+                    <a class="botao botao-secundario" href="/TCC/public/login">Já tenho uma conta</a>
+                </div>
+
+                <div class="topo-nota">
+                    <span class="nota-icone">✦</span>
+                    <span>Do Ensino Fundamental ao Vestibular</span>
+                </div>
+            </div>
+
+            <div class="topo-visual" aria-label="Mascote do Lumi">
+                <div class="brilho brilho-um"></div>
+                <div class="brilho brilho-dois"></div>
+                <div class="orbita orbita-um"></div>
+                <div class="orbita orbita-dois"></div>
+                <div class="mascote-fundo">
+                    <img src="/TCC/public/assets/img/lumi.png" alt="Mascote do Lumi">
+                </div>
+                <span class="flutuante flutuante-livro">✎ <small>Aprenda</small></span>
+                <span class="flutuante flutuante-estrela">✦</span>
+                <span class="flutuante flutuante-ideia">✧ <small>Descubra</small></span>
+            </div>
+        </section>
+        <div class="onda" aria-hidden="true"></div>
     </header>
 
     <main>
-
-        <section class="mais">
-
-            <div class="sub">
-            <h2>Conheça mais sobre nós</h2>
+        <section class="mais secao" id="sobre-lumi">
+            <div class="sobre-imagem">
+                <div class="sobre-moldura">
+                    <img src="/TCC/public/assets/img/lumi.png" alt="Mascote do Lumi">
+                    <span class="selo-sobre">Aprender<br>é uma aventura!</span>
+                </div>
             </div>
-
-            <div class="sobre">
-            <img src="/TCC/public/assets/img/lumi.png" alt=""> 
-            <p>Nosso objetivo é fazer com que estudar não precise ser uma tarefa cansativa. Com a abordagem certa, é possível transformar o aprendizado em uma experiência mais dinâmica, envolvente e motivadora.
-Nossa plataforma reúne conteúdos organizados, exercícios interativos e recursos que ajudam você a entender os temas com mais facilidade. O objetivo é tornar o processo de estudo mais interessante, estimulando a curiosidade e o desenvolvimento do conhecimento de forma prática.
-
-Seja para revisar matérias, se preparar para provas ou aprender algo novo, você encontra ferramentas que acompanham seu ritmo e ajudam a manter a motivação.
-
-Descubra uma nova forma de estudar: mais organizada, mais interativa e muito mais interessante. Comece hoje mesmo!</p>
+            <div class="sobre-texto">
+                <span class="subtitulo">PRAZER, SOMOS O LUMI</span>
+                <h2>Um espaço feito para a sua <span>curiosidade</span> crescer.</h2>
+                <p>Estudar não precisa ser uma tarefa cansativa. O Lumi reúne conteúdos organizados, atividades e recursos que tornam o aprendizado mais leve, dinâmico e interessante.</p>
+                <p>Seja para revisar uma matéria, aprender algo novo ou se preparar para uma prova, aqui você encontra apoio para avançar no seu próprio ritmo.</p>
+                <a class="link-roxo" href="/TCC/public/proposit">Quero conhecer <span aria-hidden="true">→</span></a>
             </div>
-
         </section>
 
-
-        <section class="principal">
-
-            <div id="recursos">
-                <h2>Nossos recursos!</h2>
+        <section class="principal secao">
+            <div class="titulo-secao">
+                <span class="subtitulo">EXPLORE AS POSSIBILIDADES</span>
+                <h2>Seus estudos, <span>do seu jeito.</span></h2>
+                <p>Ferramentas para organizar, praticar e acompanhar sua evolução.</p>
             </div>
 
             <div class="cards">
-
-            <div class="card">
-            <img src="/TCC/public/assets/img/planejamento.png" alt="">
-            <p>Planejamentos</p>
+                <article class="card card-planejamento">
+                    <div class="card-icone"><img src="/TCC/public/assets/img/planejamento.png" alt=""></div>
+                    <span class="card-numero">01</span>
+                    <h3>Planejamentos</h3>
+                    <p>Organize sua rotina e tenha mais clareza sobre o que estudar.</p>
+                </article>
+                <article class="card card-meta">
+                    <div class="card-icone"><img src="/TCC/public/assets/img/meta.png" alt=""></div>
+                    <span class="card-numero">02</span>
+                    <h3>Metas</h3>
+                    <p>Defina objetivos e acompanhe cada conquista pelo caminho.</p>
+                </article>
+                <article class="card card-resumo">
+                    <div class="card-icone"><img src="/TCC/public/assets/img/resumo.png" alt=""></div>
+                    <span class="card-numero">03</span>
+                    <h3>Resumos</h3>
+                    <p>Revise os principais assuntos de um jeito simples e organizado.</p>
+                </article>
+                <article class="card card-quiz">
+                    <div class="card-icone"><img src="/TCC/public/assets/img/quiz.png" alt=""></div>
+                    <span class="card-numero">04</span>
+                    <h3>Quizzes</h3>
+                    <p>Teste seus conhecimentos e aprenda enquanto pratica.</p>
+                </article>
             </div>
-
-            <div class="card">
-                <img src="/TCC/public/assets/img/meta.png" alt="">
-                <p>Metas</p>
-            </div>
-
-            <div class="card">
-                <img src="/TCC/public/assets/img/resumo.png" alt="">
-                <p>Resumos</p>
-            </div>
-
-            <div class="card">
-                <img src="/TCC/public/assets/img/quiz.png" alt="">
-                <p>Quiz</p>
-            </div>
-
-            </div>
-
-        </section>
-        <section>
-            <div>
-                <h2>Por que nos escolher?</h2>
-            </div>
-
-            <div>
-                <p>Acreditamos que aprender pode ser mais simples, acessível e eficiente. Por isso, oferecemos conteúdos de qualidade, organizados de forma clara e pensados para ajudar você a evoluir no seu ritmo. Nossa missão é tornar os estudos mais práticos, com materiais confiáveis, recursos atualizados e uma experiência que motiva o aprendizado todos os dias.</p>
-            </div>
-
         </section>
 
-
+        <section class="diferencial secao">
+            <div class="diferencial-conteudo">
+                <span class="subtitulo">UM PASSO DE CADA VEZ</span>
+                <h2>Seu próximo objetivo começa com <span>uma nova descoberta.</span></h2>
+                <p>Do Ensino Fundamental ao Ensino Médio e à preparação para vestibulares, o Lumi quer deixar sua jornada de estudos mais acessível, organizada e motivadora.</p>
+                <a class="botao botao-principal" href="/TCC/public/proposit">Faça parte do Lumi <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="diferencial-detalhe" aria-hidden="true">
+                <span class="detalhe-estrela estrela-a">✦</span>
+                <span class="detalhe-estrela estrela-b">✧</span>
+                <span class="detalhe-circulo"></span>
+                <span class="detalhe-palavra">VOCÊ<br>CONSEGUE!</span>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        
-    <section class="rodape">
-        <img src="/TCC/public/assets/img/OIP.webp" alt="">
-        <img src="/TCC/public/assets/img/OIP.webp" alt="">
-        <img src="/TCC/public/assets/img/OIP.webp" alt="">
-    </section>
-
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+            <div class="rodape-marca">
+                <a class="logo" href="/TCC/public/">lumi<span>.</span></a>
+                <p>Aprender, descobrir e evoluir. Um conteúdo de cada vez.</p>
+            </div>
+            <div class="rodape-redes">
+                <span>ACOMPANHE O LUMI</span>
+                <div class="icones-redes">
+                    <img src="/TCC/public/assets/img/instagram.png" alt="Instagram">
+                    <img src="/TCC/public/assets/img/facebook.png" alt="Facebook">
+                    <img src="/TCC/public/assets/img/whatsapp.png" alt="WhatsApp">
+                </div>
+            </div>
+        </div>
+        <div class="rodape-final">
+            <span>© 2026 Lumi. Todos os direitos reservados.</span>
+            <span>Feito para tornar o aprendizado mais leve. <b>✦</b></span>
+        </div>
     </footer>
-
-
-
 </body>
 </html>

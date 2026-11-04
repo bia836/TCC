@@ -1,227 +1,237 @@
-/* =========================================================
-   PROPOSIT
-   Página: app/View/proposit.php  ("Qual o seu propósito?")
-
-   4 cards lado a lado: Fundamental I, Fundamental II, Ensino Médio e Vestibular.
-   Arquivo independente: não importa nenhum outro CSS do
-   projeto (nem lumiBase.css, nem lumiTokens.css).
-========================================================= */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+/* LUMI - SELEÇÃO DO PERÍODO ESCOLAR */
 
 :root {
-    --corFundo: #0f010f;
-    --corCard: #110d19;
-    --corDestaque: #7c3aed;
-    --corDestaqueHover: #9b5cff;
-    --corTexto: #ffffff;
-    --corTextoEsmaecido: #505050;
-    --corFoco: #c4b5fd;
-    --raio: 12px;
-    --espaco: 1.1rem;
-    --escalaHover: 1.16;
-    --larguraCard: clamp(123px, 12vw, 160px);
+    --fundo: #0b0712;
+    --fundo-claro: #171020;
+    --roxo-escuro: #321b4d;
+    --roxo: #8246d9;
+    --roxo-claro: #b98af5;
+    --lilas: #f1eafe;
+    --texto: #f7f2ff;
+    --texto-suave: #c9bdd8;
+    --borda: rgba(185, 138, 245, 0.18);
 }
 
-
-*,
-*::before,
-*::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-button,
-input {
-    font: inherit;
-}
-
 body {
     min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(130, 70, 217, 0.16), transparent 48%),
+        var(--fundo);
+    color: var(--texto);
+    font-family: "Nunito", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.cabecalho {
+    width: min(1160px, 90%);
+    margin: auto;
+}
+
+.barra-topo {
+    height: 90px;
     display: flex;
-    flex-direction: column;
-    background: var(--corFundo);
-    color: var(--corTexto);
-    font-family: "Open Sans", Arial, sans-serif;
-    line-height: 1.4;
+    align-items: center;
+    justify-content: space-between;
 }
 
-
-/* =========================
-   CABEÇALHO
-========================= */
-header {
-    position: relative;
-    padding: 2rem 4rem 0;
-    text-align: center;
+.logo {
+    font-size: 2.1rem;
+    font-weight: 900;
+    letter-spacing: -2px;
 }
 
-header h1 {
-    font-size: clamp(1.25rem, 2.6vw, 1.6rem);
-    font-weight: 700;
-    line-height: 1.3;
+.logo span {
+    color: var(--roxo-claro);
 }
 
 .voltar {
-    position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
-    display: inline-flex;
-    padding: 0.25rem;
-    color: var(--corTexto);
-    border-radius: 8px;
-    transition: color 0.25s ease;
-}
-
-.voltar svg {
-    width: 28px;
-    height: 28px;
+    padding: 9px 17px;
+    border: 1px solid var(--borda);
+    border-radius: 30px;
+    color: var(--lilas);
+    font-size: 0.9rem;
+    font-weight: 800;
+    transition: 0.25s;
 }
 
 .voltar:hover {
-    color: var(--corDestaqueHover);
+    color: var(--roxo-claro);
+    border-color: var(--roxo-claro);
+    background: rgba(130, 70, 217, 0.12);
 }
 
-.voltar:focus-visible {
-    outline: 2px solid var(--corFoco);
-    outline-offset: 2px;
-}
-
-
-/* =========================
-   CONTEÚDO PRINCIPAL
-========================= */
 main {
-    flex: 1;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 1.5rem 2rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: min(1160px, 90%);
+    margin: auto;
+    padding: 55px 0 45px;
 }
 
-.principal {
-    position: relative;
-    width: 100%;
-    min-width: 0;
-}
-
-
-/* =========================
-   FILEIRA DE CARDS (com rolagem horizontal)
-========================= */
-.cards {
-    display: flex;
-    gap: var(--espaco);
-    padding: 1.5rem 0.75rem;
-    overflow-x: auto;
-}
-
-.card:first-child {
-    margin-left: auto;
-}
-
-.card:last-child {
-    margin-right: auto;
-}
-
-.cards::-webkit-scrollbar {
-    height: 8px;
-}
-
-.cards::-webkit-scrollbar-track {
-    background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)) center / 100% 2px no-repeat;
-}
-
-.cards::-webkit-scrollbar-thumb {
-    background: var(--corTexto);
-    border-radius: 4px;
-}
-
-@supports not selector(::-webkit-scrollbar) {
-    .cards {
-        scrollbar-width: thin;
-        scrollbar-color: var(--corTexto) rgba(255, 255, 255, 0.35);
-    }
-}
-
-
-/* =========================
-   CADA CARD
-   No hover o card cresce e fica roxo; o texto dos outros
-   cards esmaece.
-========================= */
-.card {
-    position: relative;
-    display: flex;
-    flex: 0 0 var(--larguraCard);
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 124 / 169;
-    background: var(--corCard);
-    border-radius: var(--raio);
-    transition: background-color 0.25s ease, transform 0.25s ease;
-}
-
-.card:hover {
-    z-index: 1;
-    background: var(--corDestaque);
-    transform: scale(var(--escalaHover));
-}
-
-.card a {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    padding: 0.25rem;
-    color: var(--corTexto);
+.introducao {
+    max-width: 690px;
+    margin: 0 auto 42px;
     text-align: center;
-    text-decoration: none;
-    border-radius: var(--raio);
-    transition: color 0.25s ease;
 }
 
-.card a:focus-visible {
-    outline: 2px solid var(--corFoco);
-    outline-offset: 3px;
+.etiqueta {
+    color: var(--roxo-claro);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.ponto {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin: 0 7px 1px 0;
+    border-radius: 50%;
+    background: var(--roxo-claro);
+}
+
+h1 {
+    margin: 13px 0;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    line-height: 1.15;
+    font-weight: 900;
+}
+
+h1 span {
+    color: var(--roxo-claro);
+}
+
+.introducao p {
+    max-width: 610px;
+    margin: auto;
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    min-height: 205px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 25px 22px;
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(50, 27, 77, 0.58), rgba(23, 16, 32, 0.96));
+    transition: transform 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.card h2 {
+    margin-bottom: 5px;
+    font-size: 1.15rem;
+    line-height: 1.3;
 }
 
 .card p {
-    font-size: 1rem;
-    font-weight: 700;
-    overflow-wrap: break-word;
+    color: var(--texto-suave);
+    font-size: 0.92rem;
 }
 
-.cards:has(.card:hover) .card:not(:hover) a {
-    color: var(--corTextoEsmaecido);
+.card-ativo {
+    border-color: rgba(185, 138, 245, 0.65);
+    background: linear-gradient(145deg, rgba(91, 48, 143, 0.72), rgba(35, 20, 51, 0.98));
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
 }
 
+.card-ativo:hover {
+    transform: translateY(-6px);
+    border-color: var(--roxo-claro);
+    background: linear-gradient(145deg, rgba(130, 70, 217, 0.48), rgba(35, 20, 51, 0.98));
+}
 
-/* =========================
-   RESPONSIVO
-========================= */
-@media (max-width: 540px) {
-    header {
-        padding: 1.5rem 3.5rem 0;
+.acao {
+    margin-top: 22px;
+    color: var(--roxo-claro);
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+.acao span {
+    margin-left: 5px;
+}
+
+.estado {
+    margin-top: 22px;
+    color: rgba(201, 189, 216, 0.58);
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.card-indisponivel {
+    opacity: 0.72;
+    cursor: default;
+}
+
+.mensagem-final {
+    margin-top: 42px;
+    color: var(--texto-suave);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.mensagem-final span {
+    color: var(--roxo-claro);
+    margin-right: 5px;
+}
+
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .barra-topo {
+        height: 75px;
+    }
+
+    .logo {
+        font-size: 1.8rem;
     }
 
     .voltar {
-        top: 1rem;
-        left: 1rem;
+        padding: 7px 12px;
+        font-size: 0.8rem;
     }
 
     main {
-        padding: 1.5rem 1rem 2rem;
+        padding-top: 35px;
+    }
+
+    .introducao {
+        margin-bottom: 30px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .card {
+        min-height: 175px;
     }
 }
 
-
-/* =========================
-   ACESSIBILIDADE
-========================= */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

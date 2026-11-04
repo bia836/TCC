@@ -12,54 +12,65 @@ class CadastroController
         $this->cadastroModel = new Cadastro($conn);
     }
 
-    public function index(){
-        $id_ano = $_GET['id_ano'] ?? null;
-        require __DIR__ . '/../View/tcadastro.php';
+   public function index(){
+    $id_ano = $_GET['id_ano'] ?? null;
+
+    $erro_cadastro = $_SESSION['erro_cadastro'] ?? '';
+    unset($_SESSION['erro_cadastro']);
+
+    require __DIR__ . '/../View/tcadastro.php';
     }
 
-    public function cadastrar()
-    {
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            http_response_code(405);
-            return;
-        }
+  public function cadastrar()
+{
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        http_response_code(405);
+        return;
+    }
 
-        $id_ano = filter_input(INPUT_POST, 'id_ano', FILTER_VALIDATE_INT);
-        $nome = trim($_POST['nome'] ?? '');
-        $usuario = trim($_POST['usuario'] ?? '');
-        $email = trim($_POST['email'] ?? '');
-        $senha = $_POST['senha'] ?? '';
+    $id_ano = filter_input(INPUT_POST, 'id_ano', FILTER_VALIDATE_INT);
+    $nome = trim($_POST['nome'] ?? '');
+    $usuario = trim($_POST['usuario'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $senha = $_POST['senha'] ?? '';
 
-        if (
-            !$id_ano || $nome === '' || $usuario === '' ||
-            !filter_var($email, FILTER_VALIDATE_EMAIL) ||
-            strlen($senha) < 8
-        ) {
-            http_response_code(400);
-            exit('Confira os dados. A senha deve ter pelo menos 8 caracteres.');
-        }
+    if (!$id_ano || $nome === '' || $usuario === '' ||
+        !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-        if ($this->cadastroModel->buscarPorEmail($email)) {
-            http_response_code(409);
-            exit('Este e-mail já está cadastrado.');
-        }
-
-        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-
-        $id_pessoa = $this->cadastroModel->cadastrar(
-            $id_ano,
-            $nome,
-            $usuario,
-            $email,
-            $senhaHash
-        );
-
-        session_regenerate_id(true);
-        $_SESSION['id_pessoa'] = $id_pessoa;
-        $_SESSION['id_ano'] = $id_ano;
-        header('Location: /TCC/public/home');
+        $_SESSION['erro_cadastro'] = 'Confira se todos os campos foram preenchidos corretamente.';
+        header('Location: /TCC/public/cadastro?id_ano=' . urlencode((string) $id_ano));
         exit;
     }
+
+    if (strlen($senha) < 8) {
+        $_SESSION['erro_cadastro'] = 'A senha precisa ter pelo menos 8 caracteres.';
+        header('Location: /TCC/public/cadastro?id_ano=' . urlencode((string) $id_ano));
+        exit;
+    }
+
+    if ($this->cadastroModel->buscarPorEmail($email)) {
+        $_SESSION['erro_cadastro'] = 'Este e-mail já está cadastrado.';
+        header('Location: /TCC/public/cadastro?id_ano=' . urlencode((string) $id_ano));
+        exit;
+    }
+
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
+    $id_pessoa = $this->cadastroModel->cadastrar(
+        $id_ano,
+        $nome,
+        $usuario,
+        $email,
+        $senhaHash
+    );
+
+    session_regenerate_id(true);
+    $_SESSION['id_pessoa'] = $id_pessoa;
+    $_SESSION['id_ano'] = $id_ano;
+
+    header('Location: /TCC/public/home');
+    exit;
+}
 
     public function editar()
     {

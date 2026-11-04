@@ -1,114 +1,175 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #2b0a3d, #120018, #030003);
+    padding: 25px 15px;
+    font-family: 'Nunito', sans-serif;
+    background: radial-gradient(circle at top, #321B4D, #171020, #0B0712);
+    color: #F1EAFE;
 }
 
-.container{
-    width: 420px;
-    background-color: transparent;
-    border: 2px solid rgba(245, 252, 252, 0.6);
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    color: azure;
-    padding: 40px;
-}
-
-.container h1{
-    font-size: 3rem;
-    text-align: center;
-    font-family: "Noto Serif Oriya", serif;
-}
-
-.input-box{
-    position: relative;
+.container {
     width: 100%;
-    height: 50px;
-    margin: 30px 0px;
+    max-width: 450px;
+    padding: 30px 38px;
+    border: 1px solid rgba(185, 138, 245, 0.2);
+    border-radius: 24px;
+    background: linear-gradient(145deg, #20152D, #171020);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
 }
 
-.input-box input{
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border: 1px solid rgb(245, 252, 252, 0.6);
-    border-radius: 10px;
-    outline: none;
-    font-size: 16px;
-    color: azure;
-    padding: 20px 45px 20px 20px;
-}
-
-.input-box input::placeholder{
-    color: azure;
-}
-
-.input-box i{
-    position: absolute;
-    right: 20px;
-    top: 25%;
-    font-size: 20px;
-}
-
-.lembrar-esquecer{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.lembrar-esquecer label input {
-    accent-color: rgb(240, 255, 255);
-    margin-right: 5px;
-}
-
-.lembrar-esquecer a{
-    color: azure;
+.logo {
+    display: inline-block;
+    color: #B98AF5;
+    font-size: 2rem;
+    font-weight: 900;
     text-decoration: none;
 }
 
-.lembrar-esquecer a:hover{
-    text-decoration: underline;
+.conteudo h1 {
+    margin-top: 18px;
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: 800;
 }
 
-.login{
-    width: 100%;
-    height: 50px;
-    background-color: #7c3aed;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 15px;
-    color: azure;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.login:hover{
-    background-color: #9b5cff;
-    transition: 0.3s;
-   box-shadow:  2px 5px rgba(124, 58, 237, 0.35);
-   transform: translateY(-3px);
-   
-}
-
-.registrar {
+.subtitulo {
+    margin: 8px 0 28px;
+    color: #C8B9D8;
     font-size: 14px;
     text-align: center;
 }
 
-.registrar a{
-    text-decoration: none;
-    color: azure;
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 18px;
 }
 
-.registrar a:hover{
+.campo label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.campo input {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid #49305F;
+    border-radius: 10px;
+    outline: none;
+    background-color: #0B0712;
+    color: #F1EAFE;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.campo input::placeholder {
+    color: #9E91AA;
+}
+
+.campo input:focus {
+    border-color: #B98AF5;
+    box-shadow: 0 0 0 3px rgba(185, 138, 245, 0.12);
+}
+
+.opcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0 22px;
+    font-size: 12px;
+    color: #C8B9D8;
+}
+
+.opcoes label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.opcoes input {
+    accent-color: #8246D9;
+}
+
+.opcoes a {
+    color: #B98AF5;
+    text-decoration: none;
+}
+
+.opcoes a:hover {
     text-decoration: underline;
+}
+
+.botao {
+    width: 100%;
+    min-height: 49px;
+    border: none;
+    border-radius: 12px;
+    background-color: #8246D9;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao span {
+    margin-left: 5px;
+}
+
+.botao:hover {
+    background-color: #9B6AE8;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(130, 70, 217, 0.25);
+}
+
+.registrar {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 13px;
+    color: #C8B9D8;
+}
+
+.registrar a {
+    color: #B98AF5;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.registrar a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 25px 22px;
+    }
+
+    .conteudo h1 {
+        font-size: 1.55rem;
+    }
+
+    .opcoes {
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
 }

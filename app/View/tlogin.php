@@ -1,47 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="/TCC/public/assets/css/login.css">
-    <title>Document</title>
+
+    <title>Lumi | Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/TCC/public/assets/css/login.css">
 </head>
+
 <body>
+
     <main class="container">
-        <form action="/TCC/public/login" method="post">
 
-            <h1>Login</h1>
+        <a href="/TCC/public/" class="logo">lumi.</a>
 
-            <div class="input-box">
-                <input placeholder="E-mail" type="email" name="email" required>
-                <i class="bx bxs-user"></i>
-            </div>
+        <section class="conteudo">
 
-            <div class="input-box">
-                <input placeholder="Senha" type="password" name="senha" required>
-                <i class="bx bxs-lock-alt"></i>
-            </div>
+            <h1>Que bom ter você de volta!</h1>
 
-            <div class="lembrar-esquecer">
-                <label>
-                <input type="checkbox"> 
-                Lembrar minha senha
-                </label>
+            <p class="subtitulo">
+                Entre na sua conta e continue aprendendo.
+            </p>
 
-                <a href="#">Esqueci minha senha</a>
-            </div>
+            <form action="/TCC/public/login" method="POST">
 
-                <button type="submit" class="login">Login</button>
+                <div class="campo">
+                    <label for="email">E-mail</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+                </div>
+
+                <div class="opcoes">
+
+                    <label>
+                        <input type="checkbox" name="lembrar">
+                        Lembrar de mim
+                    </label>
+
+                    <a href="#">Esqueceu a senha?</a>
+
+                </div>
+
+                <button type="submit" class="botao">
+                    Entrar <span>→</span>
+                </button>
+
+            </form>
 
             <div class="registrar">
-                <p>Não tem uma conta? <a href="tcadastro.php">Cadastre-se</a></p>
+                <p>
+                    Ainda não tem uma conta?
+                    <a href="/TCC/public/proposit">Cadastre-se</a>
+                </p>
             </div>
 
-        </form>
+        </section>
 
     </main>
+
 </body>
 </html>

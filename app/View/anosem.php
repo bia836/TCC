@@ -3,40 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-      <link rel="stylesheet" href="/TCC/public/assets/css/anosem.css">
+    <meta name="description" content="Selecione seu ano do Ensino Médio no Lumi.">
+    <title>Lumi | Ensino Médio</title>
 
+    <link rel="stylesheet" href="/TCC/public/assets/css/anosem.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-     <header>
-        <h1>Qual o seu ano escolar?</h1>
-     </header>
-    
+    <header class="cabecalho">
+        <nav class="barra-topo">
+            <a class="logo" href="/TCC/public/" aria-label="Lumi - página inicial">lumi<span>.</span></a>
+            <a class="voltar" href="/TCC/public/proposit">← Voltar</a>
+        </nav>
+    </header>
+
     <main>
-
-        <section class="principal">
-            <div class="cards">
-
-              <div class="card">
-                <a href="/TCC/public/cadastro?id_ano=1">
-                  <p>1º Ano Do Ensino Medio</p>
-                </a>
-              </div>
-
-              <div class="card">
-                <a href="/TCC/public/cadastro?id_ano=2">
-                  <p>2º Ano Do Ensino Medio</p>
-                </a>
-              </div>
-
-              <div class="card">
-                <a href="/TCC/public/cadastro?id_ano=3">
-                  <p>3º Ano Do Ensino Medio</p>
-                </a>
-                </div>
-
+        <section class="conteudo">
+            <div class="introducao">
+                <h1>Em qual ano você <span>está?</span></h1>
             </div>
 
+            <section class="cards" aria-label="Anos do Ensino Médio">
+                <a class="card" href="/TCC/public/cadastro?id_ano=1">
+                    <span class="ano">1º</span>
+                    <h2>Primeiro ano</h2>
+                    <span class="acao">Selecionar <span aria-hidden="true">→</span></span>
+                </a>
+
+                <a class="card" href="/TCC/public/cadastro?id_ano=2">
+                    <span class="ano">2º</span>
+                    <h2>Segundo ano</h2>
+                    <span class="acao">Selecionar <span aria-hidden="true">→</span></span>
+                </a>
+
+                <a class="card" href="/TCC/public/cadastro?id_ano=3">
+                    <span class="ano">3º</span>
+                    <h2>Terceiro ano</h2>
+                    <span class="acao">Selecionar <span aria-hidden="true">→</span></span>
+                </a>
+            </section>
+
+            <p class="mensagem-final"><span>✦</span> Continue no seu ritmo. O Lumi acompanha você!</p>
         </section>
     </main>
 </body>
