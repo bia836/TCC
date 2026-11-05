@@ -1,0 +1,193 @@
+
+/* PÁGINA DE ATIVIDADES */
+
+.conteudoAtividades {
+    padding-top: 45px;
+}
+
+.cabecalhoAtividades {
+    margin-bottom: 38px;
+}
+
+.identificacao {
+    color: #B98AF5;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.cabecalhoAtividades h1 {
+    color: #F1EAFE;
+    font-size: 36px;
+    margin: 8px 0;
+}
+
+.cabecalhoAtividades p {
+    color: #A99BB8;
+    font-size: 16px;
+}
+
+/* CARDS */
+
+.listaAtividades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.cardAtividade {
+    min-height: 280px;
+    padding: 27px;
+    border-radius: 18px;
+    background: #171020;
+    border: 1px solid #321B4D;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cardResumos {
+    cursor: pointer;
+}
+
+.cardResumos:hover {
+    transform: translateY(-5px);
+    border-color: #8246D9;
+    box-shadow: 0 8px 25px rgba(130, 70, 217, 0.15);
+}
+
+.cardFuturo {
+    opacity: 0.75;
+}
+
+/* ÍCONES */
+
+.iconeAtividade {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    background: #321B4D;
+    color: #B98AF5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconeAtividade i {
+    font-size: 30px;
+}
+
+/* INFORMAÇÕES */
+
+.informacoesAtividade h2 {
+    color: #F1EAFE;
+    font-size: 21px;
+    margin: 12px 0 8px;
+}
+
+.informacoesAtividade p {
+    color: #B7A9C8;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 45px;
+}
+
+/* STATUS */
+
+.statusDisponivel,
+.statusBreve {
+    font-size: 11px;
+    font-weight: 900;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.statusDisponivel {
+    color: #C9A6FF;
+    background: #321B4D;
+}
+
+.statusBreve {
+    color: #A99BB8;
+    background: #281F30;
+}
+
+/* LINKS DOS CARDS */
+
+.linkAtividade {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #B98AF5;
+    font-size: 14px;
+    font-weight: 900;
+    margin-top: 15px;
+}
+
+.linkAtividade i {
+    font-size: 19px;
+}
+
+.linkIndisponivel {
+    display: inline-block;
+    color: #82758F;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+/* DICA */
+
+.mensagemAtividades {
+    margin-top: 35px;
+    padding: 20px 24px;
+    background: #171020;
+    border: 1px solid #321B4D;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.mensagemAtividades i {
+    color: #B98AF5;
+    font-size: 27px;
+}
+
+.mensagemAtividades p {
+    color: #B7A9C8;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.mensagemAtividades strong {
+    color: #F1EAFE;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1000px) {
+    .listaAtividades {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .listaAtividades {
+        grid-template-columns: 1fr;
+    }
+
+    .cabecalhoAtividades h1 {
+        font-size: 29px;
+    }
+
+    .cardAtividade {
+        min-height: 240px;
+    }
+
+    .mensagemAtividades {
+        align-items: flex-start;
+    }
+}

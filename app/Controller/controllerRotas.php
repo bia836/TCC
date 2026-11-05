@@ -1,7 +1,16 @@
 <?php
 
+require_once __DIR__ . '/../Model/modelPlanejamento.php';
+
 class PaginaInicialController
 {
+
+   private $planejamentoModel;
+
+    public function __construct($conn)
+     {
+       $this->planejamentoModel = new Planejamento($conn);
+     }
 
     public function index()
     {
@@ -18,12 +27,17 @@ class PaginaInicialController
     require_once __DIR__ . '/../View/anosem.php';
 }
 
-    public function home()
+ public function home()
 {
-     if (empty($_SESSION['id_pessoa'])) {
+    if (empty($_SESSION['id_pessoa'])) {
         header('Location: /TCC/public/login');
         exit;
     }
+
+    $id_pessoa = $_SESSION['id_pessoa'];
+
+    $tarefas = $this->planejamentoModel->listarTarefas($id_pessoa);
+
     require_once __DIR__ . '/../View/home.php';
 }
 

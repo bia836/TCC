@@ -1,0 +1,165 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #0B0712;
+    color: #F1EAFE;
+    min-height: 100vh;
+}
+
+.conteudo-principal {
+    margin-left: 250px;
+    padding: 45px 55px;
+}
+
+.cabecalho-pagina {
+    margin-bottom: 35px;
+}
+
+.subtitulo {
+    color: #B98AF5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.cabecalho-pagina h1 {
+    font-size: 34px;
+    margin: 8px 0;
+    color: #F1EAFE;
+}
+
+.cabecalho-pagina p {
+    color: #B7A9C8;
+    font-size: 15px;
+}
+
+.area-criacao {
+    max-width: 950px;
+    background: #171020;
+    border: 1px solid #321B4D;
+    border-radius: 18px;
+    padding: 35px;
+}
+
+.titulo-area {
+    margin-bottom: 30px;
+}
+
+.titulo-area h2 {
+    font-size: 23px;
+    color: #F1EAFE;
+    margin-bottom: 7px;
+}
+
+.titulo-area p {
+    color: #A99BB8;
+    font-size: 14px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.campo label {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #E8D9FA;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    background: #0B0712;
+    border: 1px solid #49345F;
+    border-radius: 10px;
+    padding: 15px;
+    color: #F1EAFE;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.campo input {
+    height: 52px;
+}
+
+.campo textarea {
+    min-height: 350px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #776B85;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: #8246D9;
+    box-shadow: 0 0 0 3px rgba(130, 70, 217, 0.15);
+}
+
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.acoes button {
+    background: #8246D9;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 13px 25px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.acoes button:hover {
+    background: #9B65E8;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+    .conteudo-principal {
+        margin-left: 0;
+        padding: 35px 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .conteudo-principal {
+        padding: 25px 15px;
+    }
+
+    .cabecalho-pagina h1 {
+        font-size: 27px;
+    }
+
+    .area-criacao {
+        padding: 22px 17px;
+    }
+
+    .campo textarea {
+        min-height: 280px;
+    }
+
+    .acoes button {
+        width: 100%;
+    }
+}

@@ -67,6 +67,7 @@ class CadastroController
     session_regenerate_id(true);
     $_SESSION['id_pessoa'] = $id_pessoa;
     $_SESSION['id_ano'] = $id_ano;
+    $_SESSION['nome'] = $nome;
 
     header('Location: /TCC/public/home');
     exit;

@@ -19,6 +19,7 @@ spl_autoload_register(function ($class) {
         'CadastroController' => __DIR__ . '/../app/Controller/controllercadastro.php',
         'LoginController' => __DIR__ . '/../app/Controller/controllerlogin.php',
         'ResumoController' => __DIR__ . '/../app/Controller/controllerresumo.php',
+        'PlanejamentoController' => __DIR__ . '/../app/Controller/controllerplanejamento.php',  
         'ProcessarController' => __DIR__ . '/../app/Controller/controllerprocessar.php',
         'SessaoController' => __DIR__ . '/../app/Controller/controllersessao.php',
         'LogoutController' => __DIR__ . '/../app/Controller/controllerlogout.php',
@@ -56,6 +57,12 @@ $router->add('GET', '/criarResumos', 'PaginaInicialController', 'criaR', true);
 $router->add('POST', '/resumos/editar', 'ResumoController', 'editar', true);
 $router->add('POST', '/resumos/excluir', 'ResumoController', 'excluir', true);
 $router->add('POST', '/criarResumos/salvar', 'ResumoController', 'salvarResumo', true);
+
+// Rotas do planejamento
+$router->add('POST', '/planejamento/adicionar', 'PlanejamentoController', 'adicionar', true);
+$router->add('POST', '/planejamento/concluir', 'PlanejamentoController', 'concluir', true);
+$router->add('POST', '/planejamento/excluir', 'PlanejamentoController', 'excluir', true);
+
 $router->add('POST', '/perfil/editar', 'CadastroController', 'editar', true);
 $router->add('POST', '/perfil/excluir', 'CadastroController', 'excluir', true);
 

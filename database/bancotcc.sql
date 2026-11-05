@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19/10/2026 às 02:36
+-- Tempo de geração: 05/11/2026 às 02:42
 -- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.1.25
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -128,39 +128,39 @@ CREATE TABLE `materias` (
 --
 
 INSERT INTO `materias` (`id_materia`, `id_ano`, `materia`) VALUES
-(1, 1, 'Matem?tica'),
-(2, 1, 'Portugu?s'),
-(3, 1, 'Hist?ria'),
-(4, 1, 'Qu?mica'),
+(1, 1, 'Matemática'),
+(2, 1, 'Português'),
+(3, 1, 'História'),
+(4, 1, 'Química'),
 (5, 1, 'Biologia'),
-(6, 1, 'F?sica'),
+(6, 1, 'Física'),
 (7, 1, 'Geografia'),
-(8, 1, 'Ingl?s'),
+(8, 1, 'Inglês'),
 (9, 1, 'Sociologia'),
 (10, 1, 'Filosofia'),
-(11, 1, 'Reda??o'),
-(12, 2, 'Matem?tica'),
-(13, 2, 'Portugu?s'),
-(14, 2, 'Hist?ria'),
-(15, 2, 'Qu?mica'),
+(11, 1, 'Redação'),
+(12, 2, 'Matemática'),
+(13, 2, 'Português'),
+(14, 2, 'História'),
+(15, 2, 'Química'),
 (16, 2, 'Biologia'),
-(17, 2, 'F?sica'),
+(17, 2, 'Física'),
 (18, 2, 'Geografia'),
-(19, 2, 'Ingl?s'),
+(19, 2, 'Inglês'),
 (20, 2, 'Sociologia'),
 (21, 2, 'Filosofia'),
-(22, 2, 'Reda??o'),
-(23, 3, 'Matem?tica'),
-(24, 3, 'Portugu?s'),
-(25, 3, 'Hist?ria'),
-(26, 3, 'Qu?mica'),
+(22, 2, 'Redação'),
+(23, 3, 'Matemática'),
+(24, 3, 'Português'),
+(25, 3, 'História'),
+(26, 3, 'Química'),
 (27, 3, 'Biologia'),
-(28, 3, 'F?sica'),
+(28, 3, 'Física'),
 (29, 3, 'Geografia'),
-(30, 3, 'Ingl?s'),
+(30, 3, 'Inglês'),
 (31, 3, 'Sociologia'),
 (32, 3, 'Filosofia'),
-(33, 3, 'Reda??o');
+(33, 3, 'Redação');
 
 -- --------------------------------------------------------
 
@@ -185,7 +185,39 @@ CREATE TABLE `pessoas` (
 INSERT INTO `pessoas` (`id_pessoa`, `id_ano`, `nome`, `usuario`, `email`, `senha`, `criado_em`) VALUES
 (9, 3, 'salve', 'pfv', 'devdd@gmail.com', '$2y$10$IoWUuo1f4BeAtDAPDugCQuUVLiDTYhUsGdc4WqsdJJKcLQYzZMNDy', '2026-10-17 22:40:24'),
 (10, 3, 'bia', 'bia1', 'bia1@gmail.com', '$2y$10$lxP4MDGy/bS4/GeLwKFH5OeGHo2X06uu3cHJCsLU1hYk7j5qC/Uke', '2026-10-17 22:43:05'),
-(11, 1, 'beatriz', 'ola', 'ola@gmail.com', '$2y$10$il9a7c4zK4BKsHr5SADWuO/arVl13yo1VK.xk7z/Hm1d7lh1Obaty', '2026-10-18 17:17:35');
+(11, 1, 'beatriz', 'ola', 'ola@gmail.com', '$2y$10$il9a7c4zK4BKsHr5SADWuO/arVl13yo1VK.xk7z/Hm1d7lh1Obaty', '2026-10-18 17:17:35'),
+(12, 3, 'Estela', 'estelaxs', 'estelamaria.a9@gmail.com', '$2y$10$UTXprhoMbiQ2gRP4gmsG7uIPqsLDx7eNKjAk0tQ8QYvTg8Slu8ipa', '2026-10-27 08:37:14'),
+(13, 2, 'Estela', 'batatinha', 'estelinha@gmail.com', '$2y$10$5Yj1MfHuQTHLNYITiznEle67jdxNl5outwf5sIg.LCA5idY2utNO.', '2026-11-03 20:01:30'),
+(14, 3, 'Estela Maria Alves d', 'estelar', 'mariazinha.90@gmail.com', '$2y$10$O6qQ5apdY9W3hFtWnxABVeETovfnX9ZvJGTCJRkScz9gd0oXOwnf.', '2026-11-03 22:16:44'),
+(16, 2, 'Estela Maria Alves de Souza', 'estelarr', 'estelamaria.a89@gmail.com', '$2y$10$mgt9lUfGOiGBTpur90mqHu6vPHWZWLuoFjNZl.W36MpTVo3y6lrta', '2026-11-04 21:27:42'),
+(17, 1, 'Batata', 'batatinhaa', 'mariazonaa@gmail.com', '$2y$10$kDSVHL4.8WHv078ThDDiKOQ98FOcVDtaSGsTZGmfv5FxN./0zzODy', '2026-11-04 21:37:27'),
+(18, 2, 'Polenta da silva', 'polentinha', 'estelao.89@gmail.com', '$2y$10$QJMIrAcq1wSLEDXg8CdrMe3C7DcBJ90PIEhwr3HxOZtaMkYpajLY.', '2026-11-04 21:43:27');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `planejamento`
+--
+
+CREATE TABLE `planejamento` (
+  `id_planejamento` int(11) NOT NULL,
+  `id_pessoa` int(11) NOT NULL,
+  `titulo` varchar(150) NOT NULL,
+  `data_tarefa` date NOT NULL,
+  `concluida` tinyint(1) NOT NULL DEFAULT 0,
+  `criado_em` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `planejamento`
+--
+
+INSERT INTO `planejamento` (`id_planejamento`, `id_pessoa`, `titulo`, `data_tarefa`, `concluida`, `criado_em`) VALUES
+(1, 18, 'matematica', '2026-11-16', 1, '2026-11-05 01:14:34'),
+(2, 18, 'prova da roseli', '2026-12-02', 0, '2026-11-05 01:15:04'),
+(3, 18, 'feriado, estudar prova de proxima semana', '2026-11-20', 0, '2026-11-05 01:27:31'),
+(4, 18, 'chorar no enem', '2026-11-15', 0, '2026-11-05 01:27:49'),
+(5, 18, 'me matar no enem', '2026-11-08', 1, '2026-11-05 01:28:02');
 
 -- --------------------------------------------------------
 
@@ -223,7 +255,10 @@ CREATE TABLE `resumos` (
 
 INSERT INTO `resumos` (`id`, `id_pessoa`, `id_materia`, `titulo`, `conteudo`, `criado_em`, `atualizado_em`) VALUES
 (1, 10, 23, 'vai funcionar', 'sera', '2026-10-18 23:29:20', '2026-10-18 23:29:20'),
-(2, 10, 23, 'ué', 'funcionou?', '2026-10-18 23:38:24', '2026-10-18 23:38:24');
+(2, 10, 23, 'ué', 'funcionou?', '2026-10-18 23:38:24', '2026-10-18 23:38:24'),
+(5, 12, 31, 'eliana', 'fdrtvsvbcfgvbvuvgvdfcfgvggvfbmkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkcnftvbyhbcfgbvfrdbftbgff', '2026-10-27 11:37:57', '2026-10-27 11:38:17'),
+(6, 14, 27, 'Suólen', 'genes sla oq\r\nhomozigoto sla oq\r\nmitose sla oq', '2026-11-05 00:12:10', '2026-11-05 00:13:45'),
+(7, 18, 19, 'GCHGHGH', 'JHVHJK', '2026-11-05 01:33:08', '2026-11-05 01:33:08');
 
 -- --------------------------------------------------------
 
@@ -290,6 +325,13 @@ ALTER TABLE `pessoas`
   ADD KEY `id_ano` (`id_ano`);
 
 --
+-- Índices de tabela `planejamento`
+--
+ALTER TABLE `planejamento`
+  ADD PRIMARY KEY (`id_planejamento`),
+  ADD KEY `idx_pessoa_data` (`id_pessoa`,`data_tarefa`);
+
+--
 -- Índices de tabela `progresso`
 --
 ALTER TABLE `progresso`
@@ -350,7 +392,13 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de tabela `pessoas`
 --
 ALTER TABLE `pessoas`
-  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de tabela `planejamento`
+--
+ALTER TABLE `planejamento`
+  MODIFY `id_planejamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `progresso`
@@ -362,7 +410,7 @@ ALTER TABLE `progresso`
 -- AUTO_INCREMENT de tabela `resumos`
 --
 ALTER TABLE `resumos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

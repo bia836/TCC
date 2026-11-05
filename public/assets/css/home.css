@@ -1,73 +1,42 @@
-/* =========================================================
-   HOME
-   Página: app/View/home.php
-   (tela inicial, exibida depois que o perfil é criado)
-
-   Layout: menu lateral com 4 botões (home, atividades,
-   perfil, config.) + área de conteúdo. Só o botão
-   selecionado mostra o texto; os outros mostram apenas
-   o ícone. Cada botão é um "card" arredondado, com o
-   fundo da página aparecendo nas frestas entre eles.
-   Arquivo independente: não importa nenhum outro CSS do
-   projeto (nem lumiTokens.css).
-========================================================= */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap");
 
 :root {
-    --corFundo: #1A0026;
-    --corCard: #1A0026;
-    --corMenu: #28063D;
-    --corDestaque: #6A1B9A;
-    --corDestaqueHover: #7B2BAD;
-    --corTexto: #ffffff;
-    --corTextoSelecionado: #ffffff;
-    --corSeparador: #4A2A6A;
-    --corFoco: #8B4FB8;
-    --larguraMenu: 10.5rem;
-    --alturaMenuCelular: 4.5rem;
-    --corItemHover: #3D1A5C;
-    --raioCard: 0.5rem;
+    --fundo: #0B0712;
+    --menu: #171020;
+    --card: #171020;
+    --roxo: #8246D9;
+    --roxoClaro: #B98AF5;
+    --texto: #F1EAFE;
+    --textoSuave: #C8B9D8;
+    --borda: #321B4D;
 }
 
-*,
-*::before,
-*::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-button,
-input {
-    font: inherit;
-}
-
 body {
     min-height: 100vh;
     display: flex;
-    background: var(--corFundo);
-    color: var(--corTexto);
-    font-family: "Open Sans", Arial, sans-serif;
-    line-height: 1.4;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: 'Nunito', sans-serif;
 }
 
 
-/* =========================
-   MENU LATERAL
-   Os botões dividem a altura da tela igualmente.
-   O fundo da página aparece nas frestas entre os cards.
-   ========================= */
+/* MENU LATERAL */
+
 .menuLateral {
     position: sticky;
     top: 0;
     flex: none;
-    width: var(--larguraMenu);
+    width: 10.5rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 0;
-    padding: 0;
-    background: var(--corMenu);
+    background: var(--menu);
 }
 
 .itemMenu {
@@ -75,91 +44,691 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.8rem;
-    padding: 1rem 1.2rem;
-    border-radius: 0;
-    background: transparent;
-    color: var(--corTexto);
+    gap: 12px;
+    padding: 16px 20px;
+    color: var(--textoSuave);
     text-decoration: none;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: 0.3s;
 }
 
 .itemMenu i {
-    flex: none;
-    font-size: 2rem;
-    line-height: 1;
-    transition: font-size 0.25s ease;
+    font-size: 27px;
 }
 
 .itemTexto {
     display: none;
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .itemMenu:hover {
-    background: var(--corItemHover);
-}
-
-.itemMenu:focus-visible {
-    outline: 2px solid var(--corFoco);
-    outline-offset: -4px;
+    background: #281638;
+    color: var(--texto);
 }
 
 .itemMenu.selecionado {
-    background: var(--corDestaque);
-    color: var(--corTextoSelecionado);
+    background: var(--roxo);
+    color: white;
 }
 
 .itemMenu.selecionado i {
-    color: #000000;
-    font-size: 1.6rem;
-}
-
-.itemMenu:last-child {
-    border-bottom: none;
-}
-
-.itemMenu.comSeparador {
-    border-bottom: 1px solid var(--corSeparador);
+    font-size: 23px;
+    color: white;
 }
 
 .itemMenu.selecionado .itemTexto {
     display: inline;
 }
 
+.itemMenu.comSeparador {
+    border-bottom: 1px solid var(--borda);
+}
 
-/* =========================
-   ÁREA DE CONTEÚDO
-   ========================= */
+
+/* CONTEÚDO PRINCIPAL */
+
 .conteudoHome {
     flex: 1;
     min-width: 0;
-    padding: 2rem;
-    background: var(--corFundo);
-    border-left: 2px solid var(--corSeparador);
+    max-width: 1500px;
+    margin: auto;
+    padding: 30px 45px;
 }
 
-.conteudoHome h1 {
-    margin-bottom: 0.5rem;
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
+
+/* CABEÇALHO */
+
+.topoHome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.logo {
+    color: var(--texto);
+    font-size: 30px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--roxoClaro);
+}
+
+.perfilTopo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 16px;
+    border: 1px solid var(--borda);
+    border-radius: 30px;
+    color: var(--texto);
+    text-decoration: none;
+    font-size: 14px;
     font-weight: 700;
+    transition: 0.3s;
 }
 
-.conteudoHome p {
-    color: rgba(255, 255, 255, 0.7);
+.perfilTopo:hover {
+    border-color: var(--roxoClaro);
+    background: var(--menu);
 }
 
-.conteudoHome a {
-    color: var(--corDestaqueHover);
+.perfilTopo i {
+    color: var(--roxoClaro);
+    font-size: 23px;
 }
 
 
-/* =========================
-   RESPONSIVO
-   No celular o menu vira uma barra fixa embaixo da tela.
-   ========================= */
-@media (max-width: 480px) {
+/* BOAS-VINDAS */
+
+.boasVindas {
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 35px 45px;
+    margin-bottom: 38px;
+    border: 1px solid #49305F;
+    border-radius: 22px;
+    background: linear-gradient(110deg, #321B4D, #20152D, #171020);
+    overflow: hidden;
+}
+
+.textoBoasVindas {
+    max-width: 600px;
+}
+
+.etiqueta {
+    color: var(--roxoClaro);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.textoBoasVindas h1 {
+    margin: 12px 0;
+    font-size: clamp(25px, 3vw, 36px);
+    font-weight: 900;
+}
+
+.textoBoasVindas h1 span {
+    color: var(--roxoClaro);
+}
+
+.textoBoasVindas p {
+    max-width: 470px;
+    color: var(--textoSuave);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.imagemBoasVindas {
+    width: 140px;
+    height: 140px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(185, 138, 245, 0.3);
+    border-radius: 50%;
+    background: rgba(130, 70, 217, 0.16);
+}
+
+.imagemBoasVindas i {
+    color: var(--roxoClaro);
+    font-size: 75px;
+}
+
+
+/* TÍTULOS DAS SEÇÕES */
+
+.tituloSecao {
+    margin-bottom: 20px;
+}
+
+.tituloSecao h2 {
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.tituloSecao p {
+    margin-top: 4px;
+    color: var(--textoSuave);
+    font-size: 14px;
+}
+
+
+/* CARDS DE ACESSO */
+
+.gradeCards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.cardAcesso {
+    position: relative;
+    min-height: 220px;
+    padding: 23px;
+    border: 1px solid var(--borda);
+    border-radius: 17px;
+    background: var(--card);
+    color: var(--texto);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.cardAcesso:not(.indisponivel):hover {
+    transform: translateY(-5px);
+    border-color: var(--roxoClaro);
+    background: #20152D;
+}
+
+.iconeCard {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 17px;
+    border-radius: 13px;
+    background: rgba(130, 70, 217, 0.18);
+}
+
+.iconeCard i {
+    color: var(--roxoClaro);
+    font-size: 27px;
+}
+
+.status {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: rgba(185, 138, 245, 0.12);
+    color: var(--roxoClaro);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.status.disponivel {
+    background: rgba(110, 190, 140, 0.12);
+    color: #8DDBA8;
+}
+
+.cardAcesso h3 {
+    margin-bottom: 7px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.cardAcesso p {
+    max-width: 260px;
+    color: var(--textoSuave);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.seta {
+    position: absolute;
+    right: 22px;
+    bottom: 18px;
+    color: var(--roxoClaro);
+    font-size: 23px;
+}
+
+.indisponivel {
+    cursor: default;
+    opacity: 0.75;
+}
+
+
+/* PARTE INFERIOR */
+
+.parteInferior {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.progresso,
+.dica {
+    min-height: 155px;
+    padding: 24px;
+    border: 1px solid var(--borda);
+    border-radius: 17px;
+    background: var(--card);
+}
+
+.progresso {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.iconeProgresso {
+    width: 45px;
+    height: 45px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(130, 70, 217, 0.18);
+}
+
+.iconeProgresso i {
+    color: var(--roxoClaro);
+    font-size: 25px;
+}
+
+.progresso h2,
+.dica h2 {
+    margin-bottom: 8px;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.progresso p,
+.dica p {
+    color: var(--textoSuave);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.dica {
+    position: relative;
+    background: linear-gradient(135deg, #321B4D, #20152D);
+}
+
+.dica i {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    color: var(--roxoClaro);
+    font-size: 27px;
+}
+
+.dica h2 {
+    margin-top: 12px;
+}
+
+
+/* RODAPÉ */
+
+.rodapeHome {
+    margin-top: 35px;
+    padding: 18px 0;
+    border-top: 1px solid var(--borda);
+    color: var(--textoSuave);
+    text-align: center;
+    font-size: 12px;
+}
+
+
+
+/* PLANEJAMENTO DE ESTUDOS */
+
+.planejamento {
+    margin-top: 38px;
+}
+
+.calendarioLayout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 20px;
+}
+
+.calendario,
+.painelDia {
+    padding: 23px;
+    border: 1px solid var(--borda);
+    border-radius: 17px;
+    background: var(--card);
+}
+
+
+/* CABEÇALHO DO CALENDÁRIO */
+
+.cabecalhoCalendario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.cabecalhoCalendario h3 {
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.cabecalhoCalendario button {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    background: var(--menu);
+    color: var(--roxoClaro);
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cabecalhoCalendario button:hover {
+    border-color: var(--roxoClaro);
+    background: #281638;
+}
+
+
+/* DIAS DA SEMANA E DO MÊS */
+
+.diasSemana,
+.diasCalendario {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.diasSemana {
+    margin-bottom: 10px;
+}
+
+.diasSemana span {
+    color: var(--textoSuave);
+    text-align: center;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.diaCalendario,
+.diaVazio {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.diaCalendario {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: var(--menu);
+    color: var(--texto);
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.diaCalendario:hover {
+    border-color: var(--roxoClaro);
+    background: #281638;
+}
+
+.diaCalendario.hoje {
+    border-color: var(--roxo);
+}
+
+.diaCalendario.selecionado {
+    background: var(--roxo);
+    color: white;
+}
+
+.diaCalendario.temTarefa::after {
+    position: absolute;
+    bottom: 4px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--roxoClaro);
+    content: "";
+}
+
+.diaCalendario.selecionado.temTarefa::after {
+    background: white;
+}
+
+
+/* PAINEL DAS TAREFAS */
+
+.painelDia h3 {
+    margin-bottom: 18px;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.formPlanejamento {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.formPlanejamento input {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    outline: none;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+}
+
+.formPlanejamento input:focus {
+    border-color: var(--roxoClaro);
+}
+
+.formPlanejamento input[type="date"] {
+    color-scheme: dark;
+}
+
+.formPlanejamento button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px;
+    border: none;
+    border-radius: 9px;
+    background: var(--roxo);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.formPlanejamento button:hover {
+    background: #965BE8;
+}
+
+.formPlanejamento button i {
+    font-size: 18px;
+}
+
+
+/* LISTA DE TAREFAS */
+
+.listaPlanejamento {
+    padding-top: 15px;
+}
+
+.itemTarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 9px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--fundo);
+}
+
+.nomeTarefa {
+    min-width: 0;
+    font-size: 13px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.semTarefas {
+    padding: 17px 10px;
+    border-radius: 9px;
+    background: var(--fundo);
+    color: var(--textoSuave);
+    text-align: center;
+    font-size: 12px;
+}
+
+.tarefaConcluida .nomeTarefa {
+    color: #8DDBA8;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+
+/* BOTÕES DAS TAREFAS */
+
+.acoesTarefa {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: none;
+}
+
+.acoesTarefa form {
+    display: flex;
+}
+
+.botaoConcluir,
+.botaoExcluir {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 7px 9px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: var(--menu);
+    color: var(--roxoClaro);
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botaoConcluir:hover {
+    border-color: #8DDBA8;
+    color: #8DDBA8;
+}
+
+.botaoExcluir {
+    color: #E58A8A;
+}
+
+.botaoExcluir:hover {
+    border-color: #E58A8A;
+}
+
+.botaoConcluir i,
+.botaoExcluir i {
+    font-size: 16px;
+}
+
+
+/* RESPONSIVIDADE DO CALENDÁRIO */
+
+@media (max-width: 900px) {
+
+    .calendarioLayout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .calendario,
+    .painelDia {
+        padding: 17px;
+    }
+
+    .diasSemana,
+    .diasCalendario {
+        gap: 5px;
+    }
+
+    .diaCalendario {
+        font-size: 12px;
+        border-radius: 7px;
+    }
+
+    .itemTarefa {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .acoesTarefa {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+}
+
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+
+    .conteudoHome {
+        padding: 25px;
+    }
+
+    .gradeCards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .parteInferior {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
     .menuLateral {
         position: fixed;
         top: auto;
@@ -168,21 +737,18 @@ body {
         left: 0;
         z-index: 10;
         width: 100%;
-        height: var(--alturaMenuCelular);
+        height: 65px;
         flex-direction: row;
-        padding: 0;
-        gap: 0;
     }
 
     .itemMenu {
-        border-bottom: none;
-        border-right: 1px solid var(--corSeparador);
         justify-content: center;
-        padding: 0.8rem;
+        padding: 10px;
+        border-right: 1px solid var(--borda);
     }
 
     .itemMenu.comSeparador {
-        border-right: 1px solid var(--corSeparador);
+        border-right: 1px solid var(--borda);
         border-bottom: none;
     }
 
@@ -191,31 +757,57 @@ body {
     }
 
     .itemMenu i {
-        font-size: 1.5rem;
+        font-size: 23px;
     }
 
     .itemMenu.selecionado {
-        flex: 2.4;
+        flex: 1.5;
     }
 
     .itemMenu.selecionado i {
-        font-size: 1.3rem;
+        font-size: 21px;
     }
 
     .itemTexto {
-        font-size: 1rem;
+        font-size: 11px;
     }
 
     .conteudoHome {
-        padding: 1.5rem 1rem calc(var(--alturaMenuCelular) + 1.5rem);
-        border-left: none;
+        padding: 20px 16px 90px;
+    }
+
+    .topoHome {
+        margin-bottom: 25px;
+    }
+
+    .boasVindas {
+        min-height: auto;
+        padding: 27px 23px;
+    }
+
+    .imagemBoasVindas {
+        display: none;
+    }
+
+    .textoBoasVindas h1 {
+        font-size: 27px;
+    }
+
+    .gradeCards {
+        grid-template-columns: 1fr;
+    }
+
+    .cardAcesso {
+        min-height: 190px;
+    }
+
+    .progresso,
+    .dica {
+        padding: 20px;
     }
 }
 
 
-/* =========================
-   ACESSIBILIDADE
-   ========================= */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
