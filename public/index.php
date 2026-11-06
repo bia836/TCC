@@ -36,7 +36,7 @@ $router = new Router($conn, $basePath);
 $router->add('GET', '/', 'PaginaInicialController', 'index');
 //GET é o método http. / é meio q o nome da url. 'PaginaInicialController' é o nome dado ao controllerRotas. index é a função.
 $router->add('GET', '/proposit', 'PaginaInicialController', 'proposit');
-$router->add('GET', '/anosem', 'PaginaInicialController', 'anosem');
+$router->add('GET', '/anosem', 'PaginaInicialController', 'anosem');    
 $router->add('GET', '/cadastro', 'CadastroController', 'index');
 $router->add('POST', '/cadastro', 'CadastroController', 'cadastrar');
 $router->add('GET', '/home', 'PaginaInicialController', 'home');
@@ -64,6 +64,7 @@ $router->add('POST', '/planejamento/concluir', 'PlanejamentoController', 'conclu
 $router->add('POST', '/planejamento/excluir', 'PlanejamentoController', 'excluir', true);
 
 $router->add('POST', '/perfil/editar', 'CadastroController', 'editar', true);
+$router->add('POST', '/perfil/alterar-senha', 'CadastroController', 'alterarSenha', true);
 $router->add('POST', '/perfil/excluir', 'CadastroController', 'excluir', true);
 
 $router->add('POST', '/logout', 'LogoutController', 'logout', true);

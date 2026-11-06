@@ -8,6 +8,28 @@ class Cadastro
         $this->conn = $conn;
     }
     
+    
+// pega as infos do estudantes
+public function buscarPorId($id_pessoa)
+{
+    $sql = "SELECT 
+                p.id_pessoa,
+                p.id_ano,
+                p.nome,
+                p.usuario,
+                p.email,
+                p.criado_em,
+                a.nome_ano
+            FROM pessoas p
+            LEFT JOIN anos a ON p.id_ano = a.id_ano
+            WHERE p.id_pessoa = ?";
+
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute([$id_pessoa]);
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 
     public function buscarPorEmail($email)
     {
@@ -54,6 +76,16 @@ class Cadastro
                         ]);
    }  
    
+   //alteracao de senha
+   public function buscarSenhaPorId($id_pessoa)
+{
+    $sql = "SELECT senha FROM pessoas WHERE id_pessoa = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute([$id_pessoa]);
+
+    return $stmt->fetchColumn();
+}
+
    public function atualizarSenha ($id_pessoa, $senha){
         $sql = "UPDATE pessoas SET senha = :senha WHERE id_pessoa = :id_pessoa";
         $stmt=$this->conn->prepare($sql);

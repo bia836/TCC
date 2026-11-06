@@ -103,10 +103,58 @@ class CadastroController
             $usuario,
             $email
         );
+           //   atualiza as infos da sessao tbm
+           $_SESSION['nome'] = $nome;
+           $_SESSION['id_ano'] = $id_ano;
 
         header('Location: /TCC/public/perfil');
         exit;
     }
+   
+    public function alterarSenha()
+{
+    $this->exigirLogin();
+
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        http_response_code(405);
+        return;
+    }
+
+    $id_pessoa = $_SESSION['id_pessoa'];
+
+    $senhaAtual = $_POST['senha_atual'] ?? '';
+    $novaSenha = $_POST['nova_senha'] ?? '';
+    $confirmarSenha = $_POST['confirmar_senha'] ?? '';
+
+    $senhaBanco = $this->cadastroModel->buscarSenhaPorId($id_pessoa);
+
+    if (!password_verify($senhaAtual, $senhaBanco)) {
+        $_SESSION['mensagem_senha'] = 'A senha atual está incorreta.';
+        header('Location: /TCC/public/perfil');
+        exit;
+    }
+
+    if (strlen($novaSenha) < 8) {
+        $_SESSION['mensagem_senha'] = 'A nova senha precisa ter pelo menos 8 caracteres.';
+        header('Location: /TCC/public/perfil');
+        exit;
+    }
+
+    if ($novaSenha !== $confirmarSenha) {
+        $_SESSION['mensagem_senha'] = 'As senhas não coincidem.';
+        header('Location: /TCC/public/perfil');
+        exit;
+    }
+
+    $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
+
+    $this->cadastroModel->atualizarSenha($id_pessoa, $senhaHash);
+
+    $_SESSION['mensagem_senha'] = 'Senha alterada com sucesso!';
+
+    header('Location: /TCC/public/perfil');
+    exit;
+}
 
     public function excluir()
     {

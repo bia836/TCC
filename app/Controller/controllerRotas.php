@@ -1,15 +1,18 @@
 <?php
 
 require_once __DIR__ . '/../Model/modelPlanejamento.php';
+require_once __DIR__ . '/../Model/modelCadastro.php';
 
 class PaginaInicialController
 {
 
    private $planejamentoModel;
+   private $cadastroModel;
 
     public function __construct($conn)
      {
        $this->planejamentoModel = new Planejamento($conn);
+       $this->cadastroModel = new Cadastro($conn);
      }
 
     public function index()
@@ -53,6 +56,14 @@ class PaginaInicialController
          if (empty($_SESSION['id_pessoa'])) {
         header('Location: /TCC/public/login');
         exit;
+    }
+     $id_pessoa = $_SESSION['id_pessoa'];
+
+    $pessoa = $this->cadastroModel->buscarPorId($id_pessoa);
+
+    if (!$pessoa) {
+        http_response_code(404);
+        exit('Estudante não encontrado.');
     }
         require_once __DIR__ . '/../View/perfil.php';
     }
