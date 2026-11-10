@@ -134,6 +134,14 @@ $inicial = strtoupper(substr($nome, 0, 1));
 
                     </form>
 
+                    <form action="/TCC/public/perfil/excluir"
+                method="POST"
+                    onsubmit="return confirm('Tem certeza que deseja excluir sua conta? Essa ação não poderá ser desfeita.');">
+
+                <button type="submit">Excluir conta</button>
+
+                </form>
+
                     <!-- alterar senha -->
 
                     <h3 class="subtituloEdicao">Alterar senha</h3>
@@ -157,9 +165,10 @@ $inicial = strtoupper(substr($nome, 0, 1));
 
                         <button type="submit">Salvar nova senha</button>
 
+
                     </form>
 
-                </details>
+                    </details>
 
             </div>
 

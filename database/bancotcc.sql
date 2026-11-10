@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/11/2026 às 19:58
+-- Tempo de geração: 10/11/2026 às 20:46
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.1.25
 
@@ -220,8 +220,7 @@ INSERT INTO `pessoas` (`id_pessoa`, `id_ano`, `nome`, `usuario`, `email`, `senha
 (14, 3, 'Estela Maria Alves d', 'estelar', 'mariazinha.90@gmail.com', '$2y$10$O6qQ5apdY9W3hFtWnxABVeETovfnX9ZvJGTCJRkScz9gd0oXOwnf.', '2026-11-03 22:16:44'),
 (16, 2, 'Estela Maria Alves de Souza', 'estelarr', 'estelamaria.a89@gmail.com', '$2y$10$mgt9lUfGOiGBTpur90mqHu6vPHWZWLuoFjNZl.W36MpTVo3y6lrta', '2026-11-04 21:27:42'),
 (17, 1, 'Batata', 'batatinhaa', 'mariazonaa@gmail.com', '$2y$10$kDSVHL4.8WHv078ThDDiKOQ98FOcVDtaSGsTZGmfv5FxN./0zzODy', '2026-11-04 21:37:27'),
-(18, 2, 'Polenta da silva', 'polentinha', 'estelao.89@gmail.com', '$2y$10$QJMIrAcq1wSLEDXg8CdrMe3C7DcBJ90PIEhwr3HxOZtaMkYpajLY.', '2026-11-04 21:43:27'),
-(19, 3, 'Bia', 'bea', 'bia14@gmail.com', '$2y$10$zpbXGn6XxzuYk83prtPG0eo8HRB9KorvITUcMtpTIFykUIyGDvwVS', '2026-11-10 15:42:36');
+(18, 2, 'Polenta da silva', 'polentinha', 'estelao.89@gmail.com', '$2y$10$QJMIrAcq1wSLEDXg8CdrMe3C7DcBJ90PIEhwr3HxOZtaMkYpajLY.', '2026-11-04 21:43:27');
 
 -- --------------------------------------------------------
 
@@ -405,13 +404,13 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de tabela `pessoas`
 --
 ALTER TABLE `pessoas`
-  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `planejamento`
 --
 ALTER TABLE `planejamento`
-  MODIFY `id_planejamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_planejamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `progresso`
@@ -423,7 +422,7 @@ ALTER TABLE `progresso`
 -- AUTO_INCREMENT de tabela `resumos`
 --
 ALTER TABLE `resumos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restrições para tabelas despejadas
@@ -464,20 +463,20 @@ ALTER TABLE `pessoas`
 -- Restrições para tabelas `planejamento`
 --
 ALTER TABLE `planejamento`
-  ADD CONSTRAINT `fk_planejamento_pessoas` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoas` (`id_pessoa`);
+  ADD CONSTRAINT `fk_planejamento_pessoas` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoas` (`id_pessoa`) ON DELETE CASCADE;
 
 --
 -- Restrições para tabelas `progresso`
 --
 ALTER TABLE `progresso`
-  ADD CONSTRAINT `progresso_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `pessoas` (`id_pessoa`),
+  ADD CONSTRAINT `progresso_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `pessoas` (`id_pessoa`) ON DELETE CASCADE,
   ADD CONSTRAINT `progresso_ibfk_2` FOREIGN KEY (`id_atividade`) REFERENCES `atividades` (`id`);
 
 --
 -- Restrições para tabelas `resumos`
 --
 ALTER TABLE `resumos`
-  ADD CONSTRAINT `resumos_ibfk_1` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoas` (`id_pessoa`),
+  ADD CONSTRAINT `resumos_ibfk_1` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoas` (`id_pessoa`) ON DELETE CASCADE,
   ADD CONSTRAINT `resumos_ibfk_2` FOREIGN KEY (`id_materia`) REFERENCES `materias` (`id_materia`);
 COMMIT;
 
