@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/11/2026 às 02:42
+-- Tempo de geração: 10/11/2026 às 18:20
 -- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Versão do PHP: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -84,68 +84,50 @@ CREATE TABLE `conteudos` (
   `descricao` text DEFAULT NULL,
   `url_video` varchar(255) DEFAULT NULL,
   `tipo` enum('dica','aula','resumo') DEFAULT NULL,
-  `criado_em` datetime DEFAULT current_timestamp()
+  `criado_em` datetime DEFAULT current_timestamp(),
+  `id_materia` int(11) DEFAULT NULL,
+  `texto_conteudo` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `conteudos`
 --
 
-INSERT INTO `conteudos` (`id`, `titulo`, `descricao`, `url_video`, `tipo`, `criado_em`) VALUES
--- História
-(1, 'História - Como estudar História para o Vestibular', 'Introdução e principais temas cobrados', 'https://youtube.com/watch?v=F5GGs1Rpt7I', 'aula', '2026-10-14 13:38:52'),
-(2, 'História - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=LxuTxkHAXeQ', 'aula', '2026-10-14 13:38:52'),
-(3, 'História - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=8v_w8itTslc', 'aula', '2026-10-14 13:38:52'),
+INSERT INTO `conteudos` (`id`, `titulo`, `descricao`, `url_video`, `tipo`, `criado_em`, `id_materia`, `texto_conteudo`) VALUES
+(1, 'História - Como estudar História para o Vestibular', 'Introdução e principais temas cobrados', 'https://youtube.com/watch?v=F5GGs1Rpt7I', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(2, 'História - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=LxuTxkHAXeQ', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(3, 'História - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=8v_w8itTslc', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(4, 'Geografia - O que mais cai na UERJ', 'Análise dos conteúdos cobrados', 'https://youtube.com/watch?v=9E8ajFP0Iq0', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(5, 'Geografia - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=nrzFMOq1k-w', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(6, 'Geografia - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/YvH0XoPyANA', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(7, 'Biologia do Zero - Mapa Mental e Introdução', 'Visão geral e tópicos introdutórios', 'https://youtube.com/watch?v=bMwEgGaB1ZQ', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(8, 'Biologia - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=6H_8eFmx-g0', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(9, 'Biologia - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=Ijb2CVy_-y0', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(10, 'Introdução à História da Arte', 'História da Arte para o ENEM e vestibulares', 'https://youtube.com/watch?v=oqn1IfHRdNg', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(11, 'Arte - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=8jRs5CZwbQM', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(12, 'Arte - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/38cIFkeWgcs', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(13, 'Português - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=LMaE0gAsI04', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(14, 'Português - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=X61lboe5_pM', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(15, 'Português - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=XsN0e_xPyNI', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(16, 'Matemática - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=MSZdhDBoXe0', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(17, 'Matemática - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=ddZHkCUcYRM', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(18, 'Matemática - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=0HXlohthSoY', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(19, 'Química - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=7kluWpnlVPU', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(20, 'Química - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/live/7Ad9IHTXmw0', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(21, 'Química - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/qfBCDMX3Yy4', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(22, 'Física - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=5eid5-U3Dvw', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(23, 'Física - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=hxciSW_B8Hw', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(24, 'Física - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=Sj3sCRwMc0Q', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(25, 'Filosofia - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=UK6OKSsastQ', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(26, 'Filosofia - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=Y9_UovLgduo', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(27, 'Filosofia - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/ZmKPQuJAq3s', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(28, 'Sociologia - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=u0C3F1Fq32E', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(29, 'Sociologia - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/live/u4ZREcGwkF4', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(30, 'Sociologia - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/oxApmqaXlsM', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(31, 'Redação - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=VRQtqA3Fbeo', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(32, 'Redação - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=MeKHJVPNV30', 'aula', '2026-10-14 13:38:52', NULL, NULL),
+(33, 'Redação - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=TuBKsV3lSQc', 'aula', '2026-10-14 13:38:52', NULL, NULL);
 
--- Geografia
-(4, 'Geografia - O que mais cai na UERJ', 'Análise dos conteúdos cobrados', 'https://youtube.com/watch?v=9E8ajFP0Iq0', 'aula', '2026-10-14 13:38:52'),
-(5, 'Geografia - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=nrzFMOq1k-w', 'aula', '2026-10-14 13:38:52'),
-(6, 'Geografia - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/YvH0XoPyANA', 'aula', '2026-10-14 13:38:52'),
-
--- Biologia
-(7, 'Biologia do Zero - Mapa Mental e Introdução', 'Visão geral e tópicos introdutórios', 'https://youtube.com/watch?v=bMwEgGaB1ZQ', 'aula', '2026-10-14 13:38:52'),
-(8, 'Biologia - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=6H_8eFmx-g0', 'aula', '2026-10-14 13:38:52'),
-(9, 'Biologia - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=Ijb2CVy_-y0', 'aula', '2026-10-14 13:38:52'),
-
--- Arte
-(10, 'Introdução à História da Arte', 'História da Arte para o ENEM e vestibulares', 'https://youtube.com/watch?v=oqn1IfHRdNg', 'aula', '2026-10-14 13:38:52'),
-(11, 'Arte - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=8jRs5CZwbQM', 'aula', '2026-10-14 13:38:52'),
-(12, 'Arte - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/38cIFkeWgcs', 'aula', '2026-10-14 13:38:52'),
-
--- Português
-(13, 'Português - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=LMaE0gAsI04', 'aula', '2026-10-14 13:38:52'),
-(14, 'Português - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=X61lboe5_pM', 'aula', '2026-10-14 13:38:52'),
-(15, 'Português - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=XsN0e_xPyNI', 'aula', '2026-10-14 13:38:52'),
-
--- Matemática
-(16, 'Matemática - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=MSZdhDBoXe0', 'aula', '2026-10-14 13:38:52'),
-(17, 'Matemática - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=ddZHkCUcYRM', 'aula', '2026-10-14 13:38:52'),
-(18, 'Matemática - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=0HXlohthSoY', 'aula', '2026-10-14 13:38:52'),
-
--- Química
-(19, 'Química - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=7kluWpnlVPU', 'aula', '2026-10-14 13:38:52'),
-(20, 'Química - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/live/7Ad9IHTXmw0', 'aula', '2026-10-14 13:38:52'),
-(21, 'Química - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/qfBCDMX3Yy4', 'aula', '2026-10-14 13:38:52'),
-
--- Física
-(22, 'Física - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=5eid5-U3Dvw', 'aula', '2026-10-14 13:38:52'),
-(23, 'Física - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=hxciSW_B8Hw', 'aula', '2026-10-14 13:38:52'),
-(24, 'Física - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=Sj3sCRwMc0Q', 'aula', '2026-10-14 13:38:52'),
-
--- Filosofia
-(25, 'Filosofia - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=UK6OKSsastQ', 'aula', '2026-10-14 13:38:52'),
-(26, 'Filosofia - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=Y9_UovLgduo', 'aula', '2026-10-14 13:38:52'),
-(27, 'Filosofia - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/ZmKPQuJAq3s', 'aula', '2026-10-14 13:38:52'),
-
--- Sociologia
-(28, 'Sociologia - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=u0C3F1Fq32E', 'aula', '2026-10-14 13:38:52'),
-(29, 'Sociologia - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/live/u4ZREcGwkF4', 'aula', '2026-10-14 13:38:52'),
-(30, 'Sociologia - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/live/oxApmqaXlsM', 'aula', '2026-10-14 13:38:52'),
-
--- Redação
-(31, 'Redação - Aula 1', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=VRQtqA3Fbeo', 'aula', '2026-10-14 13:38:52'),
-(32, 'Redação - Aula 2', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=MeKHJVPNV30', 'aula', '2026-10-14 13:38:52'),
-(33, 'Redação - Aula 3', 'Descrição do conteúdo da aula', 'https://youtube.com/watch?v=TuBKsV3lSQc', 'aula', '2026-10-14 13:38:52');
 -- --------------------------------------------------------
 
 --
@@ -352,7 +334,8 @@ ALTER TABLE `categorias`
 -- Índices de tabela `conteudos`
 --
 ALTER TABLE `conteudos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_conteudos_materias` (`id_materia`);
 
 --
 -- Índices de tabela `conteudo_categoria`
@@ -433,7 +416,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de tabela `conteudos`
 --
 ALTER TABLE `conteudos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `materias`
@@ -480,6 +463,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `atividades`
   ADD CONSTRAINT `atividades_ibfk_1` FOREIGN KEY (`id_conteudo`) REFERENCES `conteudos` (`id`);
+
+--
+-- Restrições para tabelas `conteudos`
+--
+ALTER TABLE `conteudos`
+  ADD CONSTRAINT `fk_conteudos_materias` FOREIGN KEY (`id_materia`) REFERENCES `materias` (`id_materia`);
 
 --
 -- Restrições para tabelas `conteudo_categoria`
