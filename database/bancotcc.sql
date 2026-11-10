@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/11/2026 às 18:20
+-- Tempo de geração: 10/11/2026 às 19:58
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.1.25
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bancotcc`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `alternativas`
+--
+
+CREATE TABLE `alternativas` (
+  `id` int(11) NOT NULL,
+  `id_atividade` int(11) NOT NULL,
+  `texto` text NOT NULL,
+  `correta` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -50,27 +63,8 @@ INSERT INTO `anos` (`id_ano`, `nome_ano`) VALUES
 CREATE TABLE `atividades` (
   `id` int(11) NOT NULL,
   `pergunta` text NOT NULL,
-  `resposta_correta` text NOT NULL,
-  `id_conteudo` int(11) DEFAULT NULL
+  `id_materia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `categorias`
---
-
-CREATE TABLE `categorias` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `categorias`
---
-
-INSERT INTO `categorias` (`id`, `nome`) VALUES
-(1, 'Matem?tica');
 
 -- --------------------------------------------------------
 
@@ -226,7 +220,8 @@ INSERT INTO `pessoas` (`id_pessoa`, `id_ano`, `nome`, `usuario`, `email`, `senha
 (14, 3, 'Estela Maria Alves d', 'estelar', 'mariazinha.90@gmail.com', '$2y$10$O6qQ5apdY9W3hFtWnxABVeETovfnX9ZvJGTCJRkScz9gd0oXOwnf.', '2026-11-03 22:16:44'),
 (16, 2, 'Estela Maria Alves de Souza', 'estelarr', 'estelamaria.a89@gmail.com', '$2y$10$mgt9lUfGOiGBTpur90mqHu6vPHWZWLuoFjNZl.W36MpTVo3y6lrta', '2026-11-04 21:27:42'),
 (17, 1, 'Batata', 'batatinhaa', 'mariazonaa@gmail.com', '$2y$10$kDSVHL4.8WHv078ThDDiKOQ98FOcVDtaSGsTZGmfv5FxN./0zzODy', '2026-11-04 21:37:27'),
-(18, 2, 'Polenta da silva', 'polentinha', 'estelao.89@gmail.com', '$2y$10$QJMIrAcq1wSLEDXg8CdrMe3C7DcBJ90PIEhwr3HxOZtaMkYpajLY.', '2026-11-04 21:43:27');
+(18, 2, 'Polenta da silva', 'polentinha', 'estelao.89@gmail.com', '$2y$10$QJMIrAcq1wSLEDXg8CdrMe3C7DcBJ90PIEhwr3HxOZtaMkYpajLY.', '2026-11-04 21:43:27'),
+(19, 3, 'Bia', 'bea', 'bia14@gmail.com', '$2y$10$zpbXGn6XxzuYk83prtPG0eo8HRB9KorvITUcMtpTIFykUIyGDvwVS', '2026-11-10 15:42:36');
 
 -- --------------------------------------------------------
 
@@ -295,21 +290,16 @@ INSERT INTO `resumos` (`id`, `id_pessoa`, `id_materia`, `titulo`, `conteudo`, `c
 (6, 14, 27, 'Suólen', 'genes sla oq\r\nhomozigoto sla oq\r\nmitose sla oq', '2026-11-05 00:12:10', '2026-11-05 00:13:45'),
 (7, 18, 19, 'GCHGHGH', 'JHVHJK', '2026-11-05 01:33:08', '2026-11-05 01:33:08');
 
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `id_pessoa` int(11) NOT NULL,
-  `senha` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `alternativas`
+--
+ALTER TABLE `alternativas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_atividade` (`id_atividade`);
 
 --
 -- Índices de tabela `anos`
@@ -322,13 +312,7 @@ ALTER TABLE `anos`
 --
 ALTER TABLE `atividades`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_conteudo` (`id_conteudo`);
-
---
--- Índices de tabela `categorias`
---
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `id_conteudo` (`id_materia`);
 
 --
 -- Índices de tabela `conteudos`
@@ -384,15 +368,14 @@ ALTER TABLE `resumos`
   ADD KEY `id_materia` (`id_materia`);
 
 --
--- Índices de tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_pessoa` (`id_pessoa`);
-
---
 -- AUTO_INCREMENT para tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `alternativas`
+--
+ALTER TABLE `alternativas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `anos`
@@ -405,12 +388,6 @@ ALTER TABLE `anos`
 --
 ALTER TABLE `atividades`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `categorias`
---
-ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `conteudos`
@@ -428,7 +405,7 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de tabela `pessoas`
 --
 ALTER TABLE `pessoas`
-  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_pessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `planejamento`
@@ -449,20 +426,14 @@ ALTER TABLE `resumos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- Restrições para tabelas despejadas
 --
 
 --
--- Restrições para tabelas `atividades`
+-- Restrições para tabelas `alternativas`
 --
-ALTER TABLE `atividades`
-  ADD CONSTRAINT `atividades_ibfk_1` FOREIGN KEY (`id_conteudo`) REFERENCES `conteudos` (`id`);
+ALTER TABLE `alternativas`
+  ADD CONSTRAINT `alternativas_ibfk_1` FOREIGN KEY (`id_atividade`) REFERENCES `atividades` (`id`) ON DELETE CASCADE;
 
 --
 -- Restrições para tabelas `conteudos`
@@ -475,7 +446,7 @@ ALTER TABLE `conteudos`
 --
 ALTER TABLE `conteudo_categoria`
   ADD CONSTRAINT `conteudo_categoria_ibfk_1` FOREIGN KEY (`id_conteudo`) REFERENCES `conteudos` (`id`),
-  ADD CONSTRAINT `conteudo_categoria_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`);
+  ADD CONSTRAINT `conteudo_categoria_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `materias` (`id_materia`);
 
 --
 -- Restrições para tabelas `materias`
@@ -490,10 +461,16 @@ ALTER TABLE `pessoas`
   ADD CONSTRAINT `pessoas_ibfk_1` FOREIGN KEY (`id_ano`) REFERENCES `anos` (`id_ano`);
 
 --
+-- Restrições para tabelas `planejamento`
+--
+ALTER TABLE `planejamento`
+  ADD CONSTRAINT `fk_planejamento_pessoas` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoas` (`id_pessoa`);
+
+--
 -- Restrições para tabelas `progresso`
 --
 ALTER TABLE `progresso`
-  ADD CONSTRAINT `progresso_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `progresso_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `pessoas` (`id_pessoa`),
   ADD CONSTRAINT `progresso_ibfk_2` FOREIGN KEY (`id_atividade`) REFERENCES `atividades` (`id`);
 
 --
@@ -502,12 +479,6 @@ ALTER TABLE `progresso`
 ALTER TABLE `resumos`
   ADD CONSTRAINT `resumos_ibfk_1` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoas` (`id_pessoa`),
   ADD CONSTRAINT `resumos_ibfk_2` FOREIGN KEY (`id_materia`) REFERENCES `materias` (`id_materia`);
-
---
--- Restrições para tabelas `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_pessoa`) REFERENCES `pessoas` (`id_pessoa`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
