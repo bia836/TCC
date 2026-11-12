@@ -94,7 +94,7 @@ $paginaAtual = "atividades";
 </a>
 
             <!-- QUIZZES -->
-            <div class="cardAtividade cardFuturo">
+            <!-- <div class="cardAtividade cardFuturo">
 
                 <div class="iconeAtividade">
                     <i class="bx bx-brain"></i>
@@ -113,9 +113,29 @@ $paginaAtual = "atividades";
                     <span class="linkIndisponivel">
                         Disponível em breve
                     </span>
+                </div> -->
+                <a href="/TCC/public/quizzes" class="cardAtividade">
+
+                <div class="iconeAtividade">
+                    <i class="bx bx-brain"></i>
+                </div>
+                <div class="informacoesAtividade">
+                    <span class="statusDisponivel">Disponível</span>
+
+                    <h2>Quizzes</h2>
+
+                    <p>
+                        Teste seus conhecimentos e descubra
+                        o quanto você já aprendeu.
+                    </p>
+
+                    <span class="linkAtividade">
+                        Fazer um quiz
+                        <i class="bx bx-right-arrow-alt"></i>
+                    </span>
                 </div>
 
-            </div>
+</a>
 
         </section>
 

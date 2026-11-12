@@ -1,0 +1,795 @@
+/* ==========================================
+   LUMI - QUIZZES
+   Identidade visual: roxo escuro e lilás
+========================================== */
+
+.conteudoQuiz {
+    --fundo: #0b0712;
+    --card: #171020;
+    --card-hover: #21152d;
+    --borda: #38204e;
+    --roxo: #7540a0;
+    --roxo-claro: #c58aff;
+    --texto: #f5efff;
+    --texto-secundario: #b9a9ca;
+
+    min-height: 100vh;
+    padding: 30px 6%;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ==========================================
+   CABEÇALHO
+========================================== */
+
+.topoQuiz {
+    max-width: 1150px;
+    margin: 0 auto 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -2px;
+}
+
+.logo span {
+    color: var(--roxo-claro);
+}
+
+.voltarQuiz {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--texto-secundario);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.voltarQuiz:hover {
+    color: var(--roxo-claro);
+    transform: translateX(-3px);
+}
+
+.voltarQuiz i {
+    font-size: 20px;
+}
+
+.contadorQuiz {
+    color: var(--roxo-claro);
+    font-size: 14px;
+    font-weight: 800;
+    background: #21152d;
+    border: 1px solid var(--borda);
+    padding: 10px 18px;
+    border-radius: 30px;
+}
+
+/* ==========================================
+   APRESENTAÇÃO
+========================================== */
+
+.apresentacaoQuiz {
+    max-width: 1150px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.etiqueta {
+    display: inline-block;
+    background: #321b4d;
+    color: #d3a0ff;
+    padding: 7px 15px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    margin-bottom: 16px;
+}
+
+.apresentacaoQuiz h1 {
+    font-size: 38px;
+    font-weight: 900;
+    margin: 0 0 12px;
+    color: var(--texto);
+}
+
+.apresentacaoQuiz h1 span {
+    color: var(--roxo-claro);
+}
+
+.apresentacaoQuiz p {
+    color: var(--texto-secundario);
+    font-size: 15px;
+}
+
+/* ==========================================
+   TÍTULOS DAS SEÇÕES
+========================================== */
+
+.secaoQuiz {
+    max-width: 1150px;
+    margin: 0 auto 50px;
+}
+
+.tituloSecaoQuiz {
+    margin-bottom: 23px;
+}
+
+.tituloSecaoQuiz h2 {
+    color: #ead8ff;
+    font-size: 23px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.tituloSecaoQuiz p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+/* ==========================================
+   GRIDS
+========================================== */
+
+.gradeNiveis,
+.gradeModos,
+.gradeMateriasQuiz {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+/* ==========================================
+   CARDS DOS QUIZZES
+========================================== */
+
+.cardQuiz {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 205px;
+    padding: 25px;
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    text-decoration: none;
+    color: var(--texto);
+    transition: .3s ease;
+}
+
+.cardQuiz:hover {
+    transform: translateY(-5px);
+    background: var(--card-hover);
+    border-color: var(--roxo);
+    box-shadow: 0 10px 30px rgba(117, 64, 160, .15);
+}
+
+.iconeQuiz {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #321b4d;
+    color: var(--roxo-claro);
+    border-radius: 14px;
+    margin-bottom: 17px;
+}
+
+.iconeQuiz i {
+    font-size: 27px;
+}
+
+.cardQuiz h3 {
+    color: #ead8ff;
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.cardQuiz p {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.linkQuiz {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--roxo-claro);
+    font-size: 13px;
+    font-weight: 900;
+    margin-top: auto;
+}
+
+.linkQuiz i {
+    font-size: 18px;
+    transition: .3s;
+}
+
+.cardQuiz:hover .linkQuiz i {
+    transform: translateX(5px);
+}
+
+/* SELO DO ANO DO ALUNO */
+
+.seloQuiz {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: #321b4d;
+    color: #d3a0ff;
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+/* ==========================================
+   AVISOS E ESTADOS VAZIOS
+========================================== */
+
+.avisoQuiz {
+    max-width: 1150px;
+    margin: 0 auto 25px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #21152d;
+    border: 1px solid #70458b;
+    border-radius: 12px;
+    color: #e2c6ff;
+}
+
+.avisoQuiz i {
+    font-size: 23px;
+}
+
+.avisoQuiz p {
+    font-size: 14px;
+}
+
+.estadoVazioQuiz {
+    max-width: 1150px;
+    margin: 25px auto;
+    padding: 45px 25px;
+    text-align: center;
+    background: var(--card);
+    border: 1px dashed #65417e;
+    border-radius: 18px;
+}
+
+.estadoVazioQuiz > i {
+    font-size: 45px;
+    color: var(--roxo-claro);
+    margin-bottom: 15px;
+}
+
+.estadoVazioQuiz h3 {
+    color: #ead8ff;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.estadoVazioQuiz p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+.botaoQuiz {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 24px;
+    background: #572b7c;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 900;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.botaoQuiz:hover {
+    background: #7540a0;
+    transform: translateY(-2px);
+}
+
+.botaoQuiz i {
+    font-size: 19px;
+}
+
+.botaoSecundario {
+    background: #21152d;
+    border-color: var(--borda);
+    color: #e5c8ff;
+}
+
+.botaoSecundario:hover {
+    background: #321b4d;
+}
+
+/* ==========================================
+   PROGRESSO DA QUESTÃO
+========================================== */
+
+.barraProgresso {
+    max-width: 1150px;
+    height: 9px;
+    margin: 0 auto 35px;
+    background: #21152d;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.preenchimentoProgresso {
+    height: 100%;
+    background: linear-gradient(90deg, #7540a0, #c58aff);
+    border-radius: 20px;
+    transition: width .4s ease;
+}
+
+/* ==========================================
+   CARD DA QUESTÃO
+========================================== */
+
+.cardQuestao {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 38px;
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .15);
+}
+
+.cardQuestao .etiqueta {
+    margin-bottom: 20px;
+}
+
+.enunciadoQuestao {
+    color: var(--texto);
+    font-size: 23px;
+    line-height: 1.5;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   ALTERNATIVAS
+========================================== */
+
+.listaAlternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-bottom: 28px;
+}
+
+.alternativaQuiz {
+    display: block;
+    cursor: pointer;
+}
+
+.alternativaQuiz input {
+    display: none;
+}
+
+.corpoAlternativa {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px;
+    background: #21152d;
+    border: 1px solid #38204e;
+    border-radius: 13px;
+    color: #e8dff1;
+    transition: .25s;
+}
+
+.alternativaQuiz:hover .corpoAlternativa {
+    border-color: var(--roxo);
+    background: #2a1a39;
+}
+
+.alternativaQuiz input:checked + .corpoAlternativa {
+    border-color: var(--roxo-claro);
+    background: #321b4d;
+}
+
+.letraAlternativa {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #38204e;
+    color: #d3a0ff;
+    border-radius: 9px;
+    font-weight: 900;
+}
+
+.textoAlternativa {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.alternativaTravada {
+    cursor: default;
+}
+
+.alternativaTravada:hover .corpoAlternativa {
+    background: #21152d;
+}
+
+.alternativaCorreta .corpoAlternativa {
+    background: rgba(35, 125, 82, .16);
+    border-color: #3caa79;
+    color: #b9f5d7;
+}
+
+.alternativaErrada .corpoAlternativa {
+    background: rgba(170, 53, 75, .15);
+    border-color: #b84e68;
+    color: #ffc2ce;
+}
+
+.iconeResposta {
+    margin-left: auto;
+    font-size: 23px;
+}
+
+.alternativaCorreta .iconeResposta {
+    color: #65d69d;
+}
+
+.alternativaErrada .iconeResposta {
+    color: #ff829b;
+}
+
+/* ==========================================
+   RETORNO DA RESPOSTA
+========================================== */
+
+.retornoQuiz {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 17px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.retornoQuiz > i {
+    font-size: 25px;
+}
+
+.retornoAcerto {
+    background: rgba(35, 125, 82, .16);
+    border: 1px solid #3caa79;
+    color: #aaf0cc;
+}
+
+.retornoErro {
+    background: rgba(170, 53, 75, .15);
+    border: 1px solid #b84e68;
+    color: #ffc2ce;
+}
+
+/* ==========================================
+   RESULTADO
+========================================== */
+
+.resumoResultado {
+    max-width: 1050px;
+    margin: 0 auto 55px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+}
+
+.anelResultado {
+    width: 190px;
+    height: 190px;
+    min-width: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: conic-gradient(
+        #b77aff calc(var(--percentual) * 1%),
+        #38204e 0
+    );
+    position: relative;
+}
+
+.anelResultado::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    background: var(--card);
+    border-radius: 50%;
+}
+
+.mioloAnel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mioloAnel strong {
+    color: #e5c8ff;
+    font-size: 39px;
+    font-weight: 900;
+}
+
+.mioloAnel span {
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.textoResultado {
+    max-width: 600px;
+}
+
+.textoResultado h1 {
+    color: var(--texto);
+    font-size: 31px;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.textoResultado > p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.placarResultado strong {
+    color: var(--roxo-claro);
+}
+
+.acoesResultado {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* ==========================================
+   DESEMPENHO POR MATÉRIA
+========================================== */
+
+.listaDesempenho {
+    max-width: 850px;
+    padding: 25px;
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+}
+
+.linhaDesempenho {
+    margin-bottom: 23px;
+}
+
+.linhaDesempenho:last-child {
+    margin-bottom: 0;
+}
+
+.cabecalhoDesempenho {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+    color: #e5c8ff;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.cabecalhoDesempenho span:last-child {
+    color: var(--roxo-claro);
+}
+
+/* ==========================================
+   REVISÃO DOS ERROS
+========================================== */
+
+.listaRevisao {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.cardRevisao {
+    padding: 25px;
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 17px;
+}
+
+.cardRevisao h3 {
+    color: #ead8ff;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.cardRevisao .etiqueta {
+    margin-bottom: 15px;
+}
+
+.respostaErrada,
+.respostaCerta {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+.respostaErrada {
+    color: #ff9bad;
+}
+
+.respostaCerta {
+    color: #7ee0ae;
+}
+
+.respostaErrada i,
+.respostaCerta i {
+    font-size: 19px;
+    min-width: 19px;
+}
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+
+.rodapeQuiz {
+    max-width: 1150px;
+    margin: 60px auto 10px;
+    padding-top: 22px;
+    border-top: 1px solid #291a36;
+    text-align: center;
+}
+
+.rodapeQuiz p {
+    color: #88799b;
+    font-size: 13px;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .conteudoQuiz {
+        padding: 22px 5%;
+    }
+
+    .topoQuiz {
+        margin-bottom: 35px;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .apresentacaoQuiz h1 {
+        font-size: 29px;
+    }
+
+    .tituloSecaoQuiz h2 {
+        font-size: 20px;
+    }
+
+    .gradeNiveis,
+    .gradeModos,
+    .gradeMateriasQuiz {
+        grid-template-columns: 1fr;
+    }
+
+    .cardQuiz {
+        min-height: 175px;
+    }
+
+    .cardQuestao {
+        padding: 23px 17px;
+    }
+
+    .enunciadoQuestao {
+        font-size: 19px;
+    }
+
+    .corpoAlternativa {
+        padding: 13px;
+    }
+
+    .resumoResultado {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .anelResultado {
+        width: 160px;
+        height: 160px;
+        min-width: 160px;
+    }
+
+    .textoResultado h1 {
+        font-size: 26px;
+    }
+
+    .acoesResultado {
+        justify-content: center;
+    }
+
+    .listaDesempenho {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .topoQuiz {
+        flex-wrap: wrap;
+    }
+
+    .contadorQuiz {
+        font-size: 12px;
+    }
+
+    .apresentacaoQuiz h1 {
+        font-size: 25px;
+    }
+
+    .botaoQuiz {
+        width: 100%;
+    }
+
+    .acoesResultado {
+        flex-direction: column;
+    }
+
+    .cardRevisao {
+        padding: 19px;
+    }
+}

@@ -203,13 +203,14 @@ $tarefas = $tarefas ?? [];
                 </a>
 
 
-                <a href="#" class="cardAcesso indisponivel" aria-disabled="true">
+                <a href="/TCC/public/quizzes" class="cardAcesso" aria-disabled="true">
 
                     <div class="iconeCard">
                         <i class="bx bx-brain"></i>
                     </div>
 
-                    <span class="status">Em breve</span>
+                    <!-- <span class="status">Em breve</span> -->
+                     <span class="status disponivel">Disponível</span>
 
                     <h3>Quizzes</h3>
 

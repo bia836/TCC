@@ -21,6 +21,7 @@ spl_autoload_register(function ($class) {
         'ResumoController' => __DIR__ . '/../app/Controller/controllerresumo.php',
         'PlanejamentoController' => __DIR__ . '/../app/Controller/controllerplanejamento.php',  
         'Video'=> __DIR__ . '/../app/Controller/controllerConteudo.php',
+        'QuizController' => __DIR__ . '/../app/Controller/controllerQuiz.php',
         'ProcessarController' => __DIR__ . '/../app/Controller/controllerprocessar.php',
         'SessaoController' => __DIR__ . '/../app/Controller/controllersessao.php',
         'LogoutController' => __DIR__ . '/../app/Controller/controllerlogout.php',
@@ -74,6 +75,16 @@ $router->add('POST', '/perfil/excluir', 'CadastroController', 'excluir', true);
 $router->add('GET', '/conteudomateria', 'Video', 'materias', true);
 $router->add('GET', '/conteudos', 'Video', 'conteudos', true);
 $router->add('GET', '/listarConteudos', 'Video', 'conteudos', true);
+
+//rota quiz
+// QUIZZES
+$router->add('GET',  '/quizzes',           'QuizController', 'index', true);
+$router->add('GET',  '/quizzes/iniciar',   'QuizController', 'iniciar', true);
+$router->add('GET',  '/quizzes/questao',   'QuizController', 'questao', true);
+$router->add('POST', '/quizzes/responder', 'QuizController', 'responder', true);
+$router->add('POST', '/quizzes/proxima',   'QuizController', 'proxima', true);
+$router->add('GET',  '/quizzes/resultado', 'QuizController', 'resultado', true);
+$router->add('GET',  '/quizzes/sair',      'QuizController', 'sair', true);
 
 $router->add('POST', '/logout', 'LogoutController', 'logout', true);
 
