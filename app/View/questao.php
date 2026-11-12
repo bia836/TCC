@@ -20,6 +20,8 @@ $ehUltima = $numero >= $total;
 
     <link rel="stylesheet" href="/TCC/public/assets/css/home.css">
     <link rel="stylesheet" href="/TCC/public/assets/css/quizzes.css">
+     <link rel="stylesheet" href="/TCC/public/assets/css/tema.css">
+    <script src="/TCC/public/assets/js/tema.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

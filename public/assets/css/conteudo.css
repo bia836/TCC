@@ -1,8 +1,12 @@
 
 /* =====================================
-   PÁGINA DE CONTEÚDOS - TEMA DARK LUMI
+   PÁGINA DE CONTEÚDOS
 ===================================== */
-
+/* REMOVER MARGEM PADRÃO DO NAVEGADOR */
+body {
+    margin: 0;
+    padding: 0;
+}
 .pagina-conteudos {
     min-height: 100vh;
     padding: 45px 7%;

@@ -586,8 +586,46 @@ a {
 .rodape-final b { color: var(--roxo-claro); }
 
 
+/* BOTÃO DE APARÊNCIA */
+.acoes-topo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.seletor-tema {
+    padding: 10px 13px;
+    color: var(--lilas);
+    background: var(--fundo-claro);
+    border: 1px solid var(--borda);
+    border-radius: 30px;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+    outline: none;
+}
+
+.seletor-tema:focus {
+    border-color: var(--roxo-claro);
+}
 
 /* RESPONSIVIDADE */
+@media (max-width: 650px) {
+    .acoes-topo {
+        gap: 7px;
+    }
+
+    .seletor-tema {
+        padding: 8px;
+        font-size: 0.75rem;
+        max-width: 115px;
+    }
+}
+
+
+
+
 
 @media (max-width: 900px) {
     .topo { grid-template-columns: 1fr 0.8fr; gap: 10px; }

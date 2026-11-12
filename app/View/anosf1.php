@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Selecione seu ano do Fundamental 1 no Lumi.">
-    <title>Lumi | Ensino Médio</title>
+    <title>Lumi | Fundamental 1</title>
 
     <link rel="stylesheet" href="/TCC/public/assets/css/anosem.css">
+    <link rel="stylesheet" href="/TCC/public/assets/css/tema.css">
+    <script src="/TCC/public/assets/js/tema.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -25,7 +27,7 @@
                 <h1>Em qual ano você <span>está?</span></h1>
             </div>
 
-            <section class="cards" aria-label="Anos do Ensino Médio">
+            <section class="cards" aria-label="Anos do Ensino Fundamental 1">
                 <a class="card" href="/TCC/public/cadastro?id_ano=5">
                     <span class="ano">1º</span>
                     <h2>Primeiro ano</h2>

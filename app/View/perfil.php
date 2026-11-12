@@ -25,7 +25,9 @@ $inicial = strtoupper(substr($nome, 0, 1));
 
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <link rel="stylesheet" href="/TCC/public/assets/css/home.css">
-    <link rel="stylesheet" href="/TCC/public/assets/css/perfil.css">
+    <link rel="stylesheet" href="/TCC/public/assets/css/perfil.css"> 
+    <link rel="stylesheet" href="/TCC/public/assets/css/tema.css">
+    <script src="/TCC/public/assets/js/tema.js" defer></script>
 </head>
 
 <body>
@@ -169,8 +171,20 @@ $inicial = strtoupper(substr($nome, 0, 1));
                     </form>
 
                     </details>
+                    
+                      <!-- tema claro/escuro -->
+                <h3 class="subtituloEdicao">Aparência</h3>
 
+           <div class="campoEdicao">
+             <label for="temaEscolhido">Escolha o tema do Lumi</label>
+
+                 <select id="temaEscolhido" onchange="alterarTema(this.value)">
+                    <option value="escuro">Modo escuro</option>
+                     <option value="claro">Modo claro</option>
+                 </select>
             </div>
+
+        </div>
 
         </section>
 

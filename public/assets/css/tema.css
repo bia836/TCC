@@ -1,0 +1,1202 @@
+/* TEMA ESCURO — padrão do Lumi */
+:root {
+    --fundo: #0b0712;
+    --fundo-claro: #171020;
+    --menu: #171020;
+    --card: #171020;
+    --roxo-escuro: #321b4d;
+    --roxo: #8246d9;
+    --roxo-claro: #b98af5;
+    --lilas: #f1eafe;
+    --texto: #f7f2ff;
+    --texto-suave: #c9bdd8;
+    --borda: rgba(185, 138, 245, 0.18);
+}
+
+/* TEMA CLARO */
+html[data-tema="claro"] {
+    --fundo: #f7f5fa;
+    --fundo-claro: #ffffff;
+    --menu: #ffffff;
+    --card: #ffffff;
+    --roxo-escuro: #e9ddf5;
+    --roxo: #8246d9;
+    --roxo-claro: #6f35c2;
+    --lilas: #37244a;
+    --texto: #241b2e;
+    --texto-suave: #716879;
+    --borda: rgba(88, 49, 130, 0.18);
+}
+
+/* ADAPTAÇÕES DA LANDING PAGE */
+html[data-tema="claro"] body {
+    background: var(--fundo);
+}
+
+html[data-tema="claro"] .cabecalho {
+    background:
+        radial-gradient(ellipse at 78% 43%, rgba(130, 70, 217, 0.12), transparent 34%),
+        linear-gradient(135deg, #ffffff 8%, #f4eefb 58%, #eee2fa 100%);
+}
+
+html[data-tema="claro"] .topo-nota {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .botao-secundario {
+    color: var(--texto);
+    background: rgba(130, 70, 217, 0.06);
+}
+
+html[data-tema="claro"] .mascote-fundo {
+    background: radial-gradient(circle, rgba(130, 70, 217, 0.15), rgba(233, 221, 245, 0.45) 58%, rgba(255, 255, 255, 0.4));
+}
+
+html[data-tema="claro"] .flutuante {
+    color: var(--texto);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 12px 30px rgba(50, 27, 77, 0.10);
+}
+
+html[data-tema="claro"] .sobre-moldura {
+    background: linear-gradient(145deg, #f0e6fa, #ffffff);
+}
+
+html[data-tema="claro"] .principal {
+    background: linear-gradient(180deg, #f7f5fa, #f0e8f9, #f7f5fa);
+}
+
+html[data-tema="claro"] .card {
+    background: linear-gradient(145deg, #ffffff, #f5effb);
+}
+
+html[data-tema="claro"] .card h3 {
+    color: var(--roxo-claro);
+}
+
+html[data-tema="claro"] .diferencial-detalhe {
+    background: radial-gradient(circle at center, rgba(130, 70, 217, 0.15), rgba(233, 221, 245, 0.35) 60%, transparent 75%);
+}
+
+html[data-tema="claro"] .rodape {
+    background: #eee8f5;
+}
+
+html[data-tema="claro"] .rodape-marca p,
+html[data-tema="claro"] .rodape-final {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .icones-redes img {
+    background: #ffffff;
+}
+
+/* MODO CLARO — SELEÇÃO DO ANO DO ENSINO MÉDIO */
+
+html[data-tema="claro"] body {
+    background:
+        radial-gradient(ellipse at 50% 38%, rgba(130, 70, 217, 0.10), transparent 48%),
+        var(--fundo);
+}
+
+html[data-tema="claro"] .card {
+    background: linear-gradient(145deg, #ffffff, #f2ebfa);
+    border-color: var(--borda);
+    box-shadow: 0 8px 25px rgba(50, 27, 77, 0.06);
+}
+
+html[data-tema="claro"] .card:hover {
+    background: linear-gradient(145deg, #eee2fa, #ffffff);
+    border-color: var(--roxo-claro);
+    box-shadow: 0 12px 30px rgba(50, 27, 77, 0.10);
+}
+
+/* MODO CLARO — TELA DE CADASTRO */
+
+html[data-tema="claro"] .principal {
+    background: linear-gradient(145deg,
+            #ffffff,
+            #f3ecfa);
+
+    border-color: var(--borda);
+    box-shadow: 0 15px 45px rgba(50, 27, 77, 0.10);
+}
+
+html[data-tema="claro"] .campo input {
+    background: #ffffff;
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .campo input::placeholder {
+    color: #93869f;
+}
+
+html[data-tema="claro"] .botao:hover {
+    background: #6f35c2;
+}
+
+html[data-tema="claro"] .aviso {
+    color: #a85b13;
+}
+
+/* MODO CLARO — TELA DE LOGIN */
+
+html[data-tema="claro"] body {
+    background:
+        radial-gradient(circle at top, #e9ddf5, #f7f5fa, #ffffff);
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .container {
+    background: linear-gradient(145deg, #ffffff, #f3ecfa);
+    border-color: var(--borda);
+    box-shadow: 0 15px 45px rgba(50, 27, 77, 0.10);
+}
+
+html[data-tema="claro"] .logo {
+    color: var(--roxo-claro);
+}
+
+html[data-tema="claro"] .subtitulo,
+html[data-tema="claro"] .opcoes,
+html[data-tema="claro"] .registrar {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .campo label {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .campo input {
+    background-color: #ffffff;
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .campo input::placeholder {
+    color: #93869f;
+}
+
+html[data-tema="claro"] .campo input:focus {
+    border-color: var(--roxo-claro);
+}
+
+html[data-tema="claro"] .opcoes a,
+html[data-tema="claro"] .registrar a {
+    color: var(--roxo-claro);
+}
+
+html[data-tema="claro"] .botao:hover {
+    background-color: #6f35c2;
+}
+
+/* MODO CLARO — HOME */
+
+/* Atualização das variáveis utilizadas pela Home */
+html[data-tema="claro"] {
+    --fundo: #f7f5fa;
+    --menu: #ffffff;
+    --card: #ffffff;
+    --roxo: #8246d9;
+    --roxoClaro: #6f35c2;
+    --texto: #241b2e;
+    --textoSuave: #716879;
+    --borda: rgba(88, 49, 130, 0.18);
+}
+
+/* Menu lateral */
+html[data-tema="claro"] .itemMenu:hover {
+    background: #eee6f7;
+    color: var(--texto);
+}
+
+/* Boas-vindas */
+html[data-tema="claro"] .boasVindas {
+    background: linear-gradient(110deg,
+            #e9ddf5,
+            #f5effb,
+            #ffffff);
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .textoBoasVindas p {
+    color: var(--textoSuave);
+}
+
+/* Cards de acesso */
+html[data-tema="claro"] .cardAcesso:not(.indisponivel):hover {
+    background: #f0e7fa;
+}
+
+/* Dica */
+html[data-tema="claro"] .dica {
+    background: linear-gradient(135deg, #eee2fa, #ffffff);
+}
+
+/* Calendário */
+html[data-tema="claro"] .cabecalhoCalendario button:hover,
+html[data-tema="claro"] .diaCalendario:hover {
+    background: #eee2fa;
+}
+
+/* Campos do planejamento */
+html[data-tema="claro"] .formPlanejamento input {
+    background: #ffffff;
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .formPlanejamento input[type="date"] {
+    color-scheme: light;
+}
+
+/* Tarefas */
+html[data-tema="claro"] .itemTarefa,
+html[data-tema="claro"] .semTarefas {
+    background: #f7f5fa;
+}
+
+/* Botões das tarefas */
+html[data-tema="claro"] .botaoConcluir,
+html[data-tema="claro"] .botaoExcluir {
+    background: #ffffff;
+}
+
+/* MODO CLARO — PÁGINA DE ATIVIDADES */
+
+/* Cabeçalho */
+html[data-tema="claro"] .identificacao {
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .cabecalhoAtividades h1 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cabecalhoAtividades p {
+    color: var(--texto-suave);
+}
+
+/* Cards */
+html[data-tema="claro"] .cardAtividade {
+    background: #ffffff;
+    border-color: var(--borda);
+    box-shadow: 0 5px 18px rgba(50, 27, 77, 0.05);
+}
+
+html[data-tema="claro"] .cardAtividade:hover {
+    border-color: var(--roxo);
+    box-shadow: 0 8px 25px rgba(130, 70, 217, 0.12);
+}
+
+/* Ícones */
+html[data-tema="claro"] .iconeAtividade {
+    background: #eee2fa;
+    color: #6f35c2;
+}
+
+/* Informações */
+html[data-tema="claro"] .informacoesAtividade h2 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .informacoesAtividade p {
+    color: var(--texto-suave);
+}
+
+/* Status */
+html[data-tema="claro"] .statusDisponivel {
+    color: #6f35c2;
+    background: #eee2fa;
+}
+
+html[data-tema="claro"] .statusBreve {
+    color: #716879;
+    background: #f0edf3;
+}
+
+/* Links */
+html[data-tema="claro"] .linkAtividade {
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .linkIndisponivel {
+    color: #82758f;
+}
+
+/* Mensagem de dica */
+html[data-tema="claro"] .mensagemAtividades {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .mensagemAtividades i {
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .mensagemAtividades p {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .mensagemAtividades strong {
+    color: var(--texto);
+}
+
+/* MODO CLARO — PÁGINA MEUS RESUMOS */
+
+/* Variáveis utilizadas pelo abaResumo.css */
+html[data-tema="claro"] {
+    --roxoClaro: #6f35c2;
+    --textoSuave: #716879;
+    --borda: rgba(88, 49, 130, 0.18);
+}
+
+/* Cabeçalho */
+html[data-tema="claro"] .logo {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .voltarHome,
+html[data-tema="claro"] .voltarMaterias {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .voltarHome:hover,
+html[data-tema="claro"] .voltarMaterias:hover {
+    color: var(--roxo);
+}
+
+/* Apresentação */
+html[data-tema="claro"] .apresentacaoResumos {
+    background: linear-gradient(110deg, #eee2fa, #f7f3fb, #ffffff);
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .etiqueta {
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .apresentacaoResumos h1 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .apresentacaoResumos h1 span {
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .apresentacaoResumos p {
+    color: var(--texto-suave);
+}
+
+/* Títulos das seções */
+html[data-tema="claro"] .tituloSecao h2 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .tituloSecao p {
+    color: var(--texto-suave);
+}
+
+/* Cards das matérias */
+html[data-tema="claro"] .cardMateria {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .cardMateria:hover {
+    background: #f3ecfa;
+    border-color: var(--roxo);
+}
+
+html[data-tema="claro"] .cardMateria h3 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cardMateria p {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .iconeMateria,
+html[data-tema="claro"] .iconeResumo {
+    background: #eee2fa;
+}
+
+html[data-tema="claro"] .iconeMateria i,
+html[data-tema="claro"] .iconeResumo i {
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .linkMateria {
+    color: #6f35c2;
+}
+
+/* Botão criar resumo */
+html[data-tema="claro"] .botaoCriar:hover {
+    background: #6f35c2;
+}
+
+/* Cards dos resumos */
+html[data-tema="claro"] .cardResumo {
+    background: #ffffff;
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cardResumo:hover {
+    background: #f3ecfa;
+    border-color: var(--roxo);
+}
+
+html[data-tema="claro"] .tituloResumo {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .abrirResumo {
+    color: #6f35c2;
+}
+
+/* Estado vazio */
+html[data-tema="claro"] .estadoVazio {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .estadoVazio h3 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .estadoVazio p {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .estadoVazio>i {
+    color: #6f35c2;
+}
+
+/* Janela de visualização e edição */
+html[data-tema="claro"] .modal {
+    background: rgba(36, 27, 46, 0.45);
+}
+
+html[data-tema="claro"] .modalConteudo {
+    background: #ffffff;
+    border-color: var(--borda);
+    box-shadow: 0 15px 50px rgba(50, 27, 77, 0.15);
+}
+
+html[data-tema="claro"] .fecharModal {
+    background: #eee2fa;
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .fecharModal:hover {
+    background: var(--roxo);
+    color: #ffffff;
+}
+
+html[data-tema="claro"] .cabecalhoModal h2 {
+    color: var(--texto);
+}
+
+/* Conteúdo do resumo */
+html[data-tema="claro"] .visualizacaoResumo {
+    background: #f7f5fa;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .visualizacaoResumo p {
+    color: var(--texto-suave);
+}
+
+/* Formulário de edição */
+html[data-tema="claro"] .editarResumo {
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .editarResumo h3,
+html[data-tema="claro"] .campoModal label {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .campoModal input,
+html[data-tema="claro"] .campoModal textarea {
+    background: #ffffff;
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .campoModal input:focus,
+html[data-tema="claro"] .campoModal textarea:focus {
+    border-color: var(--roxo);
+}
+
+/* Botão salvar */
+html[data-tema="claro"] .botaoSalvar:hover {
+    background: #6f35c2;
+}
+
+/* Exclusão */
+html[data-tema="claro"] .formExcluir {
+    border-color: var(--borda);
+}
+
+/* Rodapé */
+html[data-tema="claro"] .rodapeResumos {
+    border-color: var(--borda);
+    color: var(--texto-suave);
+}
+
+/* MODO CLARO — PÁGINA CRIAR RESUMO */
+
+html[data-tema="claro"] .conteudo-principal {
+    color: var(--texto);
+}
+
+/* Cabeçalho */
+html[data-tema="claro"] .subtitulo {
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .cabecalho-pagina h1 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cabecalho-pagina p {
+    color: var(--texto-suave);
+}
+
+/* Área de criação */
+html[data-tema="claro"] .area-criacao {
+    background: #ffffff;
+    border-color: var(--borda);
+    box-shadow: 0 8px 25px rgba(50, 27, 77, 0.06);
+}
+
+/* Título da área */
+html[data-tema="claro"] .titulo-area h2 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .titulo-area p {
+    color: var(--texto-suave);
+}
+
+/* Campos */
+html[data-tema="claro"] .campo label {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .campo input,
+html[data-tema="claro"] .campo textarea {
+    background: #f7f5fa;
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .campo input::placeholder,
+html[data-tema="claro"] .campo textarea::placeholder {
+    color: #93869f;
+}
+
+html[data-tema="claro"] .campo input:focus,
+html[data-tema="claro"] .campo textarea:focus {
+    border-color: var(--roxo);
+    box-shadow: 0 0 0 3px rgba(130, 70, 217, 0.12);
+}
+
+/* Botão salvar */
+html[data-tema="claro"] .acoes button {
+    background: var(--roxo);
+    color: #ffffff;
+}
+
+html[data-tema="claro"] .acoes button:hover {
+    background: #6f35c2;
+}
+
+/* ==========================================
+   MODO CLARO — PÁGINAS DE QUIZZES
+========================================== */
+
+html[data-tema="claro"] .conteudoQuiz {
+    --fundo: #f7f5fa;
+    --card: #ffffff;
+    --card-hover: #f3ecfa;
+    --borda: rgba(88, 49, 130, 0.18);
+    --roxo: #8246d9;
+    --roxo-claro: #6f35c2;
+    --texto: #241b2e;
+    --texto-secundario: #716879;
+
+    background: var(--fundo);
+    color: var(--texto);
+}
+
+/* Cabeçalho */
+html[data-tema="claro"] .voltarQuiz {
+    color: var(--texto-secundario);
+}
+
+html[data-tema="claro"] .voltarQuiz:hover {
+    color: var(--roxo);
+}
+
+html[data-tema="claro"] .contadorQuiz {
+    background: #eee2fa;
+    border-color: var(--borda);
+    color: var(--roxo);
+}
+
+/* Etiquetas */
+html[data-tema="claro"] .etiqueta {
+    background: #eee2fa;
+    color: #6f35c2;
+}
+
+/* Apresentação */
+html[data-tema="claro"] .apresentacaoQuiz h1,
+html[data-tema="claro"] .textoResultado h1 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .apresentacaoQuiz h1 span {
+    color: var(--roxo);
+}
+
+html[data-tema="claro"] .apresentacaoQuiz p,
+html[data-tema="claro"] .textoResultado>p {
+    color: var(--texto-secundario);
+}
+
+/* Títulos das seções */
+html[data-tema="claro"] .tituloSecaoQuiz h2 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .tituloSecaoQuiz p {
+    color: var(--texto-secundario);
+}
+
+/* Cards dos quizzes */
+html[data-tema="claro"] .cardQuiz {
+    background: #ffffff;
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cardQuiz:hover {
+    background: #f3ecfa;
+    border-color: var(--roxo);
+    box-shadow: 0 10px 30px rgba(117, 64, 160, 0.10);
+}
+
+html[data-tema="claro"] .iconeQuiz {
+    background: #eee2fa;
+    color: var(--roxo);
+}
+
+html[data-tema="claro"] .cardQuiz h3 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cardQuiz p {
+    color: var(--texto-secundario);
+}
+
+html[data-tema="claro"] .linkQuiz {
+    color: var(--roxo);
+}
+
+html[data-tema="claro"] .seloQuiz {
+    background: #eee2fa;
+    color: var(--roxo);
+}
+
+/* Avisos e estados vazios */
+html[data-tema="claro"] .avisoQuiz {
+    background: #f3ecfa;
+    border-color: var(--borda);
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .estadoVazioQuiz {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .estadoVazioQuiz>i {
+    color: var(--roxo);
+}
+
+html[data-tema="claro"] .estadoVazioQuiz h3 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .estadoVazioQuiz p {
+    color: var(--texto-secundario);
+}
+
+/* Botões */
+html[data-tema="claro"] .botaoQuiz {
+    background: var(--roxo);
+    color: #ffffff;
+}
+
+html[data-tema="claro"] .botaoQuiz:hover {
+    background: #6f35c2;
+}
+
+html[data-tema="claro"] .botaoSecundario {
+    background: #eee2fa;
+    border-color: var(--borda);
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .botaoSecundario:hover {
+    background: #e3d3f5;
+}
+
+/* Barra de progresso */
+html[data-tema="claro"] .barraProgresso {
+    background: #e9ddf5;
+}
+
+/* Card da questão */
+html[data-tema="claro"] .cardQuestao {
+    background: #ffffff;
+    border-color: var(--borda);
+    box-shadow: 0 12px 35px rgba(50, 27, 77, 0.07);
+}
+
+html[data-tema="claro"] .enunciadoQuestao {
+    color: var(--texto);
+}
+
+/* Alternativas */
+html[data-tema="claro"] .corpoAlternativa {
+    background: #f7f5fa;
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .alternativaQuiz:hover .corpoAlternativa {
+    background: #f0e7fa;
+    border-color: var(--roxo);
+}
+
+html[data-tema="claro"] .alternativaQuiz input:checked+.corpoAlternativa {
+    background: #eee2fa;
+    border-color: var(--roxo);
+}
+
+html[data-tema="claro"] .letraAlternativa {
+    background: #e9ddf5;
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .alternativaTravada:hover .corpoAlternativa {
+    background: #f7f5fa;
+}
+
+/* Resposta correta e incorreta */
+html[data-tema="claro"] .alternativaCorreta .corpoAlternativa {
+    background: #e6f5ec;
+    border-color: #3caa79;
+    color: #205c3d;
+}
+
+html[data-tema="claro"] .alternativaErrada .corpoAlternativa {
+    background: #fbecef;
+    border-color: #b84e68;
+    color: #8b3047;
+}
+
+/* Retorno da resposta */
+html[data-tema="claro"] .retornoAcerto {
+    background: #e6f5ec;
+    border-color: #3caa79;
+    color: #205c3d;
+}
+
+html[data-tema="claro"] .retornoErro {
+    background: #fbecef;
+    border-color: #b84e68;
+    color: #8b3047;
+}
+
+/* Resultado */
+html[data-tema="claro"] .resumoResultado {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .anelResultado {
+    background: conic-gradient(#8246d9 calc(var(--percentual) * 1%),
+            #e9ddf5 0);
+}
+
+html[data-tema="claro"] .mioloAnel strong {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .mioloAnel span {
+    color: var(--texto-secundario);
+}
+
+html[data-tema="claro"] .placarResultado strong {
+    color: var(--roxo);
+}
+
+/* Desempenho por matéria */
+html[data-tema="claro"] .listaDesempenho {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .cabecalhoDesempenho {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cabecalhoDesempenho span:last-child {
+    color: var(--roxo);
+}
+
+/* Revisão dos erros */
+html[data-tema="claro"] .cardRevisao {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .cardRevisao h3 {
+    color: var(--texto);
+}
+
+/* Rodapé */
+html[data-tema="claro"] .rodapeQuiz {
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .rodapeQuiz p {
+    color: var(--texto-secundario);
+}
+
+/* ==========================================
+   MODO CLARO — SELEÇÃO DOS QUIZZES
+========================================== */
+
+/* Cabeçalho */
+html[data-tema="claro"] .logo {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .logo span {
+    color: var(--roxo);
+}
+
+html[data-tema="claro"] .voltarQuiz {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .voltarQuiz:hover {
+    color: var(--roxo);
+}
+
+/* Apresentação */
+html[data-tema="claro"] .apresentacaoQuiz h1 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .apresentacaoQuiz h1 span {
+    color: var(--roxo);
+}
+
+html[data-tema="claro"] .apresentacaoQuiz p {
+    color: var(--texto-suave);
+}
+
+/* Títulos das seções */
+html[data-tema="claro"] .tituloSecaoQuiz h2 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .tituloSecaoQuiz p {
+    color: var(--texto-suave);
+}
+
+/* Cards dos níveis, modos e matérias */
+html[data-tema="claro"] .cardQuiz {
+    background: #ffffff;
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cardQuiz:hover {
+    background: #f3ecfa;
+    border-color: var(--roxo);
+    box-shadow: 0 10px 30px rgba(117, 64, 160, 0.10);
+}
+
+html[data-tema="claro"] .iconeQuiz {
+    background: #eee2fa;
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .cardQuiz h3 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cardQuiz p {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .linkQuiz {
+    color: #6f35c2;
+}
+
+/* Selo do ano do aluno */
+html[data-tema="claro"] .seloQuiz {
+    background: #eee2fa;
+    color: #6f35c2;
+}
+
+/* Estado vazio */
+html[data-tema="claro"] .estadoVazioQuiz {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .estadoVazioQuiz>i {
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .estadoVazioQuiz h3 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .estadoVazioQuiz p {
+    color: var(--texto-suave);
+}
+
+/* Avisos */
+html[data-tema="claro"] .avisoQuiz {
+    background: #f3ecfa;
+    border-color: var(--borda);
+    color: #6f35c2;
+}
+
+/* Rodapé */
+html[data-tema="claro"] .rodapeQuiz {
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .rodapeQuiz p {
+    color: var(--texto-suave);
+}
+
+/* ==========================================
+   MODO CLARO — RESULTADO DOS QUIZZES
+========================================== */
+
+/* Cabeçalho */
+html[data-tema="claro"] .topoQuiz .logo {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .topoQuiz .logo span {
+    color: var(--roxo);
+}
+
+/* Painel de resultado */
+html[data-tema="claro"] .resumoResultado {
+    background: #ffffff;
+    border-color: var(--borda);
+    box-shadow: 0 10px 30px rgba(50, 27, 77, 0.06);
+}
+
+/* Anel de porcentagem */
+html[data-tema="claro"] .anelResultado {
+    background: conic-gradient(#8246d9 calc(var(--percentual) * 1%),
+            #e9ddf5 0);
+}
+
+html[data-tema="claro"] .anelResultado::before {
+    background: #ffffff;
+}
+
+html[data-tema="claro"] .mioloAnel strong {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .mioloAnel span {
+    color: var(--texto-suave);
+}
+
+/* Informações do resultado */
+html[data-tema="claro"] .textoResultado h1 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .textoResultado>p {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .placarResultado strong {
+    color: var(--roxo);
+}
+
+/* Botões de ação */
+html[data-tema="claro"] .acoesResultado .botaoQuiz {
+    background: var(--roxo);
+    color: #ffffff;
+}
+
+html[data-tema="claro"] .acoesResultado .botaoQuiz:hover {
+    background: #6f35c2;
+}
+
+html[data-tema="claro"] .acoesResultado .botaoSecundario {
+    background: #eee2fa;
+    border-color: var(--borda);
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .acoesResultado .botaoSecundario:hover {
+    background: #e3d3f5;
+}
+
+/* Desempenho por matéria */
+html[data-tema="claro"] .listaDesempenho {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .cabecalhoDesempenho {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .cabecalhoDesempenho span:last-child {
+    color: var(--roxo);
+}
+
+/* Barras de progresso */
+html[data-tema="claro"] .barraProgresso {
+    background: #e9ddf5;
+}
+
+/* Revisão dos erros */
+html[data-tema="claro"] .cardRevisao {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .cardRevisao h3 {
+    color: var(--texto);
+}
+
+/* Rodapé */
+html[data-tema="claro"] .rodapeQuiz {
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .rodapeQuiz p {
+    color: var(--texto-suave);
+}
+
+/* MODO CLARO — PÁGINA DE CONTEÚDOS */
+
+/* Fundo da página */
+html[data-tema="claro"] .pagina-conteudos {
+    background: var(--fundo);
+    color: var(--texto);
+}
+
+/* Cabeçalho */
+html[data-tema="claro"] .pagina-conteudos .voltar {
+    color: #6f35c2;
+}
+
+html[data-tema="claro"] .pagina-conteudos .voltar:hover {
+    color: #8246d9;
+}
+
+html[data-tema="claro"] .pagina-conteudos .cabecalho h1 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .pagina-conteudos .cabecalho p {
+    color: var(--texto-suave);
+}
+
+/* Progresso do carrossel */
+html[data-tema="claro"] .pagina-conteudos #numeroConteudo {
+    color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .pagina-conteudos .barraProgresso {
+    background: #e9ddf5;
+}
+
+html[data-tema="claro"] .pagina-conteudos #barraAtual {
+    background: var(--roxo);
+}
+
+/* Cartão do conteúdo */
+html[data-tema="claro"] .pagina-conteudos .slideConteudo {
+    background: #ffffff;
+    border-color: var(--borda);
+    box-shadow: 0 8px 25px rgba(50, 27, 77, 0.07);
+}
+
+/* Etiqueta */
+html[data-tema="claro"] .pagina-conteudos .etiqueta {
+    background: #eee2fa;
+    color: #6f35c2;
+}
+
+/* Título e descrição */
+html[data-tema="claro"] .pagina-conteudos .slideConteudo h2 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .pagina-conteudos .descricaoConteudo {
+    color: var(--texto-suave);
+}
+
+/* Vídeo */
+html[data-tema="claro"] .pagina-conteudos .videoConteudo {
+    background: #f7f5fa;
+    border-color: var(--borda);
+}
+
+/* Material de estudo */
+html[data-tema="claro"] .pagina-conteudos .textoConteudo {
+    color: var(--texto);
+}
+
+/* Botão anterior */
+html[data-tema="claro"] .pagina-conteudos #anteriorConteudo {
+    background: #eee2fa;
+    color: #6f35c2;
+    border-color: var(--borda);
+}
+
+/* Botão próximo */
+html[data-tema="claro"] .pagina-conteudos #proximoConteudo {
+    background: var(--roxo);
+    color: #ffffff;
+    border-color: var(--roxo);
+}
+
+/* Estado vazio */
+html[data-tema="claro"] .pagina-conteudos .estadoVazio {
+    background: #ffffff;
+    border-color: var(--borda);
+}
+
+html[data-tema="claro"] .pagina-conteudos .estadoVazio h3 {
+    color: var(--texto);
+}
+
+html[data-tema="claro"] .pagina-conteudos .estadoVazio p {
+    color: var(--texto-suave);
+}

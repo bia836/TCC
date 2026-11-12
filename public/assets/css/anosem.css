@@ -153,6 +153,8 @@ h1 span {
     margin-right: 5px;
 }
 
+
+
 @media (max-width: 700px) {
     .cards {
         grid-template-columns: 1fr;

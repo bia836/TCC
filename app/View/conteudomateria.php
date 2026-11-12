@@ -9,6 +9,9 @@
     <title>Lumi | Conteúdos por matéria</title>
 
     <link rel="stylesheet" href="/TCC/public/assets/css/abaResumo.css">
+    <link rel="stylesheet" href="/TCC/public/assets/css/tema.css">
+
+    <script src="/TCC/public/assets/js/tema.js" defer></script>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

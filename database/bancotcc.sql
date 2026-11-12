@@ -28,12 +28,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alternativas` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_atividade` int(11) NOT NULL,
   `texto` text NOT NULL,
-  `correta` tinyint(1) DEFAULT 0
+  `correta` tinyint(1) DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `id_atividade` (`id_atividade`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -72,11 +73,11 @@ INSERT INTO `anos` (`id_ano`, `nome_ano`, `etapa`) VALUES
 --
 
 CREATE TABLE `atividades` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `pergunta` text NOT NULL,
-  `id_materia` int(11) DEFAULT NULL
+  `id_materia` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -6012,15 +6013,10 @@ INSERT INTO `resumos` (`id`, `id_pessoa`, `id_materia`, `titulo`, `conteudo`, `c
 (7, 18, 19, 'GCHGHGH', 'JHVHJK', '2026-11-05 01:33:08', '2026-11-05 01:33:08');
 
 
-ALTER TABLE `alternativas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_atividade` (`id_atividade`);
-
 ALTER TABLE `anos`
   ADD PRIMARY KEY (`id_ano`);
 
 ALTER TABLE `atividades`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `id_conteudo` (`id_materia`);
 
 ALTER TABLE `conteudos`

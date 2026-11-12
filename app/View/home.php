@@ -18,6 +18,8 @@ $tarefas = $tarefas ?? [];
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 
     <link rel="stylesheet" href="/TCC/public/assets/css/home.css">
+     <link rel="stylesheet" href="/TCC/public/assets/css/tema.css">
+    <script src="/TCC/public/assets/js/tema.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -168,8 +170,6 @@ $tarefas = $tarefas ?? [];
                         <i class="bx bx-play-circle"></i>
                     </div>
 
-                    <!-- <span class="status">Em breve</span> -->
-                     <span class="status disponivel">Disponível</span>
 
                     <h3>Videoaulas</h3>
 
@@ -189,7 +189,6 @@ $tarefas = $tarefas ?? [];
                         <i class="bx bx-book-content"></i>
                     </div>
 
-                    <span class="status disponivel">Disponível</span>
 
                     <h3>Meus resumos</h3>
 
@@ -209,8 +208,7 @@ $tarefas = $tarefas ?? [];
                         <i class="bx bx-brain"></i>
                     </div>
 
-                    <!-- <span class="status">Em breve</span> -->
-                     <span class="status disponivel">Disponível</span>
+                    
 
                     <h3>Quizzes</h3>
 
@@ -232,23 +230,6 @@ $tarefas = $tarefas ?? [];
 
         <section class="parteInferior">
 
-            <div class="progresso">
-
-                <div class="iconeProgresso">
-                    <i class="bx bx-trending-up"></i>
-                </div>
-
-                <div>
-                    <h2>Seu progresso</h2>
-
-                    <p>
-                        Sua jornada de estudos começa aqui!
-                        Conforme você utilizar o Lumi, poderá acompanhar
-                        seu desenvolvimento por aqui.
-                    </p>
-                </div>
-
-            </div>
 
 
             <div class="dica">

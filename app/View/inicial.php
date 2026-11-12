@@ -10,13 +10,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/TCC/public/assets/css/tema.css">
+      <script src="/TCC/public/assets/js/tema.js" defer></script>
 </head>
 <body>
     <header class="cabecalho">
-        <div class="barra-topo">
-            <a class="logo" href="/TCC/public/" aria-label="Lumi - página inicial">lumi<span>.</span></a>
-            <a class="link-entrar" href="/TCC/public/login">Entrar na conta <span aria-hidden="true">↗</span></a>
+       
+       <div class="barra-topo">
+              <a class="logo" href="/TCC/public/" aria-label="Lumi - página inicial">lumi<span>.</span></a>
+
+            <div class="acoes-topo">
+              <select id="temaEscolhido" class="seletor-tema" onchange="alterarTema(this.value)" aria-label="Escolher aparência">
+                   <option value="escuro">Modo escuro</option>
+                   <option value="claro">Modo claro</option>
+             </select>
+
+             <a class="link-entrar" href="/TCC/public/login">
+                 Entrar na conta <span aria-hidden="true">↗</span>
+             </a>
+            </div>
         </div>
+ 
 
         <section class="topo">
             <div class="topo-conteudo">
