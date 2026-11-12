@@ -68,14 +68,14 @@ $paginaAtual = "atividades";
             </a>
 
             <!-- VIDEOAULAS -->
-            <div class="cardAtividade cardFuturo">
+            <a href="/TCC/public/conteudomateria" class="cardAtividade cardResumo">
 
                 <div class="iconeAtividade">
                     <i class="bx bx-play-circle"></i>
                 </div>
 
                 <div class="informacoesAtividade">
-                    <span class="statusBreve">Em breve</span>
+                    <span class="statusDisponivel">Disponível</span>
 
                     <h2>Videoaulas</h2>
 
@@ -84,12 +84,14 @@ $paginaAtual = "atividades";
                         explicativas e práticas.
                     </p>
 
-                    <span class="linkIndisponivel">
-                        Disponível em breve
+
+                    <span class="linkAtividade">
+                        Acessar conteúdos
+                        <i class="bx bx-right-arrow-alt"></i>
                     </span>
                 </div>
 
-            </div>
+</a>
 
             <!-- QUIZZES -->
             <div class="cardAtividade cardFuturo">

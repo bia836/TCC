@@ -162,13 +162,14 @@ $tarefas = $tarefas ?? [];
 
             <div class="gradeCards">
 
-                <a href="#" class="cardAcesso indisponivel" aria-disabled="true">
+                <a href="/TCC/public/conteudomateria" class="cardAcesso" aria-disabled="true">
 
                     <div class="iconeCard">
                         <i class="bx bx-play-circle"></i>
                     </div>
 
-                    <span class="status">Em breve</span>
+                    <!-- <span class="status">Em breve</span> -->
+                     <span class="status disponivel">Disponível</span>
 
                     <h3>Videoaulas</h3>
 

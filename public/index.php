@@ -20,6 +20,7 @@ spl_autoload_register(function ($class) {
         'LoginController' => __DIR__ . '/../app/Controller/controllerlogin.php',
         'ResumoController' => __DIR__ . '/../app/Controller/controllerresumo.php',
         'PlanejamentoController' => __DIR__ . '/../app/Controller/controllerplanejamento.php',  
+        'Video'=> __DIR__ . '/../app/Controller/controllerConteudo.php',
         'ProcessarController' => __DIR__ . '/../app/Controller/controllerprocessar.php',
         'SessaoController' => __DIR__ . '/../app/Controller/controllersessao.php',
         'LogoutController' => __DIR__ . '/../app/Controller/controllerlogout.php',
@@ -36,7 +37,9 @@ $router = new Router($conn, $basePath);
 $router->add('GET', '/', 'PaginaInicialController', 'index');
 //GET é o método http. / é meio q o nome da url. 'PaginaInicialController' é o nome dado ao controllerRotas. index é a função.
 $router->add('GET', '/proposit', 'PaginaInicialController', 'proposit');
-$router->add('GET', '/anosem', 'PaginaInicialController', 'anosem');    
+$router->add('GET', '/anosem', 'PaginaInicialController', 'anosem');
+$router->add('GET', '/anosfund1', 'PaginaInicialController', 'anosf1'); 
+$router->add('GET', '/anosfund2', 'PaginaInicialController', 'anosf2');    
 $router->add('GET', '/cadastro', 'CadastroController', 'index');
 $router->add('POST', '/cadastro', 'CadastroController', 'cadastrar');
 $router->add('GET', '/home', 'PaginaInicialController', 'home');
@@ -66,6 +69,11 @@ $router->add('POST', '/planejamento/excluir', 'PlanejamentoController', 'excluir
 $router->add('POST', '/perfil/editar', 'CadastroController', 'editar', true);
 $router->add('POST', '/perfil/alterar-senha', 'CadastroController', 'alterarSenha', true);
 $router->add('POST', '/perfil/excluir', 'CadastroController', 'excluir', true);
+
+//rota dos conteudos
+$router->add('GET', '/conteudomateria', 'Video', 'materias', true);
+$router->add('GET', '/conteudos', 'Video', 'conteudos', true);
+$router->add('GET', '/listarConteudos', 'Video', 'conteudos', true);
 
 $router->add('POST', '/logout', 'LogoutController', 'logout', true);
 

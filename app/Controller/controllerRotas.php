@@ -30,6 +30,16 @@ class PaginaInicialController
     require_once __DIR__ . '/../View/anosem.php';
 }
 
+    public function anosf1()
+{
+    require_once __DIR__ . '/../View/anosf1.php';
+}
+
+    public function anosf2()
+{
+    require_once __DIR__ . '/../View/anosf2.php';
+}
+
  public function home()
 {
     if (empty($_SESSION['id_pessoa'])) {
@@ -92,4 +102,21 @@ class PaginaInicialController
         require_once __DIR__ . '/../View/criarResumo.php';
     }
 
+    public function conteudos(){
+        if (empty($_SESSION['id_pessoa'])) {
+        header('Location: /TCC/public/login');
+        exit;
+    }
+        require_once __DIR__ . '/../View/conteudo.php';
+
+    }
+
+    public function conteudomateria(){
+        if (empty($_SESSION['id_pessoa'])) {
+        header('Location: /TCC/public/login');
+        exit;
+    }
+        require_once __DIR__ . '/../View/conteudomateria.php';
+
+    }
 }

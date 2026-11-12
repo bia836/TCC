@@ -28,17 +28,17 @@
             </div>
 
             <section class="cards" aria-label="Períodos escolares">
-                <article class="card card-indisponivel">
+                <a class="card card-ativo" href="/TCC/public/anosfund1">
                     <h2>Ensino Fundamental I</h2>
                     <p>Do 1º ao 5º ano</p>
-                    <span class="estado">Em breve</span>
-                </article>
+                    <span class="acao">Selecionar período <span aria-hidden="true">→</span></span>
+                </a>
 
-                <article class="card card-indisponivel">
+                <a class="card card-ativo" href="/TCC/public/anosfund2">
                     <h2>Ensino Fundamental II</h2>
                     <p>Do 6º ao 9º ano</p>
-                    <span class="estado">Em breve</span>
-                </article>
+                    <span class="acao">Selecionar período <span aria-hidden="true">→</span></span>
+                </a>
 
                 <a class="card card-ativo" href="/TCC/public/anosem">
                     <h2>Ensino Médio</h2>
@@ -46,11 +46,11 @@
                     <span class="acao">Selecionar período <span aria-hidden="true">→</span></span>
                 </a>
 
-                <article class="card card-indisponivel">
+                <a class="card card-ativo" href="/TCC/public/cadastro?id_ano=4">
                     <h2>Vestibular</h2>
                     <p>Prepare-se para as provas</p>
-                    <span class="estado">Em breve</span>
-                </article>
+                    <span class="acao">Selecionar período<span aria-hidden="true">→</span></span>
+                </a>
             </section>
 
             <p class="mensagem-final"><span>✦</span> No Lumi, cada etapa é uma nova oportunidade de aprender.</p>
