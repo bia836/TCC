@@ -4266,6 +4266,1704 @@ INSERT INTO `pessoas` (`id_pessoa`, `id_ano`, `nome`, `usuario`, `email`, `senha
 (18, 2, 'Polenta da silva', 'polentinha', 'estelao.89@gmail.com', '$2y$10$QJMIrAcq1wSLEDXg8CdrMe3C7DcBJ90PIEhwr3HxOZtaMkYpajLY.', '2026-11-04 21:43:27');
 
 
+
+INSERT INTO materias (id_ano, materia)
+SELECT 4, base.materia
+FROM (SELECT DISTINCT materia FROM materias WHERE id_ano = 1) AS base
+WHERE NOT EXISTS (
+    SELECT 1 FROM materias x WHERE x.id_ano = 4 AND x.materia = base.materia
+);
+
+
+START TRANSACTION;
+
+-- ===================== 1º ANO DO ENSINO MÉDIO =====================
+
+-- 1º ano do Ensino Médio | Matemática
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o valor de f(3) na função f(x) = 2x + 5?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '13', 0),
+    (@id_atividade, '16', 0),
+    (@id_atividade, '8', 0),
+    (@id_atividade, '11', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em uma progressão aritmética de primeiro termo 3 e razão 4, qual é o 10º termo?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '39', 1),
+    (@id_atividade, '40', 0),
+    (@id_atividade, '36', 0),
+    (@id_atividade, '43', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Sendo A = {1, 2, 3, 4} e B = {3, 4, 5, 6}, quantos elementos tem o conjunto A ∩ B?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '2', 1),
+    (@id_atividade, '1', 0),
+    (@id_atividade, '4', 0),
+    (@id_atividade, '6', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um produto que custava R$ 80,00 recebeu um desconto de 25%. Qual é o novo preço?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'R$ 20,00', 0),
+    (@id_atividade, 'R$ 65,00', 0),
+    (@id_atividade, 'R$ 60,00', 1),
+    (@id_atividade, 'R$ 55,00', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quais são as raízes da equação x² − 5x + 6 = 0?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '−2 e −3', 0),
+    (@id_atividade, '−1 e 6', 0),
+    (@id_atividade, '1 e 6', 0),
+    (@id_atividade, '2 e 3', 1);
+
+
+-- 1º ano do Ensino Médio | Português
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual figura de linguagem aparece em “Seus olhos são duas estrelas”?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Hipérbole', 0),
+    (@id_atividade, 'Ironia', 0),
+    (@id_atividade, 'Metáfora', 1),
+    (@id_atividade, 'Onomatopeia', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a classe gramatical da palavra destacada em: “Os alunos estudaram MUITO para a prova”?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Pronome', 0),
+    (@id_atividade, 'Adjetivo', 0),
+    (@id_atividade, 'Advérbio', 1),
+    (@id_atividade, 'Substantivo', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual característica é típica do Barroco?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'O contraste entre fé e razão, espírito e matéria', 1),
+    (@id_atividade, 'A descrição científica e impessoal da realidade', 0),
+    (@id_atividade, 'O culto à vida simples no campo', 0),
+    (@id_atividade, 'O subjetivismo e a idealização da mulher amada', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual gênero textual tem como finalidade relatar fatos reais e recentes de interesse público?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Editorial', 0),
+    (@id_atividade, 'Notícia', 1),
+    (@id_atividade, 'Conto', 0),
+    (@id_atividade, 'Poema', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em qual das frases a concordância verbal está correta?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Existe muitas pessoas na fila.', 0),
+    (@id_atividade, 'Fazem dois anos que me mudei.', 0),
+    (@id_atividade, 'Faz dois anos que me mudei.', 1),
+    (@id_atividade, 'Houveram muitos problemas na reunião.', 0);
+
+
+-- 1º ano do Ensino Médio | História
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em qual cidade-Estado da Grécia Antiga surgiu a democracia?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Corinto', 0),
+    (@id_atividade, 'Atenas', 1),
+    (@id_atividade, 'Esparta', 0),
+    (@id_atividade, 'Tebas', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual era a base da economia na Europa feudal?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'A extração de petróleo', 0),
+    (@id_atividade, 'A indústria têxtil nas grandes cidades', 0),
+    (@id_atividade, 'A agricultura de subsistência, com trabalho servil nos feudos', 1),
+    (@id_atividade, 'O comércio marítimo com as colônias americanas', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual movimento cultural, nascido na Itália entre os séculos XIV e XVI, valorizou o humanismo e o antropocentrismo?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Renascimento', 1),
+    (@id_atividade, 'Reforma Protestante', 0),
+    (@id_atividade, 'Iluminismo', 0),
+    (@id_atividade, 'Barroco', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem iniciou a Reforma Protestante, em 1517, ao divulgar as 95 teses?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Erasmo de Roterdã', 0),
+    (@id_atividade, 'Henrique VIII', 0),
+    (@id_atividade, 'João Calvino', 0),
+    (@id_atividade, 'Martinho Lutero', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual foi o sistema de colonização adotado pelos portugueses no Brasil em 1534, dividindo o território em grandes faixas de terra?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Plantation', 0),
+    (@id_atividade, 'Bandeirantismo', 0),
+    (@id_atividade, 'Governo-Geral', 0),
+    (@id_atividade, 'Capitanias hereditárias', 1);
+
+
+-- 1º ano do Ensino Médio | Química
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O número atômico (Z) de um elemento indica a quantidade de:', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Prótons no núcleo', 1),
+    (@id_atividade, 'Nêutrons no núcleo', 0),
+    (@id_atividade, 'Prótons mais nêutrons', 0),
+    (@id_atividade, 'Elétrons da camada de valência', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o tipo de ligação química entre o sódio (Na) e o cloro (Cl) no sal de cozinha (NaCl)?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Iônica', 1),
+    (@id_atividade, 'Covalente', 0),
+    (@id_atividade, 'Metálica', 0),
+    (@id_atividade, 'Ponte de hidrogênio', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual modelo atômico propôs um núcleo pequeno, denso e positivo, com os elétrons girando ao redor?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Modelo de Dalton', 0),
+    (@id_atividade, 'Modelo de Bohr', 0),
+    (@id_atividade, 'Modelo de Thomson', 0),
+    (@id_atividade, 'Modelo de Rutherford', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual das opções representa uma substância simples?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'NaCl (sal de cozinha)', 0),
+    (@id_atividade, 'CO₂ (gás carbônico)', 0),
+    (@id_atividade, 'O₂ (gás oxigênio)', 1),
+    (@id_atividade, 'H₂O (água)', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Elementos químicos que ficam na mesma coluna (grupo) da tabela periódica têm em comum:', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'O mesmo número de camadas eletrônicas', 0),
+    (@id_atividade, 'O mesmo número de elétrons na camada de valência', 1),
+    (@id_atividade, 'O mesmo número de prótons', 0),
+    (@id_atividade, 'A mesma massa atômica', 0);
+
+
+-- 1º ano do Ensino Médio | Biologia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual organela celular é responsável pela respiração celular e pela produção da maior parte do ATP?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Ribossomo', 0),
+    (@id_atividade, 'Complexo golgiense', 0),
+    (@id_atividade, 'Mitocôndria', 1),
+    (@id_atividade, 'Lisossomo', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual organela das células vegetais realiza a fotossíntese?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Cloroplasto', 1),
+    (@id_atividade, 'Mitocôndria', 0),
+    (@id_atividade, 'Núcleo', 0),
+    (@id_atividade, 'Centríolo', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual molécula armazena a informação genética dos seres vivos?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'DNA', 1),
+    (@id_atividade, 'Glicose', 0),
+    (@id_atividade, 'Água', 0),
+    (@id_atividade, 'Colesterol', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em qual fase da mitose os cromossomos se alinham no plano equatorial da célula?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Metáfase', 1),
+    (@id_atividade, 'Prófase', 0),
+    (@id_atividade, 'Telófase', 0),
+    (@id_atividade, 'Anáfase', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Como se chama a passagem de água através de uma membrana semipermeável, do meio menos concentrado para o mais concentrado?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Pinocitose', 0),
+    (@id_atividade, 'Osmose', 1),
+    (@id_atividade, 'Fagocitose', 0),
+    (@id_atividade, 'Transporte ativo', 0);
+
+
+-- 1º ano do Ensino Médio | Física
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um carro percorre 150 km em 2 horas. Qual é a sua velocidade média?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '50 km/h', 0),
+    (@id_atividade, '75 km/h', 1),
+    (@id_atividade, '300 km/h', 0),
+    (@id_atividade, '150 km/h', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a unidade de medida de força no Sistema Internacional?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Watt (W)', 0),
+    (@id_atividade, 'Joule (J)', 0),
+    (@id_atividade, 'Pascal (Pa)', 0),
+    (@id_atividade, 'Newton (N)', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual lei física explica por que os passageiros são lançados para a frente quando o ônibus freia bruscamente?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Princípio Fundamental da Dinâmica', 0),
+    (@id_atividade, 'Lei da Inércia (1ª lei de Newton)', 1),
+    (@id_atividade, 'Lei da Ação e Reação', 0),
+    (@id_atividade, 'Lei da Gravitação Universal', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um corpo parte do repouso com aceleração constante de 3 m/s². Qual é a sua velocidade após 4 s?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '12 m/s', 1),
+    (@id_atividade, '7 m/s', 0),
+    (@id_atividade, '0,75 m/s', 0),
+    (@id_atividade, '24 m/s', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Desprezando a resistência do ar e adotando g = 10 m/s², qual é a altura de queda de um objeto que cai do repouso durante 3 s?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '45 m', 1),
+    (@id_atividade, '30 m', 0),
+    (@id_atividade, '90 m', 0),
+    (@id_atividade, '15 m', 0);
+
+
+-- 1º ano do Ensino Médio | Geografia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual linha imaginária divide a Terra nos hemisférios Norte e Sul?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Meridiano de Greenwich', 0),
+    (@id_atividade, 'Linha do Equador', 1),
+    (@id_atividade, 'Trópico de Capricórnio', 0),
+    (@id_atividade, 'Trópico de Câncer', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quando é meio-dia (12h) em Greenwich, que horas são em Brasília (fuso UTC−3)?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '9h', 1),
+    (@id_atividade, '12h', 0),
+    (@id_atividade, '15h', 0),
+    (@id_atividade, '3h', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em um mapa com escala 1:100.000, 1 cm no papel corresponde a quanto na realidade?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '100 m', 0),
+    (@id_atividade, '100 km', 0),
+    (@id_atividade, '10 km', 0),
+    (@id_atividade, '1 km', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em qual camada da Terra estão as placas tectônicas?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Atmosfera', 0),
+    (@id_atividade, 'Núcleo interno', 0),
+    (@id_atividade, 'Litosfera', 1),
+    (@id_atividade, 'Hidrosfera', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual bioma brasileiro é conhecido como a “savana brasileira”, com árvores de troncos retorcidos e solo ácido?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Pampa', 0),
+    (@id_atividade, 'Caatinga', 0),
+    (@id_atividade, 'Cerrado', 1),
+    (@id_atividade, 'Mata Atlântica', 0);
+
+
+-- 1º ano do Ensino Médio | Inglês
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “She ___ a student.”', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'am', 0),
+    (@id_atividade, 'is', 1),
+    (@id_atividade, 'are', 0),
+    (@id_atividade, 'be', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “He ___ to school every day.”', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'goes', 1),
+    (@id_atividade, 'gone', 0),
+    (@id_atividade, 'going', 0),
+    (@id_atividade, 'go', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o antônimo (opposite) de “hot”?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'fast', 0),
+    (@id_atividade, 'cold', 1),
+    (@id_atividade, 'late', 0),
+    (@id_atividade, 'big', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Como se traduz “Where do you live?”', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Quem é você?', 0),
+    (@id_atividade, 'Quando você chega?', 0),
+    (@id_atividade, 'Por que você vive?', 0),
+    (@id_atividade, 'Onde você mora?', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o plural de “child”?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'childs', 0),
+    (@id_atividade, 'childrens', 0),
+    (@id_atividade, 'childes', 0),
+    (@id_atividade, 'children', 1);
+
+
+-- 1º ano do Ensino Médio | Sociologia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem criou o termo “sociologia” e propôs o positivismo?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Max Weber', 0),
+    (@id_atividade, 'Karl Marx', 0),
+    (@id_atividade, 'Auguste Comte', 1),
+    (@id_atividade, 'Émile Durkheim', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Segundo Émile Durkheim, os fatos sociais são maneiras de agir, pensar e sentir que são:', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Exteriores ao indivíduo, gerais e coercitivas', 1),
+    (@id_atividade, 'Escolhidas livremente por cada pessoa', 0),
+    (@id_atividade, 'Ações com sentido subjetivo para quem as pratica', 0),
+    (@id_atividade, 'Exclusivamente de origem biológica', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual atitude representa o etnocentrismo?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Valorizar a diversidade cultural', 0),
+    (@id_atividade, 'Estudar as culturas sem preconceitos', 0),
+    (@id_atividade, 'Julgar outras culturas pelos valores da própria, considerando-a superior', 1),
+    (@id_atividade, 'Respeitar as diferenças entre os povos', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O que é socialização?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'A divisão desigual da riqueza entre as classes', 0),
+    (@id_atividade, 'O processo pelo qual o indivíduo aprende normas, valores e costumes da sociedade', 1),
+    (@id_atividade, 'O isolamento voluntário de uma pessoa', 0),
+    (@id_atividade, 'Um processo exclusivamente biológico', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Segundo Karl Marx, a sociedade capitalista se divide fundamentalmente em quais classes?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Patrícios e plebeus', 0),
+    (@id_atividade, 'Burguesia e proletariado', 1),
+    (@id_atividade, 'Brâmanes e párias', 0),
+    (@id_atividade, 'Clero e nobreza', 0);
+
+
+-- 1º ano do Ensino Médio | Filosofia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Para Tales de Mileto, qual era o princípio (arché) de todas as coisas?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Os números', 0),
+    (@id_atividade, 'O fogo', 0),
+    (@id_atividade, 'A água', 1),
+    (@id_atividade, 'O ar', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Como se chama o método de Sócrates, que conduz o interlocutor a “dar à luz” o conhecimento por meio de perguntas?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Imperativo categórico', 0),
+    (@id_atividade, 'Indução experimental', 0),
+    (@id_atividade, 'Maiêutica', 1),
+    (@id_atividade, 'Dúvida metódica', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('No Mito da Caverna, de Platão, a saída do prisioneiro da caverna simboliza:', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'O fim da vida humana', 0),
+    (@id_atividade, 'A passagem da ignorância (aparência) para o conhecimento verdadeiro', 1),
+    (@id_atividade, 'A fuga de um crime cometido', 0),
+    (@id_atividade, 'A vitória do mundo sensível sobre o mundo das ideias', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem afirmou que “o ser humano é, por natureza, um animal político”?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Sócrates', 0),
+    (@id_atividade, 'Aristóteles', 1),
+    (@id_atividade, 'Epicuro', 0),
+    (@id_atividade, 'Platão', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O que caracteriza a passagem do mito ao logos na Grécia Antiga?', (SELECT id_materia FROM materias WHERE id_ano = 1 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'O uso exclusivo de instrumentos de laboratório', 0),
+    (@id_atividade, 'A invenção da escrita alfabética', 0),
+    (@id_atividade, 'O abandono total das crenças religiosas gregas', 0),
+    (@id_atividade, 'A substituição de explicações sobrenaturais por explicações racionais e argumentadas', 1);
+
+
+-- ===================== 2º ANO DO ENSINO MÉDIO =====================
+
+-- 2º ano do Ensino Médio | Matemática
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quantos anagramas tem a palavra AMOR?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '8', 0),
+    (@id_atividade, '16', 0),
+    (@id_atividade, '12', 0),
+    (@id_atividade, '24', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Ao lançar um dado honesto de 6 faces, qual é a probabilidade de sair um número par?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '1/6', 0),
+    (@id_atividade, '1/3', 0),
+    (@id_atividade, '2/3', 0),
+    (@id_atividade, '1/2', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o volume de um cilindro com raio da base de 3 cm e altura de 5 cm?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '45π cm³', 1),
+    (@id_atividade, '15π cm³', 0),
+    (@id_atividade, '90π cm³', 0),
+    (@id_atividade, '30π cm³', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o determinante da matriz [[2, 3], [1, 4]] (linhas separadas por vírgula)?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '8', 0),
+    (@id_atividade, '5', 1),
+    (@id_atividade, '11', 0),
+    (@id_atividade, '−5', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o valor de log₂ 32?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '6', 0),
+    (@id_atividade, '5', 1),
+    (@id_atividade, '4', 0),
+    (@id_atividade, '16', 0);
+
+
+-- 2º ano do Ensino Médio | Português
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual característica pertence ao Romantismo?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Experimentação vanguardista com a linguagem', 0),
+    (@id_atividade, 'Subjetivismo, idealização e valorização dos sentimentos e da natureza', 1),
+    (@id_atividade, 'Culto à forma e impassibilidade diante do tema', 0),
+    (@id_atividade, 'Racionalismo e objetividade científica', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem é o autor do romance “Dom Casmurro”?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Machado de Assis', 1),
+    (@id_atividade, 'José de Alencar', 0),
+    (@id_atividade, 'Aluísio Azevedo', 0),
+    (@id_atividade, 'Lima Barreto', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A obra “O Cortiço”, de Aluísio Azevedo, pertence a qual estilo de época?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Romantismo', 0),
+    (@id_atividade, 'Naturalismo', 1),
+    (@id_atividade, 'Parnasianismo', 0),
+    (@id_atividade, 'Simbolismo', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Na oração “Choveu muito ontem.”, qual é o sujeito?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Sujeito indeterminado', 0),
+    (@id_atividade, 'Sujeito simples: a chuva', 0),
+    (@id_atividade, 'Sujeito oculto: ela', 0),
+    (@id_atividade, 'Não há sujeito (oração sem sujeito)', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O Parnasianismo caracteriza-se principalmente por:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Fuga para o passado medieval e nacionalismo ufanista', 0),
+    (@id_atividade, 'Musicalidade vaga e misticismo', 0),
+    (@id_atividade, 'Crítica social direta com linguagem coloquial', 0),
+    (@id_atividade, 'Culto à forma, perfeição métrica e “arte pela arte”', 1);
+
+
+-- 2º ano do Ensino Médio | História
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em que ano começou a Revolução Francesa, com a queda da Bastilha?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '1776', 0),
+    (@id_atividade, '1815', 0),
+    (@id_atividade, '1804', 0),
+    (@id_atividade, '1789', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em qual país teve início a Revolução Industrial?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'França', 0),
+    (@id_atividade, 'Inglaterra', 1),
+    (@id_atividade, 'Alemanha', 0),
+    (@id_atividade, 'Estados Unidos', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem proclamou a Independência do Brasil, em 7 de setembro de 1822?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Dom João VI', 0),
+    (@id_atividade, 'Dom Pedro I', 1),
+    (@id_atividade, 'José Bonifácio', 0),
+    (@id_atividade, 'Tiradentes', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual lei, assinada em 1888 pela Princesa Isabel, aboliu a escravidão no Brasil?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Lei Eusébio de Queirós', 0),
+    (@id_atividade, 'Lei Áurea', 1),
+    (@id_atividade, 'Lei dos Sexagenários', 0),
+    (@id_atividade, 'Lei do Ventre Livre', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual pensador iluminista defendeu a separação dos poderes em Executivo, Legislativo e Judiciário?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Locke', 0),
+    (@id_atividade, 'Voltaire', 0),
+    (@id_atividade, 'Montesquieu', 1),
+    (@id_atividade, 'Rousseau', 0);
+
+
+-- 2º ano do Ensino Médio | Química
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a massa molar da água (H₂O)? (Dados: H = 1 u; O = 16 u)', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '18 g/mol', 1),
+    (@id_atividade, '20 g/mol', 0),
+    (@id_atividade, '17 g/mol', 0),
+    (@id_atividade, '34 g/mol', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Uma solução com pH igual a 3 é classificada como:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Neutra', 0),
+    (@id_atividade, 'Básica', 0),
+    (@id_atividade, 'Ácida', 1),
+    (@id_atividade, 'Indeterminada', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O hidróxido de sódio (NaOH) pertence a qual função inorgânica?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Óxido', 0),
+    (@id_atividade, 'Ácido', 0),
+    (@id_atividade, 'Base', 1),
+    (@id_atividade, 'Sal', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Na reação 2 H₂ + O₂ → 2 H₂O, quantos mols de água são formados a partir de 3 mol de O₂?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '6 mol', 1),
+    (@id_atividade, '4 mol', 0),
+    (@id_atividade, '9 mol', 0),
+    (@id_atividade, '3 mol', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Uma reação exotérmica é aquela que:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Libera calor para o ambiente, com ΔH < 0', 1),
+    (@id_atividade, 'Não troca calor com o ambiente', 0),
+    (@id_atividade, 'Absorve calor do ambiente, com ΔH > 0', 0),
+    (@id_atividade, 'Só ocorre abaixo de 0 °C', 0);
+
+
+-- 2º ano do Ensino Médio | Biologia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O nome científico de uma espécie, segundo a nomenclatura binomial de Lineu, é formado por:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Reino e filo', 0),
+    (@id_atividade, 'Família e ordem', 0),
+    (@id_atividade, 'Gênero e epíteto específico', 1),
+    (@id_atividade, 'Classe e ordem', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Os vírus são classificados como:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Seres autótrofos fotossintetizantes', 0),
+    (@id_atividade, 'Parasitas intracelulares obrigatórios', 1),
+    (@id_atividade, 'Organismos procariontes unicelulares', 0),
+    (@id_atividade, 'Células eucariontes de vida livre', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual gás as plantas absorvem do ambiente para realizar a fotossíntese?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Oxigênio (O₂)', 0),
+    (@id_atividade, 'Hidrogênio (H₂)', 0),
+    (@id_atividade, 'Gás carbônico (CO₂)', 1),
+    (@id_atividade, 'Nitrogênio (N₂)', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual câmara do coração humano bombeia o sangue oxigenado para todo o corpo?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Átrio esquerdo', 0),
+    (@id_atividade, 'Ventrículo direito', 0),
+    (@id_atividade, 'Ventrículo esquerdo', 1),
+    (@id_atividade, 'Átrio direito', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual das doenças abaixo é causada por bactéria?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Tuberculose', 1),
+    (@id_atividade, 'Gripe', 0),
+    (@id_atividade, 'Dengue', 0),
+    (@id_atividade, 'Malária', 0);
+
+
+-- 2º ano do Ensino Médio | Física
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a força resultante que atua em um corpo de massa 5 kg com aceleração de 4 m/s²?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '9 N', 0),
+    (@id_atividade, '20 N', 1),
+    (@id_atividade, '1,25 N', 0),
+    (@id_atividade, '40 N', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a energia cinética de um corpo de massa 2 kg que se move a 3 m/s?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '18 J', 0),
+    (@id_atividade, '3 J', 0),
+    (@id_atividade, '6 J', 0),
+    (@id_atividade, '9 J', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A temperatura de 100 °C equivale a quantos kelvins (K)?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '273 K', 0),
+    (@id_atividade, '373 K', 1),
+    (@id_atividade, '100 K', 0),
+    (@id_atividade, '212 K', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual fenômeno óptico explica a formação de imagens em um espelho plano?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Dispersão da luz', 0),
+    (@id_atividade, 'Refração da luz', 0),
+    (@id_atividade, 'Difração da luz', 0),
+    (@id_atividade, 'Reflexão da luz', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Uma onda tem frequência de 50 Hz e comprimento de onda de 2 m. Qual é a sua velocidade de propagação?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '100 m/s', 1),
+    (@id_atividade, '0,04 m/s', 0),
+    (@id_atividade, '52 m/s', 0),
+    (@id_atividade, '25 m/s', 0);
+
+
+-- 2º ano do Ensino Médio | Geografia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quais países lideraram os dois blocos da Guerra Fria?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Alemanha e Japão', 0),
+    (@id_atividade, 'Estados Unidos e União Soviética', 1),
+    (@id_atividade, 'França e Reino Unido', 0),
+    (@id_atividade, 'China e Índia', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual bloco econômico foi fundado por Brasil, Argentina, Paraguai e Uruguai?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Nafta', 0),
+    (@id_atividade, 'Asean', 0),
+    (@id_atividade, 'União Europeia', 0),
+    (@id_atividade, 'Mercosul', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Uma pirâmide etária de base estreita e topo largo indica uma população:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Muito jovem, com alta natalidade', 0),
+    (@id_atividade, 'Em rápido crescimento', 0),
+    (@id_atividade, 'Envelhecida, com baixa natalidade', 1),
+    (@id_atividade, 'Formada apenas por adultos', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Como se chama o processo em que o crescimento de cidades vizinhas faz com que elas se unam em uma única mancha urbana?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Êxodo rural', 0),
+    (@id_atividade, 'Desertificação', 0),
+    (@id_atividade, 'Gentrificação', 0),
+    (@id_atividade, 'Conurbação', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual região brasileira concentra a maior parte do parque industrial do país?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Sul', 0),
+    (@id_atividade, 'Nordeste', 0),
+    (@id_atividade, 'Norte', 0),
+    (@id_atividade, 'Sudeste', 1);
+
+
+-- 2º ano do Ensino Médio | Inglês
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “Yesterday, I ___ to the cinema.”', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'go', 0),
+    (@id_atividade, 'went', 1),
+    (@id_atividade, 'gone', 0),
+    (@id_atividade, 'goes', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “This book is ___ than that one.”', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'interestinger', 0),
+    (@id_atividade, 'more interesting', 1),
+    (@id_atividade, 'interesting', 0),
+    (@id_atividade, 'most interesting', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “You ___ wear a seat belt. It’s the law.”', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'could', 0),
+    (@id_atividade, 'must', 1),
+    (@id_atividade, 'might', 0),
+    (@id_atividade, 'may', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “I think it ___ rain tomorrow.”', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'was', 0),
+    (@id_atividade, 'has', 0),
+    (@id_atividade, 'did', 0),
+    (@id_atividade, 'will', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O que significa o verbo “borrow”?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Emprestar', 0),
+    (@id_atividade, 'Comprar', 0),
+    (@id_atividade, 'Pegar emprestado', 1),
+    (@id_atividade, 'Devolver', 0);
+
+
+-- 2º ano do Ensino Médio | Sociologia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em qual sistema de estratificação a posição social é definida pelo nascimento e quase não permite mobilidade?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Sociedade de classes', 0),
+    (@id_atividade, 'Meritocracia', 0),
+    (@id_atividade, 'Mobilidade ascendente', 0),
+    (@id_atividade, 'Sistema de castas', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Segundo Max Weber, o Estado moderno detém o monopólio do uso legítimo da:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Produção industrial', 0),
+    (@id_atividade, 'Cultura', 0),
+    (@id_atividade, 'Força física (violência)', 1),
+    (@id_atividade, 'Religião', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Segundo T. H. Marshall, a cidadania é formada por direitos:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Civis, políticos e sociais', 1),
+    (@id_atividade, 'Individuais, privados e comerciais', 0),
+    (@id_atividade, 'Econômicos, religiosos e militares', 0),
+    (@id_atividade, 'Naturais, divinos e morais', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O conceito de indústria cultural, da Escola de Frankfurt, critica:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'A criação de museus públicos', 0),
+    (@id_atividade, 'O desaparecimento das indústrias tradicionais', 0),
+    (@id_atividade, 'A proibição de qualquer forma de arte', 0),
+    (@id_atividade, 'A transformação da cultura em mercadoria padronizada para o consumo de massa', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O Movimento dos Trabalhadores Rurais Sem Terra (MST) tem como principal bandeira:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'A reforma agrária', 1),
+    (@id_atividade, 'A abolição da escravatura', 0),
+    (@id_atividade, 'O direito ao voto feminino', 0),
+    (@id_atividade, 'A reforma tributária', 0);
+
+
+-- 2º ano do Ensino Médio | Filosofia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem formulou a frase “Penso, logo existo”?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Kant', 0),
+    (@id_atividade, 'Descartes', 1),
+    (@id_atividade, 'Hume', 0),
+    (@id_atividade, 'Locke', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Para os empiristas, como John Locke, a origem do conhecimento está:', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Na experiência sensível', 1),
+    (@id_atividade, 'Em ideias inatas', 0),
+    (@id_atividade, 'No raciocínio puro, sem qualquer experiência', 0),
+    (@id_atividade, 'Na revelação divina', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual obra de Maquiavel trata da conquista e da manutenção do poder político?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'O Príncipe', 1),
+    (@id_atividade, 'Utopia', 0),
+    (@id_atividade, 'Leviatã', 0),
+    (@id_atividade, 'A República', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual filósofo afirmou que, no estado de natureza, haveria uma “guerra de todos contra todos”?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Montesquieu', 0),
+    (@id_atividade, 'Jean-Jacques Rousseau', 0),
+    (@id_atividade, 'John Locke', 0),
+    (@id_atividade, 'Thomas Hobbes', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual conceito de Kant orienta que devemos agir de modo que nossa ação possa se tornar uma lei universal?', (SELECT id_materia FROM materias WHERE id_ano = 2 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Vontade de potência', 0),
+    (@id_atividade, 'Maiêutica', 0),
+    (@id_atividade, 'Cogito', 0),
+    (@id_atividade, 'Imperativo categórico', 1);
+
+-- 3º ano do Ensino Médio | Matemática
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a distância entre os pontos A(1, 2) e B(4, 6) no plano cartesiano?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '7', 0),
+    (@id_atividade, '5', 1),
+    (@id_atividade, '3', 0),
+    (@id_atividade, '25', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o resultado de (2 + 3i) + (1 − i)?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '3 + 2i', 1),
+    (@id_atividade, '2 + 3i', 0),
+    (@id_atividade, '3 + 4i', 0),
+    (@id_atividade, '1 + 4i', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um capital de R$ 1.000,00 é aplicado a juros simples, à taxa de 5% ao mês, durante 3 meses. Qual é o valor dos juros?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'R$ 50,00', 0),
+    (@id_atividade, 'R$ 157,63', 0),
+    (@id_atividade, 'R$ 15,00', 0),
+    (@id_atividade, 'R$ 150,00', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a mediana do conjunto de dados 2, 9, 4, 7, 12?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '4', 0),
+    (@id_atividade, '7', 1),
+    (@id_atividade, '9', 0),
+    (@id_atividade, '6,8', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o volume de uma esfera de raio 3 cm?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '12π cm³', 0),
+    (@id_atividade, '27π cm³', 0),
+    (@id_atividade, '108π cm³', 0),
+    (@id_atividade, '36π cm³', 1);
+
+
+-- 3º ano do Ensino Médio | Português
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em que ano aconteceu a Semana de Arte Moderna, marco inicial do Modernismo brasileiro?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '1889', 0),
+    (@id_atividade, '1930', 0),
+    (@id_atividade, '1945', 0),
+    (@id_atividade, '1922', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem é o autor do romance “Vidas Secas”?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Graciliano Ramos', 1),
+    (@id_atividade, 'Guimarães Rosa', 0),
+    (@id_atividade, 'José Lins do Rego', 0),
+    (@id_atividade, 'Jorge Amado', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('As diferenças de pronúncia e de vocabulário entre falantes de regiões distintas do país são exemplos de variação:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Social (diastrática)', 0),
+    (@id_atividade, 'Situacional (diafásica)', 0),
+    (@id_atividade, 'Histórica (diacrônica)', 0),
+    (@id_atividade, 'Regional (diatópica)', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em “Estudei muito; portanto, fui aprovado”, a palavra “portanto” expressa ideia de:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Conclusão', 1),
+    (@id_atividade, 'Adição', 0),
+    (@id_atividade, 'Oposição', 0),
+    (@id_atividade, 'Causa', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem escreveu a obra “Macunaíma”, marco do Modernismo brasileiro?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Manuel Bandeira', 0),
+    (@id_atividade, 'Oswald de Andrade', 0),
+    (@id_atividade, 'Mário de Andrade', 1),
+    (@id_atividade, 'Monteiro Lobato', 0);
+
+
+-- 3º ano do Ensino Médio | História
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual evento é considerado o estopim da Primeira Guerra Mundial?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'A queda do Muro de Berlim', 0),
+    (@id_atividade, 'O ataque japonês a Pearl Harbor', 0),
+    (@id_atividade, 'O assassinato do arquiduque Francisco Ferdinando, em Sarajevo', 1),
+    (@id_atividade, 'A invasão da Polônia pela Alemanha', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em 1937, Getúlio Vargas implantou qual regime no Brasil?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Política do Café com Leite', 0),
+    (@id_atividade, 'Governo Provisório', 0),
+    (@id_atividade, 'Regime Militar', 0),
+    (@id_atividade, 'Estado Novo', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em que ano terminou a Segunda Guerra Mundial?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '1939', 0),
+    (@id_atividade, '1949', 0),
+    (@id_atividade, '1945', 1),
+    (@id_atividade, '1941', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O Ato Institucional nº 5 (AI-5), de 1968, significou:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'A convocação de uma Assembleia Constituinte', 0),
+    (@id_atividade, 'A volta das eleições diretas para presidente', 0),
+    (@id_atividade, 'A concessão da anistia política', 0),
+    (@id_atividade, 'O endurecimento da ditadura, com suspensão de direitos e fechamento do Congresso', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em que ano caiu o Muro de Berlim?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '1989', 1),
+    (@id_atividade, '1975', 0),
+    (@id_atividade, '1961', 0),
+    (@id_atividade, '1991', 0);
+
+
+-- 3º ano do Ensino Médio | Química
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o grupo funcional característico dos álcoois?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Carbonila (C=O)', 0),
+    (@id_atividade, 'Amino (–NH₂)', 0),
+    (@id_atividade, 'Hidroxila (–OH)', 1),
+    (@id_atividade, 'Carboxila (–COOH)', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Como são chamados os hidrocarbonetos de cadeia aberta que possuem uma ligação dupla entre carbonos?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Aromáticos', 0),
+    (@id_atividade, 'Alcenos', 1),
+    (@id_atividade, 'Alcinos', 0),
+    (@id_atividade, 'Alcanos', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em uma pilha, o eletrodo em que ocorre a oxidação é chamado de:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Ânodo', 1),
+    (@id_atividade, 'Eletrólito', 0),
+    (@id_atividade, 'Cátodo', 0),
+    (@id_atividade, 'Ponte salina', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A partícula alfa (α) emitida na radioatividade é constituída por:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Um elétron de alta velocidade', 0),
+    (@id_atividade, 'Um próton isolado', 0),
+    (@id_atividade, 'Uma onda eletromagnética de alta energia', 0),
+    (@id_atividade, '2 prótons e 2 nêutrons (núcleo de hélio)', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O etanol (C₂H₆O) e o éter dimetílico (C₂H₆O) são exemplos de:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Isômeros de posição', 0),
+    (@id_atividade, 'Isômeros de função', 1),
+    (@id_atividade, 'Isótopos', 0),
+    (@id_atividade, 'Isômeros de cadeia', 0);
+
+
+-- 3º ano do Ensino Médio | Biologia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('No cruzamento Aa × Aa, qual é a probabilidade de nascer um descendente aa?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '0', 0),
+    (@id_atividade, '1/4', 1),
+    (@id_atividade, '3/4', 0),
+    (@id_atividade, '1/2', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A seleção natural, proposta por Charles Darwin, afirma que:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Indivíduos mais adaptados ao ambiente tendem a sobreviver e a se reproduzir mais', 1),
+    (@id_atividade, 'Características adquiridas pelo uso são transmitidas aos descendentes', 0),
+    (@id_atividade, 'O ambiente provoca mutações dirigidas conforme a necessidade', 0),
+    (@id_atividade, 'Todos os indivíduos têm a mesma chance de sobreviver, independentemente de suas características', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em uma cadeia alimentar, quem ocupa o primeiro nível trófico?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Os produtores (plantas e algas)', 1),
+    (@id_atividade, 'Os decompositores', 0),
+    (@id_atividade, 'Os consumidores secundários', 0),
+    (@id_atividade, 'Os consumidores primários', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Na molécula de DNA, como se pareiam as bases nitrogenadas?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Adenina com guanina e citosina com timina', 0),
+    (@id_atividade, 'Adenina com citosina e timina com guanina', 0),
+    (@id_atividade, 'Adenina com timina e citosina com guanina', 1),
+    (@id_atividade, 'Adenina com uracila e citosina com guanina', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um organismo transgênico é aquele que:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Recebeu em seu genoma um gene de outra espécie', 1),
+    (@id_atividade, 'Sofreu uma mutação espontânea', 0),
+    (@id_atividade, 'Nasceu por reprodução assexuada', 0),
+    (@id_atividade, 'Resultou de cruzamento natural entre duas variedades', 0);
+
+
+-- 3º ano do Ensino Médio | Física
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um resistor de 10 Ω é percorrido por uma corrente de 2 A. Qual é a tensão elétrica entre seus terminais?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '20 V', 1),
+    (@id_atividade, '5 V', 0),
+    (@id_atividade, '12 V', 0),
+    (@id_atividade, '0,2 V', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um aparelho ligado a 220 V é percorrido por uma corrente de 5 A. Qual é a sua potência elétrica?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '225 W', 0),
+    (@id_atividade, '110 W', 0),
+    (@id_atividade, '1.100 W', 1),
+    (@id_atividade, '44 W', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem descobriu, em 1820, que uma corrente elétrica produz campo magnético?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Isaac Newton', 0),
+    (@id_atividade, 'Hans Christian Oersted', 1),
+    (@id_atividade, 'Galileu Galilei', 0),
+    (@id_atividade, 'Michael Faraday', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O efeito fotoelétrico foi explicado por Einstein ao admitir que a luz:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'É formada por pacotes de energia chamados fótons', 1),
+    (@id_atividade, 'É uma onda mecânica que precisa do éter para se propagar', 0),
+    (@id_atividade, 'Não transporta energia', 0),
+    (@id_atividade, 'Tem velocidade que depende da velocidade da fonte', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Duas cargas elétricas de mesmo sinal:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Se atraem', 0),
+    (@id_atividade, 'Se neutralizam', 0),
+    (@id_atividade, 'Não interagem', 0),
+    (@id_atividade, 'Se repelem', 1);
+
+
+-- 3º ano do Ensino Médio | Geografia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual gás de efeito estufa está mais associado à queima de combustíveis fósseis?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Hélio (He)', 0),
+    (@id_atividade, 'Nitrogênio (N₂)', 0),
+    (@id_atividade, 'Oxigênio (O₂)', 0),
+    (@id_atividade, 'Dióxido de carbono (CO₂)', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a principal fonte de geração de energia elétrica no Brasil?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Nuclear', 0),
+    (@id_atividade, 'Eólica', 0),
+    (@id_atividade, 'Hidrelétrica', 1),
+    (@id_atividade, 'Carvão mineral', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual sistema agrícola se caracteriza por grandes propriedades, monocultura e produção voltada à exportação?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Agricultura de subsistência', 0),
+    (@id_atividade, 'Extrativismo vegetal', 0),
+    (@id_atividade, 'Policultura familiar', 0),
+    (@id_atividade, 'Plantation', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A sigla BRICS reúne países emergentes como:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Bélgica, Rússia, Itália, Chile e Suécia', 0),
+    (@id_atividade, 'Brasil, Rússia, Índia, China e África do Sul', 1),
+    (@id_atividade, 'Japão, Alemanha, Canadá, França e Itália', 0),
+    (@id_atividade, 'Bolívia, Romênia, Cuba, Chile e Síria', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual fenômeno de aquecimento anormal das águas do Pacífico provoca secas no Norte e no Nordeste do Brasil?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Chuva ácida', 0),
+    (@id_atividade, 'El Niño', 1),
+    (@id_atividade, 'Inversão térmica', 0),
+    (@id_atividade, 'Maré vermelha', 0);
+
+
+-- 3º ano do Ensino Médio | Inglês
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “If it rains tomorrow, we ___ at home.”', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'would stay', 0),
+    (@id_atividade, 'stayed', 0),
+    (@id_atividade, 'had stayed', 0),
+    (@id_atividade, 'will stay', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “The Mona Lisa ___ by Leonardo da Vinci.”', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'was painted', 1),
+    (@id_atividade, 'paints', 0),
+    (@id_atividade, 'painted', 0),
+    (@id_atividade, 'has painting', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “The woman ___ lives next door is a doctor.”', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'which', 0),
+    (@id_atividade, 'where', 0),
+    (@id_atividade, 'who', 1),
+    (@id_atividade, 'whose', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O que significa o phrasal verb “give up”?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Desistir', 1),
+    (@id_atividade, 'Dar um presente', 0),
+    (@id_atividade, 'Levantar', 0),
+    (@id_atividade, 'Ganhar', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Leia: “Tom wakes up at 6 a.m., has coffee and goes to work by bike. He never drives because he wants to protect the environment.” Por que Tom não dirige até o trabalho?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Because he lives far from work', 0),
+    (@id_atividade, 'Because he wants to protect the environment', 1),
+    (@id_atividade, 'Because he doesn’t have a car', 0),
+    (@id_atividade, 'Because he likes coffee', 0);
+
+
+-- 3º ano do Ensino Médio | Sociologia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O conceito de capital cultural, de Pierre Bourdieu, refere-se a:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Dinheiro acumulado em contas bancárias', 0),
+    (@id_atividade, 'Máquinas e equipamentos industriais', 0),
+    (@id_atividade, 'Conhecimentos, habilidades e bens culturais que geram vantagem social', 1),
+    (@id_atividade, 'Prédios históricos tombados', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Para Michel Foucault, instituições como escolas, prisões e hospitais exercem:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Poder disciplinar sobre os corpos e comportamentos', 1),
+    (@id_atividade, 'Poder apenas econômico', 0),
+    (@id_atividade, 'Poder exclusivamente divino', 0),
+    (@id_atividade, 'Nenhum tipo de poder', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual efeito é frequentemente associado à globalização?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'O isolamento econômico das nações', 0),
+    (@id_atividade, 'A intensificação do fluxo de informações, mercadorias e capitais entre os países', 1),
+    (@id_atividade, 'O desaparecimento do comércio internacional', 0),
+    (@id_atividade, 'O fim das desigualdades sociais', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O conceito de racismo estrutural indica que:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'O racismo tem justificativa biológica comprovada', 0),
+    (@id_atividade, 'As desigualdades raciais são reproduzidas pela organização da sociedade e de suas instituições', 1),
+    (@id_atividade, 'O racismo deixou de existir após a abolição da escravatura', 0),
+    (@id_atividade, 'O racismo é apenas uma atitude isolada de alguns indivíduos', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quem formulou o conceito de “modernidade líquida”?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Auguste Comte', 0),
+    (@id_atividade, 'Karl Marx', 0),
+    (@id_atividade, 'Zygmunt Bauman', 1),
+    (@id_atividade, 'Émile Durkheim', 0);
+
+-- 3º ano do Ensino Médio | Filosofia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A expressão “Deus está morto”, de Nietzsche, significa principalmente que:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'A ciência provou que nenhuma cultura acreditou em Deus', 0),
+    (@id_atividade, 'O filósofo defendia o uso da violência', 0),
+    (@id_atividade, 'Deus morreu fisicamente em algum momento da história', 0),
+    (@id_atividade, 'Os valores tradicionais perderam sua força na modernidade', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A frase “a existência precede a essência” está associada a qual corrente filosófica?', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Estoicismo', 0),
+    (@id_atividade, 'Existencialismo (Sartre)', 1),
+    (@id_atividade, 'Positivismo', 0),
+    (@id_atividade, 'Idealismo platônico', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Hannah Arendt cunhou a expressão “banalidade do mal” ao analisar:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'A queda do Muro de Berlim', 0),
+    (@id_atividade, 'O julgamento de Adolf Eichmann', 1),
+    (@id_atividade, 'A Revolução Francesa', 0),
+    (@id_atividade, 'O julgamento de Sócrates', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Para Karl Popper, uma teoria é científica quando:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'É aceita por toda a comunidade sem questionamento', 0),
+    (@id_atividade, 'Baseia-se na tradição', 0),
+    (@id_atividade, 'Pode ser testada e potencialmente refutada (falseável)', 1),
+    (@id_atividade, 'Pode ser comprovada definitivamente', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Na ética utilitarista de Bentham e Stuart Mill, uma ação é correta quando:', (SELECT id_materia FROM materias WHERE id_ano = 3 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Segue um dever universal, independentemente das consequências', 0),
+    (@id_atividade, 'Agrada a uma divindade', 0),
+    (@id_atividade, 'Produz a maior felicidade possível para o maior número de pessoas', 1),
+    (@id_atividade, 'Beneficia somente quem a pratica', 0);
+
+
+-- ===================== VESTIBULAR =====================
+
+-- Vestibular | Matemática
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um preço sofre um aumento de 10% e, em seguida, um desconto de 10%. Em relação ao preço original, o preço final:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Diminui 1%', 1),
+    (@id_atividade, 'Aumenta 1%', 0),
+    (@id_atividade, 'É igual', 0),
+    (@id_atividade, 'Diminui 10%', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Uma urna tem 3 bolas vermelhas e 2 azuis. Retirando duas bolas, sem reposição, qual é a probabilidade de ambas serem vermelhas?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '1/10', 0),
+    (@id_atividade, '3/5', 0),
+    (@id_atividade, '9/25', 0),
+    (@id_atividade, '3/10', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A altura (em metros) de uma bola lançada é dada por h(t) = −t² + 6t, com t em segundos. Qual é a altura máxima atingida?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '6 m', 0),
+    (@id_atividade, '18 m', 0),
+    (@id_atividade, '9 m', 1),
+    (@id_atividade, '3 m', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Uma torneira enche um tanque em 6 horas e outra enche o mesmo tanque em 3 horas. Funcionando juntas, em quanto tempo o enchem?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '2 horas', 1),
+    (@id_atividade, '4,5 horas', 0),
+    (@id_atividade, '9 horas', 0),
+    (@id_atividade, '3 horas', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a soma dos infinitos termos da progressão geométrica 8, 4, 2, 1, ...?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Matemática'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '15', 0),
+    (@id_atividade, '32', 0),
+    (@id_atividade, '16', 1),
+    (@id_atividade, '12', 0);
+
+
+-- Vestibular | Português
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em um poema em que predomina a expressão das emoções do eu lírico, qual é a função da linguagem predominante?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Metalinguística', 0),
+    (@id_atividade, 'Conativa', 0),
+    (@id_atividade, 'Referencial', 0),
+    (@id_atividade, 'Emotiva (expressiva)', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Dizer “Ele nos deixou” no lugar de “Ele morreu” é um exemplo de:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Hipérbole', 0),
+    (@id_atividade, 'Eufemismo', 1),
+    (@id_atividade, 'Pleonasmo', 0),
+    (@id_atividade, 'Antítese', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Quando um texto retoma, cita ou dialoga com outro texto, ocorre:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Intertextualidade', 1),
+    (@id_atividade, 'Polissemia', 0),
+    (@id_atividade, 'Denotação', 0),
+    (@id_atividade, 'Coesão referencial', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em qual frase o uso da crase está correto?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Fui à escola ontem.', 1),
+    (@id_atividade, 'Comprei o livro à ela.', 0),
+    (@id_atividade, 'Estou disposto à ajudar.', 0),
+    (@id_atividade, 'Ele chegou à pé.', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('No romance “Memórias Póstumas de Brás Cubas”, de Machado de Assis, o narrador é:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Português'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Um narrador neutro e impessoal, sem opinião', 0),
+    (@id_atividade, 'Um defunto-autor, que conta sua vida depois de morto', 1),
+    (@id_atividade, 'Uma criança que narra suas aventuras', 0),
+    (@id_atividade, 'Uma testemunha anônima dos fatos', 0);
+
+
+-- Vestibular | História
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual era o lema da Revolução Francesa?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Deus, Pátria e Família', 0),
+    (@id_atividade, 'Liberdade, Igualdade e Fraternidade', 1),
+    (@id_atividade, 'Paz, Terra e Pão', 0),
+    (@id_atividade, 'Ordem e Progresso', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A política do “café com leite”, na República Velha, baseava-se na alternância no poder entre as oligarquias de:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'São Paulo e Minas Gerais', 1),
+    (@id_atividade, 'Rio de Janeiro e Paraná', 0),
+    (@id_atividade, 'Rio Grande do Sul e Bahia', 0),
+    (@id_atividade, 'Pernambuco e Pará', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A Conferência de Berlim (1884–1885) tratou:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Da divisão da Alemanha após a guerra', 0),
+    (@id_atividade, 'Do fim da escravidão no Brasil', 0),
+    (@id_atividade, 'Da partilha da África entre as potências europeias', 1),
+    (@id_atividade, 'Da criação da ONU', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A Constituição brasileira de 1988 ficou conhecida como:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Constituição Polaca', 0),
+    (@id_atividade, 'Constituição Cidadã', 1),
+    (@id_atividade, 'Constituição Imperial', 0),
+    (@id_atividade, 'Constituição Republicana de 1891', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A Crise dos Mísseis, de 1962, envolveu:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'História'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Estados Unidos e União Soviética, por causa de mísseis soviéticos instalados em Cuba', 1),
+    (@id_atividade, 'Reino Unido e Argentina, por causa das Ilhas Malvinas', 0),
+    (@id_atividade, 'China e Japão, por causa de disputas marítimas', 0),
+    (@id_atividade, 'Estados Unidos e Coreia do Norte, por causa de armas químicas', 0);
+
+-- Vestibular | Química
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual poluente atmosférico está diretamente associado à formação da chuva ácida?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Argônio (Ar)', 0),
+    (@id_atividade, 'Nitrogênio (N₂)', 0),
+    (@id_atividade, 'Oxigênio (O₂)', 0),
+    (@id_atividade, 'Dióxido de enxofre (SO₂)', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Foram dissolvidos 40 g de NaOH em água, formando 2 L de solução. Qual é a concentração comum dessa solução?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '80 g/L', 0),
+    (@id_atividade, '20 g/L', 1),
+    (@id_atividade, '40 g/L', 0),
+    (@id_atividade, '0,05 g/L', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em um sistema em equilíbrio químico, ao aumentar a concentração de um reagente, o equilíbrio:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'É totalmente destruído', 0),
+    (@id_atividade, 'Desloca-se no sentido de formar mais reagentes', 0),
+    (@id_atividade, 'Desloca-se no sentido de formar mais produtos', 1),
+    (@id_atividade, 'Permanece inalterado', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o principal componente do gás natural?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Acetileno (C₂H₂)', 0),
+    (@id_atividade, 'Metano (CH₄)', 1),
+    (@id_atividade, 'Butano (C₄H₁₀)', 0),
+    (@id_atividade, 'Etanol (C₂H₆O)', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é o número de oxidação (NOX) do manganês no permanganato de potássio (KMnO₄)?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Química'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '+7', 1),
+    (@id_atividade, '+2', 0),
+    (@id_atividade, '+5', 0),
+    (@id_atividade, '+4', 0);
+
+
+-- Vestibular | Biologia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A eutrofização de lagos e rios é causada principalmente por:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Excesso de oxigênio dissolvido na água', 0),
+    (@id_atividade, 'Excesso de nutrientes, como fósforo e nitrogênio, vindos de esgoto e fertilizantes', 1),
+    (@id_atividade, 'Falta de luz solar na superfície', 0),
+    (@id_atividade, 'Ausência total de microrganismos', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('No sistema ABO, uma pessoa do tipo O pode receber sangue de quais tipos?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Somente do tipo O', 1),
+    (@id_atividade, 'Dos tipos A, B e AB', 0),
+    (@id_atividade, 'De qualquer tipo', 0),
+    (@id_atividade, 'Somente do tipo AB', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual hormônio, produzido pelo pâncreas, reduz a concentração de glicose no sangue?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Testosterona', 0),
+    (@id_atividade, 'Adrenalina', 0),
+    (@id_atividade, 'Insulina', 1),
+    (@id_atividade, 'Glucagon', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O uso inadequado de antibióticos favorece o surgimento de bactérias resistentes porque:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Elimina as bactérias sensíveis e seleciona as já resistentes, que se multiplicam', 1),
+    (@id_atividade, 'Os antibióticos transformam vírus em bactérias', 0),
+    (@id_atividade, 'O corpo humano deixa de produzir anticorpos', 0),
+    (@id_atividade, 'As bactérias criam resistência por necessidade durante a vida do paciente', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a principal função da camada de ozônio?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Biologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Impedir a entrada de meteoros', 0),
+    (@id_atividade, 'Reter o calor irradiado pela superfície terrestre', 0),
+    (@id_atividade, 'Absorver grande parte da radiação ultravioleta do Sol', 1),
+    (@id_atividade, 'Fornecer oxigênio para a respiração', 0);
+
+
+-- Vestibular | Física
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Que transformação de energia ocorre em uma usina hidrelétrica?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Energia química do carvão → energia elétrica', 0),
+    (@id_atividade, 'Energia solar → energia térmica → energia elétrica', 0),
+    (@id_atividade, 'Energia potencial da água → energia cinética → energia elétrica', 1),
+    (@id_atividade, 'Energia nuclear → energia térmica → energia elétrica', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um chuveiro de 5.000 W é usado 30 minutos por dia durante 30 dias. Qual é o consumo de energia no período?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '25 kWh', 0),
+    (@id_atividade, '150 kWh', 0),
+    (@id_atividade, '75 kWh', 1),
+    (@id_atividade, '2,5 kWh', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Um objeto totalmente imerso em um líquido recebe uma força vertical para cima (empuxo) de módulo igual ao:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Peso do volume de líquido deslocado', 1),
+    (@id_atividade, 'Volume do líquido do recipiente', 0),
+    (@id_atividade, 'Peso do próprio objeto, em qualquer situação', 0),
+    (@id_atividade, 'Produto da massa do objeto pela sua velocidade', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual é a quantidade de calor necessária para aquecer 200 g de água de 20 °C até 70 °C? (Dado: c = 1 cal/g·°C)', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '4.000 cal', 0),
+    (@id_atividade, '50 cal', 0),
+    (@id_atividade, '10.000 cal', 1),
+    (@id_atividade, '14.000 cal', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O som se propaga no ar a cerca de 340 m/s. Um trovão é ouvido 3 s após o relâmpago. A que distância, aproximadamente, caiu o raio?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Física'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '3.400 m', 0),
+    (@id_atividade, '1.020 m', 1),
+    (@id_atividade, '340 m', 0),
+    (@id_atividade, '113 m', 0);
+
+
+-- Vestibular | Geografia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual tipo de clima predomina no interior do Nordeste brasileiro, com chuvas escassas e irregulares?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Tropical de altitude', 0),
+    (@id_atividade, 'Semiárido', 1),
+    (@id_atividade, 'Equatorial', 0),
+    (@id_atividade, 'Subtropical', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual fenômeno dificulta a dispersão de poluentes nas grandes cidades, principalmente no inverno?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Inversão térmica', 1),
+    (@id_atividade, 'Chuva orográfica', 0),
+    (@id_atividade, 'Chuva ácida', 0),
+    (@id_atividade, 'Efeito estufa', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual país NÃO é membro permanente do Conselho de Segurança da ONU?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'França', 0),
+    (@id_atividade, 'Reino Unido', 0),
+    (@id_atividade, 'Alemanha', 1),
+    (@id_atividade, 'China', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O êxodo rural no Brasil, mais intenso a partir de 1950, esteve associado:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'À descoberta de ouro no Centro-Oeste', 0),
+    (@id_atividade, 'À criação de reservas indígenas', 0),
+    (@id_atividade, 'À abolição da escravatura', 0),
+    (@id_atividade, 'À industrialização e à mecanização do campo', 1);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O Aquífero Guarani estende-se por quais países?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Geografia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Argentina, Chile, Uruguai e Paraguai, sem o Brasil', 0),
+    (@id_atividade, 'Brasil, Chile, Peru e Bolívia', 0),
+    (@id_atividade, 'Brasil, Argentina, Paraguai e Uruguai', 1),
+    (@id_atividade, 'Brasil, Colômbia, Venezuela e Equador', 0);
+
+
+-- Vestibular | Inglês
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Leia: “Solar panels convert sunlight into electricity. They produce no air pollution while operating.” Segundo o texto, os painéis solares:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Funcionam apenas à noite', 0),
+    (@id_atividade, 'Produzem eletricidade sem poluir o ar enquanto funcionam', 1),
+    (@id_atividade, 'Poluem o ar durante a operação', 0),
+    (@id_atividade, 'Usam combustíveis fósseis', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Que ideia a palavra “although” expressa?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Tempo', 0),
+    (@id_atividade, 'Adição', 0),
+    (@id_atividade, 'Contraste (concessão)', 1),
+    (@id_atividade, 'Causa', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “She has lived here ___ 2015.”', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'ago', 0),
+    (@id_atividade, 'during', 0),
+    (@id_atividade, 'since', 1),
+    (@id_atividade, 'for', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “I’m looking forward ___ meeting you.”', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'with', 0),
+    (@id_atividade, 'to', 1),
+    (@id_atividade, 'for', 0),
+    (@id_atividade, 'at', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Complete: “By the time we arrived, the movie ___.”', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Inglês'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'was already start', 0),
+    (@id_atividade, 'had already started', 1),
+    (@id_atividade, 'already starts', 0),
+    (@id_atividade, 'has already started', 0);
+
+
+-- Vestibular | Sociologia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual índice é usado para medir a desigualdade de renda em um país?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Coeficiente de Gini', 1),
+    (@id_atividade, 'PIB per capita', 0),
+    (@id_atividade, 'IDH', 0),
+    (@id_atividade, 'Taxa de câmbio', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O relativismo cultural é a postura de:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Compreender cada cultura a partir de seus próprios valores e contexto', 1),
+    (@id_atividade, 'Impor os costumes de um povo aos outros', 0),
+    (@id_atividade, 'Considerar uma cultura superior às demais', 0),
+    (@id_atividade, 'Rejeitar todas as manifestações culturais', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('O fordismo caracteriza-se por:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Produção em série em linha de montagem', 1),
+    (@id_atividade, 'Produção sob demanda, com estoque mínimo (just in time)', 0),
+    (@id_atividade, 'Produção artesanal e individual', 0),
+    (@id_atividade, 'Economia de subsistência', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em que ano foi proclamada a Declaração Universal dos Direitos Humanos, pela ONU?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, '1988', 0),
+    (@id_atividade, '1948', 1),
+    (@id_atividade, '1789', 0),
+    (@id_atividade, '1919', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Segundo Max Weber, a dominação baseada em leis e regras impessoais, típica da burocracia moderna, é a:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Sociologia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Carismática', 0),
+    (@id_atividade, 'Tradicional', 0),
+    (@id_atividade, 'Legal-racional', 1),
+    (@id_atividade, 'Teocrática', 0);
+
+
+-- Vestibular | Filosofia
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Para Aristóteles, a virtude ética consiste em:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Um meio-termo entre o excesso e a falta', 1),
+    (@id_atividade, 'Buscar o máximo prazer a qualquer custo', 0),
+    (@id_atividade, 'Obedecer cegamente às leis', 0),
+    (@id_atividade, 'Renunciar a todos os desejos', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em “O Contrato Social”, Rousseau defende que a soberania pertence:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Aos mais ricos da sociedade', 0),
+    (@id_atividade, 'Ao monarca, por direito divino', 0),
+    (@id_atividade, 'Ao povo, expressa na vontade geral', 1),
+    (@id_atividade, 'A um governante absoluto', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Qual filósofo buscou conciliar o racionalismo e o empirismo?', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Immanuel Kant', 1),
+    (@id_atividade, 'René Descartes', 0),
+    (@id_atividade, 'Francis Bacon', 0),
+    (@id_atividade, 'David Hume', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('A frase “Não se nasce mulher: torna-se mulher” é de:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'Hannah Arendt', 0),
+    (@id_atividade, 'Simone Weil', 0),
+    (@id_atividade, 'Simone de Beauvoir', 1),
+    (@id_atividade, 'Marilena Chauí', 0);
+
+INSERT INTO atividades (pergunta, id_materia) VALUES ('Em “A Sociedade do Espetáculo”, Guy Debord critica:', (SELECT id_materia FROM materias WHERE id_ano = 4 AND materia = 'Filosofia'));
+SET @id_atividade = LAST_INSERT_ID();
+INSERT INTO alternativas (id_atividade, texto, correta) VALUES
+    (@id_atividade, 'A proibição do cinema', 0),
+    (@id_atividade, 'O fim das artes visuais', 0),
+    (@id_atividade, 'A transformação das relações sociais em imagens e mercadorias consumidas', 1),
+    (@id_atividade, 'O excesso de livros publicados', 0);
+
+
+COMMIT;
+
+
+
 CREATE TABLE `planejamento` (
   `id_planejamento` int(11) NOT NULL,
   `id_pessoa` int(11) NOT NULL,
