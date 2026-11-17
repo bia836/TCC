@@ -1,0 +1,209 @@
+
+/* tela de cadastro */
+
+:root {
+    --fundo: #0b0712;
+    --fundo-claro: #171020;
+    --roxo: #8246d9;
+    --roxo-claro: #b98af5;
+    --lilas: #f1eafe;
+    --texto: #f7f2ff;
+    --texto-suave: #c9bdd8;
+    --borda: rgba(185, 138, 245, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+
+    background:
+        radial-gradient(ellipse at 50% 30%, rgba(130, 70, 217, 0.18), transparent 48%),
+        var(--fundo);
+
+    color: var(--texto);
+    font-family: "Nunito", Arial, sans-serif;
+}
+
+.principal {
+    width: 100%;
+    max-width: 470px;
+    padding: 35px 40px;
+
+    border: 1px solid var(--borda);
+    border-radius: 24px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(50, 27, 77, 0.55),
+        rgba(23, 16, 32, 0.96)
+    );
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+    display: block;
+    margin-bottom: 22px;
+
+    color: var(--texto);
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--roxo-claro);
+}
+
+.introducao {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.introducao h1 {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.introducao h1 span {
+    color: var(--roxo-claro);
+}
+
+.introducao p {
+    margin-top: 7px;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+.registrar form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    color: var(--lilas);
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.campo input {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    outline: none;
+
+    background: var(--fundo-claro);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 0.95rem;
+
+    transition: 0.25s;
+}
+
+.campo input::placeholder {
+    color: #93869f;
+}
+
+.campo input:focus {
+    border-color: var(--roxo-claro);
+    box-shadow: 0 0 0 3px rgba(130, 70, 217, 0.15);
+}
+
+.botao {
+    width: 100%;
+    min-height: 49px;
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: var(--roxo);
+    color: white;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 900;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.botao span {
+    margin-left: 6px;
+}
+
+.botao:hover {
+    background: var(--roxo-claro);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(130, 70, 217, 0.25);
+}
+
+.login {
+    margin-top: 22px;
+    color: var(--texto-suave);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.login a {
+    color: var(--roxo-claro);
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+.aviso {
+    display: none;
+    color: #F0A35A;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.campo .aviso:not(#avisoSenha) {
+    display: block;
+}
+
+@media (max-width: 520px) {
+    .principal {
+        padding: 28px 22px;
+    }
+
+    .introducao h1 {
+        font-size: 1.7rem;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}

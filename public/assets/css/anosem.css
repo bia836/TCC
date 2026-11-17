@@ -1,0 +1,199 @@
+
+/* LUMI - SELEÇÃO DO ANO DO ENSINO MÉDIO */
+
+:root {
+    --fundo: #0b0712;
+    --roxo-escuro: #321b4d;
+    --roxo: #8246d9;
+    --roxo-claro: #b98af5;
+    --lilas: #f1eafe;
+    --texto: #f7f2ff;
+    --texto-suave: #c9bdd8;
+    --borda: rgba(185, 138, 245, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 38%, rgba(130, 70, 217, 0.18), transparent 48%),
+        var(--fundo);
+    color: var(--texto);
+    font-family: "Nunito", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.cabecalho {
+    width: min(1160px, 90%);
+    margin: auto;
+}
+
+.barra-topo {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 2.1rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.logo span {
+    color: var(--roxo-claro);
+}
+
+.voltar {
+    padding: 9px 17px;
+    border: 1px solid var(--borda);
+    border-radius: 30px;
+    color: var(--lilas);
+    font-size: 0.9rem;
+    font-weight: 800;
+    transition: 0.25s;
+}
+
+.voltar:hover {
+    color: var(--roxo-claro);
+    border-color: var(--roxo-claro);
+    background: rgba(130, 70, 217, 0.12);
+}
+
+main {
+    width: min(1160px, 90%);
+    min-height: calc(100vh - 90px);
+    margin: auto;
+    padding: 75px 0 45px;
+}
+
+.introducao {
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    line-height: 1.15;
+    font-weight: 900;
+}
+
+h1 span {
+    color: var(--roxo-claro);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    min-height: 235px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(50, 27, 77, 0.72), rgba(23, 16, 32, 0.98));
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--roxo-claro);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.ano {
+    color: var(--roxo-claro);
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.15;
+}
+
+.card h2 {
+    margin-top: 10px;
+    font-size: 1.15rem;
+}
+
+.acao {
+    margin-top: 18px;
+    color: var(--roxo-claro);
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+.acao span {
+    margin-left: 5px;
+}
+
+.mensagem-final {
+    margin-top: 40px;
+    color: var(--texto-suave);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.mensagem-final span {
+    color: var(--roxo-claro);
+    margin-right: 5px;
+}
+
+
+
+@media (max-width: 700px) {
+    .cards {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin: auto;
+    }
+
+    .card {
+        min-height: 190px;
+    }
+
+    main {
+        padding-top: 45px;
+    }
+
+    .introducao {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 520px) {
+    .barra-topo {
+        height: 75px;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .voltar {
+        padding: 7px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}

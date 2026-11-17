@@ -1,0 +1,200 @@
+
+<?php
+$paginaAtual = "perfil";
+$mensagemSenha = $_SESSION['mensagem_senha'] ?? '';
+unset($_SESSION['mensagem_senha']);
+
+$nome = htmlspecialchars($pessoa['nome'] ?? '');
+$usuario = htmlspecialchars($pessoa['usuario'] ?? '');
+$email = htmlspecialchars($pessoa['email'] ?? '');
+$ano = htmlspecialchars($pessoa['nome_ano'] ?? 'Não informado');
+
+$dataCadastro = !empty($pessoa['criado_em'])
+    ? date('d/m/Y', strtotime($pessoa['criado_em']))
+    : 'Não informado';
+
+$inicial = strtoupper(substr($nome, 0, 1));
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumi - Perfil</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="/TCC/public/assets/css/home.css">
+    <link rel="stylesheet" href="/TCC/public/assets/css/perfil.css"> 
+    <link rel="stylesheet" href="/TCC/public/assets/css/tema.css">
+    <script src="/TCC/public/assets/js/tema.js" defer></script>
+</head>
+
+<body>
+
+    <?php include "menuLateral.php"; ?>
+
+    <main class="conteudoHome">
+
+        <section class="perfilPagina">
+
+            <div class="tituloSecao">
+                <div>
+                    <h2>Meu perfil</h2>
+                    <p>Visualize suas informações pessoais.</p>
+                </div>
+            </div>
+
+            <div class="cartaoPerfil">
+
+                <?php if ($mensagemSenha): ?>
+                    <p class="mensagemSenha">
+                        <?= htmlspecialchars($mensagemSenha) ?>
+                    </p>
+                <?php endif; ?>
+
+                <div class="cabecalhoPerfil">
+
+                    <div class="fotoPerfil">
+                        <?= $inicial ?>
+                    </div>
+
+                    <div class="identificacaoPerfil">
+                        <h2><?= $nome ?></h2>
+                        <p>@<?= $usuario ?></p>
+                    </div>
+
+                </div>
+
+                <!-- info atuais -->
+
+                <div class="informacoesPerfil">
+
+                    <div class="campoPerfil">
+                        <span>Nome completo</span>
+                        <p><?= $nome ?></p>
+                    </div>
+
+                    <div class="campoPerfil">
+                        <span>Nome de usuário</span>
+                        <p><?= $usuario ?></p>
+                    </div>
+
+                    <div class="campoPerfil">
+                        <span>E-mail</span>
+                        <p><?= $email ?></p>
+                    </div>
+
+                    <div class="campoPerfil">
+                        <span>Ano escolar</span>
+                        <p><?= $ano ?></p>
+                    </div>
+
+                    <div class="campoPerfil">
+                        <span>Data de cadastro</span>
+                        <p><?= $dataCadastro ?></p>
+                    </div>
+
+                </div>
+
+                <!--edicao -->
+
+                <details class="editarPerfil">
+
+                    <summary>Editar perfil</summary>
+
+                    <!--editar as infos -->
+
+                    <form action="/TCC/public/perfil/editar" method="POST">
+
+                        <div class="campoEdicao">
+                            <label>Nome completo</label>
+                            <input type="text" name="nome" value="<?= $nome ?>" required>
+                        </div>
+
+                        <div class="campoEdicao">
+                            <label>Nome de usuário</label>
+                            <input type="text" name="usuario" value="<?= $usuario ?>" required>
+                        </div>
+
+                        <div class="campoEdicao">
+                            <label>E-mail</label>
+                            <input type="email" name="email" value="<?= $email ?>" required>
+                        </div>
+
+                        <div class="campoEdicao">
+                            <label>Ano escolar</label>
+
+                           <select name="id_ano" required>
+                                <?php foreach ($anos as $anoEscolar): ?>
+                                    <option
+                                        value="<?= $anoEscolar['id_ano'] ?>"
+                                        <?= (int)$anoEscolar['id_ano'] === (int)$pessoa['id_ano'] ? 'selected' : '' ?>
+                                    >
+                                        <?= htmlspecialchars($anoEscolar['nome_ano']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+    
+                           </select>
+                        </div>
+
+                        <button type="submit">Salvar alterações</button>
+
+                    </form>
+
+                    <form action="/TCC/public/perfil/excluir"
+                method="POST"
+                    onsubmit="return confirm('Tem certeza que deseja excluir sua conta? Essa ação não poderá ser desfeita.');">
+
+                <button type="submit">Excluir conta</button>
+
+                </form>
+
+                    <!-- alterar senha -->
+
+                    <h3 class="subtituloEdicao">Alterar senha</h3>
+
+                    <form action="/TCC/public/perfil/alterar-senha" method="POST">
+
+                        <div class="campoEdicao">
+                            <label>Senha atual</label>
+                            <input type="password" name="senha_atual" required>
+                        </div>
+
+                        <div class="campoEdicao">
+                            <label>Nova senha</label>
+                            <input type="password" name="nova_senha" minlength="8" required>
+                        </div>
+
+                        <div class="campoEdicao">
+                            <label>Confirmar nova senha</label>
+                            <input type="password" name="confirmar_senha" minlength="8" required>
+                        </div>
+
+                        <button type="submit">Salvar nova senha</button>
+
+
+                    </form>
+
+                    </details>
+                    
+                      <!-- tema claro/escuro -->
+                <h3 class="subtituloEdicao">Aparência</h3>
+
+           <div class="campoEdicao">
+             <label for="temaEscolhido">Escolha o tema do Lumi</label>
+
+                 <select id="temaEscolhido" onchange="alterarTema(this.value)">
+                    <option value="escuro">Modo escuro</option>
+                     <option value="claro">Modo claro</option>
+                 </select>
+            </div>
+
+        </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

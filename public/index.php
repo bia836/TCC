@@ -1,0 +1,115 @@
+
+<?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . '/../config/conecta.php';
+
+require_once __DIR__ . '/../app/Core/Router.php';
+
+$basePath = '/TCC/public';
+//sempre que forem colocar caminhos ou acessar pelo navegador, digitem /TCC/public/ (isso abre a landing page) e o nome doq querem abrir.
+
+//requere os controllers
+spl_autoload_register(function ($class) {
+    $controllers = [
+        'PaginaInicialController' => __DIR__ . '/../app/Controller/controllerRotas.php',
+        'CadastroController' => __DIR__ . '/../app/Controller/controllercadastro.php',
+        'LoginController' => __DIR__ . '/../app/Controller/controllerlogin.php',
+        'ResumoController' => __DIR__ . '/../app/Controller/controllerresumo.php',
+        'PlanejamentoController' => __DIR__ . '/../app/Controller/controllerplanejamento.php',  
+        'Video'=> __DIR__ . '/../app/Controller/controllerConteudo.php',
+        'QuizController' => __DIR__ . '/../app/Controller/controllerQuiz.php',
+        'ProcessarController' => __DIR__ . '/../app/Controller/controllerprocessar.php',
+        'SessaoController' => __DIR__ . '/../app/Controller/controllersessao.php',
+        'LogoutController' => __DIR__ . '/../app/Controller/controllerlogout.php',
+        'ConteudoAdminController' => __DIR__ . '/../app/Controller/controllerGerenciarConteudos.php',
+    ];
+
+    if (isset($controllers[$class])) {
+        require_once $controllers[$class];
+    }
+});
+
+$router = new Router($conn, $basePath);
+
+// registrar rotas públicas. 
+$router->add('GET', '/', 'PaginaInicialController', 'index');
+//GET é o método http. / é meio q o nome da url. 'PaginaInicialController' é o nome dado ao controllerRotas. index é a função.
+$router->add('GET', '/proposit', 'PaginaInicialController', 'proposit');
+$router->add('GET', '/anosem', 'PaginaInicialController', 'anosem');
+$router->add('GET', '/anosfund1', 'PaginaInicialController', 'anosf1'); 
+$router->add('GET', '/anosfund2', 'PaginaInicialController', 'anosf2');    
+$router->add('GET', '/cadastro', 'CadastroController', 'index');
+$router->add('POST', '/cadastro', 'CadastroController', 'cadastrar');
+$router->add('GET', '/home', 'PaginaInicialController', 'home');
+$router->add('GET', '/atividades', 'PaginaInicialController', 'atividades');
+$router->add('GET', '/perfil', 'PaginaInicialController', 'perfil');
+$router->add('GET', '/config', 'PaginaInicialController', 'config');
+$router->add('GET', '/login', 'LoginController', 'showLogin');
+$router->add('POST', '/login', 'LoginController', 'login');
+
+// rotas que exigem uma sessão autenticada.
+$router->add('GET', '/dashboard', 'ProcessarController', 'index', true);
+$router->add('POST', '/processar', 'ProcessarController', 'processar', true);
+
+$router->add('GET', '/abaResumo', 'ResumoController', 'listarAno', true);
+$router->add('GET', '/resumos', 'ResumoController', 'index', true);
+$router->add('GET', '/criarResumos', 'PaginaInicialController', 'criaR', true);
+
+$router->add('POST', '/resumos/editar', 'ResumoController', 'editar', true);
+$router->add('POST', '/resumos/excluir', 'ResumoController', 'excluir', true);
+$router->add('POST', '/criarResumos/salvar', 'ResumoController', 'salvarResumo', true);
+
+// Rotas do planejamento
+$router->add('POST', '/planejamento/adicionar', 'PlanejamentoController', 'adicionar', true);
+$router->add('POST', '/planejamento/concluir', 'PlanejamentoController', 'concluir', true);
+$router->add('POST', '/planejamento/excluir', 'PlanejamentoController', 'excluir', true);
+
+$router->add('POST', '/perfil/editar', 'CadastroController', 'editar', true);
+$router->add('POST', '/perfil/alterar-senha', 'CadastroController', 'alterarSenha', true);
+$router->add('POST', '/perfil/excluir', 'CadastroController', 'excluir', true);
+
+// Gerenciamento de conteúdos (a permissão de professor é conferida no controller).
+$router->add('GET', '/professor/conteudos', 'ConteudoAdminController', 'index', true);
+$router->add('GET', '/professor/conteudos/editar', 'ConteudoAdminController', 'editar', true);
+$router->add('POST', '/professor/conteudos/salvar', 'ConteudoAdminController', 'salvar', true);
+$router->add('POST', '/professor/conteudos/editar/salvar', 'ConteudoAdminController', 'atualizar', true);
+$router->add('POST', '/professor/conteudos/excluir', 'ConteudoAdminController', 'excluir', true);
+
+//rota dos conteudos
+$router->add('GET', '/conteudomateria', 'Video', 'materias', true);
+$router->add('GET', '/conteudos', 'Video', 'conteudos', true);
+$router->add('GET', '/listarConteudos', 'Video', 'conteudos', true);
+
+//rota quiz
+// QUIZZES
+$router->add('GET',  '/quizzes',           'QuizController', 'index', true);
+$router->add('GET',  '/quizzes/iniciar',   'QuizController', 'iniciar', true);
+$router->add('GET',  '/quizzes/questao',   'QuizController', 'questao', true);
+$router->add('POST', '/quizzes/responder', 'QuizController', 'responder', true);
+$router->add('POST', '/quizzes/proxima',   'QuizController', 'proxima', true);
+$router->add('GET',  '/quizzes/resultado', 'QuizController', 'resultado', true);
+$router->add('GET',  '/quizzes/sair',      'QuizController', 'sair', true);
+
+$router->add('POST', '/logout', 'LogoutController', 'logout', true);
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$method = $_SERVER['REQUEST_METHOD'];
+
+if (strpos($uri, $basePath) === 0) {
+    $uri = substr($uri, strlen($basePath));
+} elseif (strpos($uri, '/TCC') === 0) {
+    $uri = substr($uri, strlen('/TCC'));
+}
+
+$uri = '/' . trim($uri, '/');
+
+if ($uri === '//') {
+    $uri = '/';
+}
+
+
+$router->dispatch($uri, $method);

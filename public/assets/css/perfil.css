@@ -1,0 +1,191 @@
+
+/* PÁGINA DE PERFIL */
+
+.perfilPagina {
+    max-width: 950px;
+    margin: 35px auto 0;
+}
+
+/* CARTÃO PRINCIPAL */
+
+.cartaoPerfil {
+    max-width: 850px;
+    margin: 25px auto 0;
+    padding: 30px;
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+}
+
+
+/* CABEÇALHO DO PERFIL */
+
+.cabecalhoPerfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.fotoPerfil {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--roxo);
+    color: white;
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.identificacaoPerfil h2 {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.identificacaoPerfil p {
+    margin-top: 4px;
+    color: var(--textoSuave);
+    font-size: 14px;
+}
+
+/* INFORMAÇÕES PESSOAIS */
+
+.informacoesPerfil {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-top: 25px;
+}
+
+.campoPerfil {
+    padding: 15px;
+    border: 1px solid var(--borda);
+    border-radius: 11px;
+    background: var(--fundo);
+}
+
+.campoPerfil span {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--textoSuave);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.campoPerfil p {
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+/* EDIÇÃO DO PERFIL */
+
+.editarPerfil {
+    margin-top: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.editarPerfil summary {
+    color: var(--roxo);
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.editarPerfil form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.campoEdicao {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campoEdicao label {
+    color: var(--textoSuave);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.campoEdicao input,
+.campoEdicao select {
+    padding: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: inherit;
+    outline: none;
+}
+
+.campoEdicao input:focus,
+.campoEdicao select:focus {
+    border-color: var(--roxo);
+}
+
+.editarPerfil button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 9px;
+    background: var(--roxo);
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.editarPerfil button:hover {
+    opacity: 0.85;
+}
+.mensagemSenha {
+    margin-bottom: 20px;
+    padding: 13px;
+    border-radius: 9px;
+    background: var(--fundo);
+    border: 1px solid var(--roxo);
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 800;
+}
+.subtituloEdicao {
+    margin-top: 25px;
+    color: var(--texto);
+    font-size: 16px;
+    font-weight: 900;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    .cartaoPerfil {
+        padding: 20px;
+    }
+
+    .informacoesPerfil {
+        grid-template-columns: 1fr;
+    }
+
+    .fotoPerfil {
+        width: 65px;
+        height: 65px;
+        font-size: 28px;
+    }
+
+    .identificacaoPerfil h2 {
+        font-size: 18px;
+    }
+
+     .editarPerfil form {
+        grid-template-columns: 1fr;
+    }
+}
