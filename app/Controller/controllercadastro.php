@@ -68,6 +68,7 @@ class CadastroController
     $_SESSION['id_pessoa'] = $id_pessoa;
     $_SESSION['id_ano'] = $id_ano;
     $_SESSION['nome'] = $nome;
+    $_SESSION['id_nivel'] = 1; // Todo cadastro público é aluno.
 
     header('Location: /TCC/public/home');
     exit;
@@ -105,6 +106,7 @@ class CadastroController
         );
            //   atualiza as infos da sessao tbm
            $_SESSION['nome'] = $nome;
+    $_SESSION['id_nivel'] = 1; // Todo cadastro público é aluno.
            $_SESSION['id_ano'] = $id_ano;
 
         header('Location: /TCC/public/perfil');

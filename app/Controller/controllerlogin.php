@@ -48,6 +48,7 @@ class LoginController
         $_SESSION['id_ano'] = $pessoa['id_ano'];
         $_SESSION['nome'] = $pessoa['nome'];
         $_SESSION['email'] = $pessoa['email'];
+        $_SESSION['id_nivel'] = (int)($pessoa['id_nivel'] ?? 1);
 
         header('Location: /TCC/public/home');
         exit;

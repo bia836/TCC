@@ -50,14 +50,25 @@ class Cadastro
     }
 
     public function cadastrar($id_ano, $nome, $usuario, $email, $senha)
-    {
-        $stmt=$this->conn->prepare("INSERT INTO pessoas (id_ano, nome, usuario, email, senha) VALUES (?, ?, ?, ?, ?)"); 
-        if($stmt->execute([$id_ano, $nome, $usuario, $email, $senha])){
-        return $this->conn->lastInsertId();
-        }
+{
+    $stmt = $this->conn->prepare("
+        INSERT INTO pessoas
+        (id_ano, nome, usuario, email, senha, id_nivel)
+        VALUES (?, ?, ?, ?, ?, 1)
+    ");
 
-        return false;
+    if ($stmt->execute([
+        $id_ano,
+        $nome,
+        $usuario,
+        $email,
+        $senha
+    ])) {
+        return $this->conn->lastInsertId();
     }
+
+    return false;
+}
 
    public function atualizar ($id_pessoa, $id_ano, $nome, $usuario, $email){
         $sql = "UPDATE pessoas SET id_ano = :id_ano, nome = :nome, usuario = :usuario, email = :email WHERE id_pessoa = :id_pessoa";
