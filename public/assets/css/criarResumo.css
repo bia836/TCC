@@ -13,7 +13,9 @@ body {
 }
 
 .conteudo-principal {
-    margin-left: 250px;
+    flex: 1;
+    min-width: 0;
+    margin-left: 0;
     padding: 45px 55px;
 }
 
@@ -40,7 +42,10 @@ body {
 }
 
 .area-criacao {
+    width: 100%;
     max-width: 950px;
+    margin: 0 auto;
+
     background: #171020;
     border: 1px solid #321B4D;
     border-radius: 18px;
@@ -135,16 +140,25 @@ body {
 
 /* RESPONSIVIDADE */
 
+@media (max-width: 1100px) {
+    .conteudo-principal {
+        padding: 35px 25px;
+    }
+}
+
 @media (max-width: 900px) {
     .conteudo-principal {
-        margin-left: 0;
-        padding: 35px 25px;
+        padding: 30px 20px;
+    }
+
+    .area-criacao {
+        max-width: 750px;
     }
 }
 
 @media (max-width: 600px) {
     .conteudo-principal {
-        padding: 25px 15px;
+        padding: 25px 15px 85px;
     }
 
     .cabecalho-pagina h1 {
