@@ -23,7 +23,6 @@ class Planejamento
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Adicionar uma tarefa
     public function adicionarTarefa($id_pessoa, $titulo, $data_tarefa)
     {
         $sql = "INSERT INTO planejamento
@@ -39,7 +38,6 @@ class Planejamento
         ]);
     }
 
-    // Marcar tarefa como concluída ou pendente
     public function atualizarStatus($id_planejamento, $id_pessoa, $concluida)
     {
         $sql = "UPDATE planejamento
@@ -56,7 +54,6 @@ class Planejamento
         ]);
     }
 
-    // Excluir uma tarefa
     public function excluirTarefa($id_planejamento, $id_pessoa)
     {
         $sql = "DELETE FROM planejamento

@@ -22,7 +22,6 @@ class PlanejamentoController
         require __DIR__ . '/../View/home.php';
     }
 
-    // adicionar uma tarefa
     public function adicionar()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -56,7 +55,6 @@ class PlanejamentoController
         exit;
     }
 
-    // concluir ou reabrir tarefa
     public function concluir()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -83,7 +81,6 @@ class PlanejamentoController
         exit;
     }
 
-    // apagar a tarefa
     public function excluir()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

@@ -1,6 +1,4 @@
 <?php
-
-
 class Quiz
 {
     private $conn;
@@ -10,7 +8,6 @@ class Quiz
         $this->conn = $conn;
     }
 
-    /* Lista os níveis (1º, 2º, 3º ano e Vestibular) que já têm questões cadastradas. */
     public function listarAnos()
     {
         $sql = "SELECT an.id_ano,
@@ -33,7 +30,6 @@ class Quiz
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    /* Matérias de um nível que têm pelo menos uma questão. */
     public function listarMaterias($id_ano)
     {
         $sql = "SELECT m.id_materia, m.materia, COUNT(a.id) AS total
@@ -85,7 +81,6 @@ class Quiz
         return array_map('intval', $stmt->fetchAll(PDO::FETCH_COLUMN));
     }
 
-    /* Pergunta + nome da matéria. */
     public function buscarQuestao($id_atividade)
     {
         $sql = "SELECT a.id, a.pergunta, m.materia

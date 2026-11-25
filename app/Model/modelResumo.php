@@ -5,7 +5,6 @@ class Resumo {
 private $conn;
 
     public function __construct($conn){
-        // global $conn;
         $this->conn = $conn;
     }
 

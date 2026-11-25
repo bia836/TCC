@@ -9,10 +9,7 @@ class Conteudo
     {
         $this->conn=$conn;
     }
-
-    // Busca todos os conteúdos de uma matéria
-
-    
+ 
 public function buscarPorMateria($id_materia)
 {
     $sql = "SELECT
@@ -57,9 +54,6 @@ public function listarAno($id_ano)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
-
-    // Dados usados pelo painel do professor
     public function listarAnos(): array {
         return $this->conn->query("SELECT id_ano, nome_ano FROM anos ORDER BY id_ano")->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -2,10 +2,6 @@
 <?php
 require_once __DIR__ . '/../Model/modelResumo.php';
 
-// require("../../config/conecta.php");
-// require("../Model/modelResumo.php");
-// require __DIR__ . "/controllersessao.php";
-
 class ResumoController
 {
     private Resumo $resumoModel;

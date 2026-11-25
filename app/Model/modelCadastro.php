@@ -8,8 +8,6 @@ class Cadastro
         $this->conn = $conn;
     }
     
-    
-// pega as infos do estudantes
        public function buscarPorId($id_pessoa)
     {
       $sql = "SELECT 

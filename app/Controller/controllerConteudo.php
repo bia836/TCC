@@ -12,7 +12,6 @@ class Video
         $this->conteudoModel = new Conteudo($conn);
     }
 
-    // Página que mostra os cards das matérias
     public function materias()
     {
 
@@ -28,7 +27,6 @@ class Video
         require __DIR__ . '/../View/conteudomateria.php';
     }
 
-    // Página que mostra os conteúdos da matéria selecionada
     public function conteudos()
     {
         $id_ano = $_SESSION['id_ano'] ?? null;

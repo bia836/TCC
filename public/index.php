@@ -35,9 +35,8 @@ spl_autoload_register(function ($class) {
 
 $router = new Router($conn, $basePath);
 
-// registrar rotas públicas. 
+//rotas públicas 
 $router->add('GET', '/', 'PaginaInicialController', 'index');
-//GET é o método http. / é meio q o nome da url. 'PaginaInicialController' é o nome dado ao controllerRotas. index é a função.
 $router->add('GET', '/proposit', 'PaginaInicialController', 'proposit');
 $router->add('GET', '/anosem', 'PaginaInicialController', 'anosem');
 $router->add('GET', '/anosfund1', 'PaginaInicialController', 'anosf1'); 
@@ -51,7 +50,7 @@ $router->add('GET', '/config', 'PaginaInicialController', 'config');
 $router->add('GET', '/login', 'LoginController', 'showLogin');
 $router->add('POST', '/login', 'LoginController', 'login');
 
-// rotas que exigem uma sessão autenticada.
+//rotas que exigem uma sessão autenticada.
 $router->add('GET', '/dashboard', 'ProcessarController', 'index', true);
 $router->add('POST', '/processar', 'ProcessarController', 'processar', true);
 
@@ -63,7 +62,7 @@ $router->add('POST', '/resumos/editar', 'ResumoController', 'editar', true);
 $router->add('POST', '/resumos/excluir', 'ResumoController', 'excluir', true);
 $router->add('POST', '/criarResumos/salvar', 'ResumoController', 'salvarResumo', true);
 
-// Rotas do planejamento
+//rotas do planejamento
 $router->add('POST', '/planejamento/adicionar', 'PlanejamentoController', 'adicionar', true);
 $router->add('POST', '/planejamento/concluir', 'PlanejamentoController', 'concluir', true);
 $router->add('POST', '/planejamento/excluir', 'PlanejamentoController', 'excluir', true);
@@ -72,7 +71,7 @@ $router->add('POST', '/perfil/editar', 'CadastroController', 'editar', true);
 $router->add('POST', '/perfil/alterar-senha', 'CadastroController', 'alterarSenha', true);
 $router->add('POST', '/perfil/excluir', 'CadastroController', 'excluir', true);
 
-// Gerenciamento de conteúdos (a permissão de professor é conferida no controller).
+//rotas do prof
 $router->add('GET', '/professor/conteudos', 'ConteudoAdminController', 'index', true);
 $router->add('GET', '/professor/conteudos/editar', 'ConteudoAdminController', 'editar', true);
 $router->add('POST', '/professor/conteudos/salvar', 'ConteudoAdminController', 'salvar', true);
@@ -85,7 +84,6 @@ $router->add('GET', '/conteudos', 'Video', 'conteudos', true);
 $router->add('GET', '/listarConteudos', 'Video', 'conteudos', true);
 
 //rota quiz
-// QUIZZES
 $router->add('GET',  '/quizzes',           'QuizController', 'index', true);
 $router->add('GET',  '/quizzes/iniciar',   'QuizController', 'iniciar', true);
 $router->add('GET',  '/quizzes/questao',   'QuizController', 'questao', true);
